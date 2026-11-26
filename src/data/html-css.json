@@ -1,0 +1,1640 @@
+{
+  "source": "HTML and CSS 1.pdf",
+  "sourceFiles": [
+    "HTML and CSS 1.pdf",
+    "HTML and CSS 2.pdf"
+  ],
+  "edition": "Supplied certification reviewer",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Document structure & metadata",
+      "description": "Build a sound HTML document.",
+      "slug": "html-css-1",
+      "count": 4
+    },
+    {
+      "id": 2,
+      "title": "CSS selectors & the cascade",
+      "description": "Follow selectors, inheritance, and specificity.",
+      "slug": "html-css-2",
+      "count": 7
+    },
+    {
+      "id": 3,
+      "title": "CSS units & colors",
+      "description": "Read values and units with confidence.",
+      "slug": "html-css-3",
+      "count": 2
+    },
+    {
+      "id": 4,
+      "title": "Layout & responsive design",
+      "description": "Position content and adapt it to the screen.",
+      "slug": "html-css-4",
+      "count": 6
+    },
+    {
+      "id": 5,
+      "title": "Links, images & accessibility",
+      "description": "Connect pages and describe visual content.",
+      "slug": "html-css-5",
+      "count": 4
+    },
+    {
+      "id": 6,
+      "title": "Audio & video",
+      "description": "Embed media with usable controls.",
+      "slug": "html-css-6",
+      "count": 1
+    }
+  ],
+  "questions": [
+    {
+      "id": "html-css-q001",
+      "number": 1,
+      "chapterId": 5,
+      "sourcePage": 2,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 2
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 2
+        }
+      ],
+      "prompt": "For each statement about relative and absolute links, select Yes if it is true. Otherwise, select No.",
+      "exhibit": "",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "A relative link requires that you use a protocol and server path.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "You can link to a document in a subdirectory of the current webpage by specifying only the subdirectory name and the filename.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "You can use a relative link to reference image files from a repository on a different server.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "The following is an example of an absolute link: https://www.contoso.com/products.html",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        }
+      ],
+      "explanation": "Source-key caveat: the third statement is marked Yes in the PDF, but a relative URL resolves against a base URL; it does not independently name a different server. Keep this source key separate from the concept being learned.",
+      "status": "qualified",
+      "scorable": false,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "Yes",
+        "No"
+      ],
+      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item.",
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "html-css-q002",
+      "number": 2,
+      "chapterId": 5,
+      "sourcePage": 3,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 3
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 3
+        }
+      ],
+      "prompt": "You are creating a page on your personal website to display your family portrait. You need browsers to display the text Family Portrait before the photo is downloaded. Complete the markup. Each segment may be used once, more than once, or not at all.",
+      "exhibit": "<[1] [2]=\"portrait.png\" [3]=\"Family Portrait\">",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Image element",
+          "right": "img",
+          "options": [
+            "img",
+            "picture",
+            "src",
+            "title",
+            "href",
+            "alt"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Image URL attribute",
+          "right": "src",
+          "options": [
+            "img",
+            "picture",
+            "src",
+            "title",
+            "href",
+            "alt"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Alternative-text attribute",
+          "right": "alt",
+          "options": [
+            "img",
+            "picture",
+            "src",
+            "title",
+            "href",
+            "alt"
+          ]
+        }
+      ],
+      "explanation": "Use an img element, src for the image URL, and alt for alternative text. The alt text also gives assistive technology an alternative to the image.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "img",
+        "picture",
+        "src",
+        "title",
+        "href",
+        "alt"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "html-css-q003",
+      "number": 3,
+      "chapterId": 2,
+      "sourcePage": 4,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 4
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 4
+        }
+      ],
+      "prompt": "Complete the link pseudo-class rules so links appear red when the page loads, green while being activated, orange when the pointer moves over them, and blue if previously visited. Each selector may be used once, more than once, or not at all.",
+      "exhibit": "[1] { color: red; }\n[2] { color: blue; }\n[3] { color: orange; }\n[4] { color: green; }",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Red link",
+          "right": "a:link",
+          "options": [
+            "a:active",
+            "a:visited",
+            "a:link",
+            "a:hover"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Blue link",
+          "right": "a:visited",
+          "options": [
+            "a:active",
+            "a:visited",
+            "a:link",
+            "a:hover"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Orange link",
+          "right": "a:hover",
+          "options": [
+            "a:active",
+            "a:visited",
+            "a:link",
+            "a:hover"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "[4] Green link",
+          "right": "a:active",
+          "options": [
+            "a:active",
+            "a:visited",
+            "a:link",
+            "a:hover"
+          ]
+        }
+      ],
+      "explanation": "The source orders the link rules as link, visited, hover, active. These pseudo-classes distinguish unvisited, visited, pointer-hovered, and activated links.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "a:active",
+        "a:visited",
+        "a:link",
+        "a:hover"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "html-css-q004",
+      "number": 4,
+      "chapterId": 2,
+      "sourcePage": 5,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 5
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 5
+        }
+      ],
+      "prompt": "You are designing a website for City Power & Light. You write the following markup. Line numbers are for reference only. What style will be used to render the code?",
+      "exhibit": "01 <!DOCTYPE html>\n02 <html>\n03 <head>\n04   <title>City Power & Light</title>\n05 </head>\n06 <body>\n07   <p>Welcome to City Power & Light.</p>\n08 </body>\n09 </html>",
+      "options": [
+        {
+          "id": "a",
+          "text": "The browser default style will be used."
+        },
+        {
+          "id": "b",
+          "text": "An inline style will be used."
+        },
+        {
+          "id": "c",
+          "text": "An international style will be used."
+        },
+        {
+          "id": "d",
+          "text": "An external style will be used."
+        }
+      ],
+      "correctIds": [
+        "a"
+      ],
+      "pairs": [],
+      "explanation": "The source answer is A. The markup supplies no author stylesheet or inline style, so the browser uses its default styles.",
+      "status": "standard",
+      "scorable": true,
+      "type": "single",
+      "answerLabel": "A",
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "html-css-q005",
+      "number": 5,
+      "chapterId": 2,
+      "sourcePage": 6,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 6
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 6
+        }
+      ],
+      "prompt": "The external stylesheet mystyles.css, the head markup, and the body content are shown below. For each statement, select Yes if it is true. Otherwise, select No.",
+      "exhibit": "/* mystyles.css */\nh1 { color: blue; }\nh2 { color: purple; }\np  { color: grey; }\n\n<!-- Head markup -->\n<link rel=\"stylesheet\" type=\"text/css\" href=\"mystyles.css\">\n<style>\n  h1 { color: maroon; }\n  h2 { color: blue; }\n  p  { color: black; }\n</style>\n\n<!-- Body content -->\n<h1 style=\"color: black;\">AdventureWorks Presents</h1>\n<h2>Rock Climbing 101</h2>\n<p style=\"color: blue;\">Coming soon!</p>\n<h1>Awards</h1>\n<p>Certificates will be awarded in June.</p>",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "“Certificates will be awarded in June.” is displayed in grey.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "“Coming soon!” is displayed in blue.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "“Awards” is displayed in maroon.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "“Rock Climbing 101” is displayed in purple.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        }
+      ],
+      "explanation": "Read the full stylesheet and markup together, then compare the specificity and source order of the applicable declarations. The source selections are No, Yes, Yes, No.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "Yes",
+        "No"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "html-css-q006",
+      "number": 6,
+      "chapterId": 2,
+      "sourcePage": 9,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 9
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 9
+        }
+      ],
+      "prompt": "Analyze the following CSS and HTML. What is the resulting background color of the paragraph element?",
+      "exhibit": "<!DOCTYPE html>\n<html>\n<head>\n  <style>\n    p { background-color: blue; }\n    .light { background-color: yellow; }\n    .light p { background-color: green; }\n  </style>\n</head>\n<body>\n  <div class=\"light\" style=\"background-color: pink;\">\n    <p>This is some sample text</p>\n  </div>\n</body>\n</html>",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pink"
+        },
+        {
+          "id": "b",
+          "text": "Blue"
+        },
+        {
+          "id": "c",
+          "text": "Yellow"
+        },
+        {
+          "id": "d",
+          "text": "Green"
+        }
+      ],
+      "correctIds": [
+        "a"
+      ],
+      "pairs": [],
+      "explanation": "The PDF marks A (Pink), but the paragraph is directly matched by .light p and therefore has a green background. The pink inline background belongs to the enclosing div; background-color is not inherited. The source key is retained for comparison and is excluded from standard practice.",
+      "status": "qualified",
+      "scorable": false,
+      "type": "single",
+      "answerLabel": "A",
+      "contentFormat": "text",
+      "answerExhibit": "",
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    {
+      "id": "html-css-q007",
+      "number": 7,
+      "chapterId": 2,
+      "sourcePage": 11,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 11
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 11
+        }
+      ],
+      "prompt": "You are building a website with Home, Product Info, and Contact Us links. You will create a hierarchy of page elements and revise the stylesheets. You want to apply a style to all elements in a document. Which selector should you use?",
+      "exhibit": "",
+      "options": [
+        {
+          "id": "a",
+          "text": "+"
+        },
+        {
+          "id": "b",
+          "text": ">"
+        },
+        {
+          "id": "c",
+          "text": ":"
+        },
+        {
+          "id": "d",
+          "text": "*"
+        }
+      ],
+      "correctIds": [
+        "d"
+      ],
+      "pairs": [],
+      "explanation": "The universal selector, *, selects all elements. The source identifies option D; the other selectors have narrower scope.",
+      "status": "standard",
+      "scorable": true,
+      "type": "single",
+      "answerLabel": "D",
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "html-css-q008",
+      "number": 8,
+      "chapterId": 2,
+      "sourcePage": 12,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 12
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 11
+        }
+      ],
+      "prompt": "You are designing a website for Margie’s Travel. The website uses external stylesheets. Complete a CSS rule that centers all h1 elements. Each segment may be used once, more than once, or not at all.",
+      "exhibit": "[1] { [2]: [3]; }",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Selector",
+          "right": "h1",
+          "options": [
+            "text-align",
+            "center",
+            "h1",
+            "=",
+            ".",
+            ".h1"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Property",
+          "right": "text-align",
+          "options": [
+            "text-align",
+            "center",
+            "h1",
+            "=",
+            ".",
+            ".h1"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Value",
+          "right": "center",
+          "options": [
+            "text-align",
+            "center",
+            "h1",
+            "=",
+            ".",
+            ".h1"
+          ]
+        }
+      ],
+      "explanation": "The selector h1 targets heading elements, and the declaration text-align: center centers their inline content.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "text-align",
+        "center",
+        "h1",
+        "=",
+        ".",
+        ".h1"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "html-css-q009",
+      "number": 9,
+      "chapterId": 3,
+      "sourcePage": 13,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 13
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 13
+        }
+      ],
+      "prompt": "For each statement about CSS, select Yes if it is true. Otherwise, select No.",
+      "exhibit": "",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "A CSS comment starts with /* and ends with */.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "Percent and EM are relative measurements, and the size of each depends upon its parent.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "Pixels are recommended units for specifying size.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "The font-family attribute helps ensure maximum compatibility between web browsers.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        }
+      ],
+      "explanation": "The PDF marks Yes, No, No, No. Its unit and compatibility statements are too broad for a universal key: the reference for a percentage depends on the property, and em for font-size differs from em used in other properties. Keep this wording and key in context.",
+      "status": "qualified",
+      "scorable": false,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "Yes",
+        "No"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": "",
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    {
+      "id": "html-css-q010",
+      "number": 10,
+      "chapterId": 2,
+      "sourcePage": 15,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 15
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 14
+        }
+      ],
+      "prompt": "You define the following styles and HTML. Use the answer fields to identify the color and font size of the referenced lines.",
+      "exhibit": "<style>\n  #style1 { color: red; font-size: 30px; }\n  #style2 { color: blue; font-size: 40px; }\n  #style3 { color: green; font-size: 20px; }\n</style>\n\n01 <body style=\"color: purple; font-size: 10px;\">\n02   <p id=\"style1\">Fasten your seat belt</p>\n03   <p>Look both ways before pulling out.</p>\n04   <p id=\"style3\" style=\"color: red;\">Watch your speed.</p>\n05   <p style=\"color: green; font-size: 20px;\">Be ready to stop.</p>\n06   <p style=\"color: red;\">Study the rules of the road.</p>\n07   <p style=\"font-size: 30px;\">You’ll be driving in no time.</p>\n08 </body>",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "Line 02: text color",
+          "right": "red",
+          "options": [
+            "red",
+            "blue",
+            "green",
+            "purple"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "Line 02: font size",
+          "right": "30 pixels",
+          "options": [
+            "20 pixels",
+            "30 pixels",
+            "40 pixels",
+            "10 pixels"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "Line 03: text color",
+          "right": "red",
+          "options": [
+            "red",
+            "blue",
+            "green",
+            "purple"
+          ]
+        }
+      ],
+      "explanation": "The PDF selects red, 30 pixels, and red. Line 03 has no matching ID or author color rule in the shown code and instead inherits purple from body. The first two selections follow #style1; the final red selection is inconsistent with the exhibit.",
+      "status": "qualified",
+      "scorable": false,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "red",
+        "blue",
+        "green",
+        "purple",
+        "20 pixels",
+        "30 pixels",
+        "40 pixels",
+        "10 pixels"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": "",
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    {
+      "id": "html-css-q011",
+      "number": 11,
+      "chapterId": 1,
+      "sourcePage": 20,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 20
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 20
+        }
+      ],
+      "prompt": "You are creating a website for Northwind Traders. The company name must appear on the browser tab, and a paragraph must greet users. Arrange all markup segments into a correctly structured HTML document.",
+      "exhibit": "",
+      "options": [
+        {
+          "id": "item-1",
+          "text": "<!DOCTYPE html>"
+        },
+        {
+          "id": "item-8",
+          "text": "</body>"
+        },
+        {
+          "id": "item-5",
+          "text": "</head>"
+        },
+        {
+          "id": "item-9",
+          "text": "</html>"
+        },
+        {
+          "id": "item-6",
+          "text": "<body>"
+        },
+        {
+          "id": "item-3",
+          "text": "<head>"
+        },
+        {
+          "id": "item-2",
+          "text": "<html>"
+        },
+        {
+          "id": "item-7",
+          "text": "<p>Welcome to the Northwind Traders website.</p>"
+        },
+        {
+          "id": "item-4",
+          "text": "<title>Northwind Traders</title>"
+        }
+      ],
+      "correctIds": [
+        "item-1",
+        "item-2",
+        "item-3",
+        "item-4",
+        "item-5",
+        "item-6",
+        "item-7",
+        "item-8",
+        "item-9"
+      ],
+      "pairs": [],
+      "explanation": "Place the document type first, metadata inside head, and visible content inside body. Close nested elements in reverse order.",
+      "status": "standard",
+      "scorable": true,
+      "type": "ordering",
+      "answerLabel": "Put the source items in the sequence below.",
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "html-css-q012",
+      "number": 12,
+      "chapterId": 1,
+      "sourcePage": 22,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 22
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 22
+        }
+      ],
+      "prompt": "You are creating a simple HTML page that displays Hello World. Complete the document using well-formed markup. Each tag may be used once, more than once, or not at all.",
+      "exhibit": "<[1]>\n<[2]>\n  <[3]>\n    Hello World\n  </[4]>\n</[5]>",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Document-type declaration",
+          "right": "DOCTYPE html!",
+          "options": [
+            "body",
+            "html",
+            "DOCTYPE html!",
+            "head"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Root element",
+          "right": "html",
+          "options": [
+            "body",
+            "html",
+            "DOCTYPE html!",
+            "head"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Content element",
+          "right": "body",
+          "options": [
+            "body",
+            "html",
+            "DOCTYPE html!",
+            "head"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "[4] Closing content element",
+          "right": "body",
+          "options": [
+            "body",
+            "html",
+            "DOCTYPE html!",
+            "head"
+          ]
+        },
+        {
+          "id": "pair-5",
+          "left": "[5] Closing root element",
+          "right": "html",
+          "options": [
+            "body",
+            "html",
+            "DOCTYPE html!",
+            "head"
+          ]
+        }
+      ],
+      "explanation": "Source-key caveat: the source prints DOCTYPE html! in the first slot. Valid HTML puts the exclamation mark before DOCTYPE: <!DOCTYPE html>. The visible content belongs inside body, within the html element.",
+      "status": "qualified",
+      "scorable": false,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "body",
+        "html",
+        "DOCTYPE html!",
+        "head"
+      ],
+      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item.",
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "html-css-q013",
+      "number": 13,
+      "chapterId": 1,
+      "sourcePage": 24,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 24
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 24
+        }
+      ],
+      "prompt": "You are designing a webpage for Contoso using HTML. Select four markup segments for the head section and arrange them in order. The source permits more than one valid order, but its displayed answer is malformed. Review this exercise as a study reference.",
+      "exhibit": "Available source segments:\n<meta charset=\"utf-8\">\n<!DOCTYPE html>\n<title>About Contoso</title>\n<header>New Releases</header>\n<head/>\n<h3>Contact Us</h3>\n<head>\n<\"meta enctype=\"utf-8>",
+      "options": [],
+      "correctIds": [],
+      "pairs": [],
+      "explanation": "The source answer places a document-type declaration inside a head-section exercise and uses <head/> instead of a closing </head>. A head section can contain character-encoding metadata and a title; the doctype belongs before the document element. The example labeled Concept reference shows the distinction. This source item is not scored.",
+      "status": "invalid",
+      "scorable": false,
+      "type": "reference",
+      "answerLabel": "Source diagram for study",
+      "studyNote": "The source answer diagram is incomplete or inconsistent. This exercise is available as a flashcard and is excluded from quizzes.",
+      "contentFormat": "text",
+      "answerExhibit": "Source diagram’s selected segments:\n<!DOCTYPE html>\n<head>\n<title>About Contoso</title>\n<head/>\n\nConcept reference, distinct from the malformed source key:\n<head>\n  <meta charset=\"utf-8\">\n  <title>About Contoso</title>\n</head>"
+    },
+    {
+      "id": "html-css-q014",
+      "number": 14,
+      "chapterId": 1,
+      "sourcePage": 27,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 27
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 26
+        }
+      ],
+      "prompt": "You are creating the Blue Yonder Airlines home page. It uses JavaScript and must display “Your browser does not support JavaScript!” when scripting is unavailable. Match a metadata element to each content or attribute-value pair. Each element may be used once, more than once, or not at all. The source’s completed diagram is incomplete, so this is a study reference.",
+      "exhibit": "Available elements:\n<script>  <meta>  <title>  <noscript>  <base>\n\nTargets:\n1. href=\"style.css\"\n2. src=\"_js/form.js\"\n3. Blue Yonder Airlines\n4. Your browser does not support JavaScript!",
+      "options": [],
+      "correctIds": [],
+      "pairs": [],
+      "explanation": "The source leaves target boxes blank and omits link from its choices even though style.css is a stylesheet. Its marked meta placement is not a stylesheet link. The concept reference supplies the appropriate elements without inventing a complete original key. This exercise is not scored.",
+      "status": "invalid",
+      "scorable": false,
+      "type": "reference",
+      "answerLabel": "Source diagram for study",
+      "studyNote": "The source answer diagram is incomplete or inconsistent. This exercise is available as a flashcard and is excluded from quizzes.",
+      "contentFormat": "text",
+      "answerExhibit": "Source diagram:\n<meta> next to href=\"style.css\"; the other target boxes are unfilled.\n\nConcept reference:\nExternal JavaScript: <script src=\"_js/form.js\"></script>\nPage title: <title>Blue Yonder Airlines</title>\nFallback: <noscript>Your browser does not support JavaScript!</noscript>\nExternal stylesheet: <link rel=\"stylesheet\" href=\"style.css\">"
+    },
+    {
+      "id": "html-css-q015",
+      "number": 15,
+      "chapterId": 4,
+      "sourcePage": 28,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 28
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 28
+        }
+      ],
+      "prompt": "You are designing a responsive webpage. For browser widths below 768 pixels, display the welcome background SmallLogo.png. On other browsers, display NormalLogo.png. Complete the code using the provided choices.",
+      "exhibit": ".welcome {\n  background-image: url([1]);\n}\n@media only screen and ([2]: 768px) {\n  .welcome {\n    background-image: url([3]);\n  }\n}",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Default background image",
+          "right": "SmallLogo.png",
+          "options": [
+            "NormalLogo.png",
+            "SmallLogo.png"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Media-query feature",
+          "right": "max-width",
+          "options": [
+            "min-width",
+            "max-width"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Background image inside the media query",
+          "right": "NormalLogo.png",
+          "options": [
+            "NormalLogo.png",
+            "SmallLogo.png"
+          ]
+        }
+      ],
+      "explanation": "Source-key caveat: the marked selections use the small image as the base and switch to the normal image under max-width, reversing the stated small-screen requirement. A consistent solution uses the normal image as the base and the small image for widths below the breakpoint, or the inverse base with an appropriate min-width rule.",
+      "status": "qualified",
+      "scorable": false,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "NormalLogo.png",
+        "SmallLogo.png",
+        "min-width",
+        "max-width"
+      ],
+      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item.",
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "html-css-q016",
+      "number": 16,
+      "chapterId": 4,
+      "sourcePage": 30,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 30
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 30
+        }
+      ],
+      "prompt": "A webpage contains the following HTML. For each layout statement, select Yes if it is true. Otherwise, select No.",
+      "exhibit": "01 <div style=\"position: relative; display: inline;\">Welcome!</div>\n02 <div style=\"position: relative; display: inline;\">\n03   How is the Internet different from the Web?\n04   <img src=\"icon.jpg\" alt=\"TCP/IP icon\" style=\"float: left; height: 200px;\" </img>\n05   <p>The Internet is a network of networks, defined by the TCP/IP standards.</p>\n06   <p>The Web is an information space.</p>\n07 </div>",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "Line 03 will display next to Line 01.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "The image will display beneath the text on Line 03.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "Lines 05 and 06 display beneath the image.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        }
+      ],
+      "explanation": "The PDF marks all three statements Yes. The shown img tag is malformed, and the paragraphs have no clear rule to force them below the left-floated image; text may wrap beside it depending on available space. Preserve the source’s key as a source reference, not a reliable universal layout prediction.",
+      "status": "qualified",
+      "scorable": false,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "Yes",
+        "No"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": "",
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    {
+      "id": "html-css-q017",
+      "number": 17,
+      "chapterId": 3,
+      "sourcePage": 32,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 32
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 32
+        }
+      ],
+      "prompt": "You are reviewing the CSS below. The source says you apply the productBox style to a div and claims it will display white text on a green background. Select “No change is needed” if that claim is correct; otherwise, select the replacement description.",
+      "exhibit": ".product {\n  color: #000000;\n  background-color: #00FF00;\n}",
+      "options": [
+        {
+          "id": "a",
+          "text": "No change is needed."
+        },
+        {
+          "id": "b",
+          "text": "White text on a red background."
+        },
+        {
+          "id": "c",
+          "text": "Black text on a green background."
+        },
+        {
+          "id": "d",
+          "text": "Black text on a blue background."
+        }
+      ],
+      "correctIds": [
+        "c"
+      ],
+      "pairs": [],
+      "explanation": "The PDF marks C, which describes #000000 text and #00FF00 background if the shown rule matches. However, the selector is .product while the prompt names productBox. That mismatch must be resolved before predicting an actual element’s appearance.",
+      "status": "qualified",
+      "scorable": false,
+      "type": "single",
+      "answerLabel": "C",
+      "contentFormat": "text",
+      "answerExhibit": "",
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    {
+      "id": "html-css-q018",
+      "number": 18,
+      "chapterId": 4,
+      "sourcePage": 33,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 33
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 33
+        }
+      ],
+      "prompt": "You are creating an About Us page for Northwind Traders. Its example paragraph uses blue italic text, a 50-pixel line height, and a 1.5em font size. Complete the four CSS property names in the source rule.",
+      "exhibit": "p {\n  [1]: #000ff;\n  [2]: 50px;\n  [3]: 1.5em;\n  [4]: italic;\n}",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Text-color property",
+          "right": "color",
+          "options": [
+            "color",
+            "font-variant",
+            "border-color",
+            "background-color"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Line-spacing property",
+          "right": "line-height",
+          "options": [
+            "position",
+            "line-height",
+            "text-indent",
+            "letter-spacing"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Text-size property",
+          "right": "font-size",
+          "options": [
+            "font-size",
+            "font-variant",
+            "font-weight"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "[4] Italic-text property",
+          "right": "font-style",
+          "options": [
+            "font-style",
+            "font-family",
+            "font-variant",
+            "font-weight"
+          ]
+        }
+      ],
+      "explanation": "The selected property names are color, line-height, font-size, and font-style. The source displays the five-digit value #000ff, which is not valid CSS hexadecimal color syntax. Blue would conventionally be #0000ff or #00f. The transcription preserves the source literal and flags it.",
+      "status": "qualified",
+      "scorable": false,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "color",
+        "font-variant",
+        "border-color",
+        "background-color",
+        "position",
+        "line-height",
+        "text-indent",
+        "letter-spacing",
+        "font-size",
+        "font-weight",
+        "font-style",
+        "font-family"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": "",
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    {
+      "id": "html-css-q019",
+      "number": 19,
+      "chapterId": 4,
+      "sourcePage": 38,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 38
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 38
+        }
+      ],
+      "prompt": "Analyze the following background declaration. For each statement, select Yes if it is true. Otherwise, select No.",
+      "exhibit": "background: #0000FF url(\"Watermark.png\") repeat-x right;",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "The background of the page will be red.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "The page will display the watermark multiple times horizontally starting at the right.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        }
+      ],
+      "explanation": "The PDF marks both statements No. #0000FF is blue, so the first No is appropriate. repeat-x requests horizontal repetition and right sets horizontal positioning, making the source’s second No questionable as worded. Read the actual declaration rather than memorizing that selection.",
+      "status": "qualified",
+      "scorable": false,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "Yes",
+        "No"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": "",
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    {
+      "id": "html-css-q020",
+      "number": 20,
+      "chapterId": 4,
+      "sourcePage": 39,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 39
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 39
+        }
+      ],
+      "prompt": "Evaluate the term “Static positioning” in this statement: “Static positioning places an element at specific coordinates relative to the page or the element’s container.” Select “No change is needed” if the statement is correct; otherwise, choose its replacement.",
+      "exhibit": "",
+      "options": [
+        {
+          "id": "a",
+          "text": "No change is needed."
+        },
+        {
+          "id": "b",
+          "text": "Absolute positioning"
+        },
+        {
+          "id": "c",
+          "text": "Relative positioning"
+        },
+        {
+          "id": "d",
+          "text": "Fixed positioning"
+        }
+      ],
+      "correctIds": [
+        "c"
+      ],
+      "pairs": [],
+      "explanation": "The PDF marks C (Relative positioning). For explicit placement relative to a containing block, B (Absolute positioning) is the conventional intended description. Relative positioning offsets an element from its own normal-flow position. The original key is retained but excluded from standard practice.",
+      "status": "qualified",
+      "scorable": false,
+      "type": "single",
+      "answerLabel": "C",
+      "contentFormat": "text",
+      "answerExhibit": "",
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    {
+      "id": "html-css-q021",
+      "number": 21,
+      "chapterId": 4,
+      "sourcePage": 40,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 40
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 39
+        }
+      ],
+      "prompt": "Create a stylesheet that makes all h1 text blue, Arial, 20 pixels, bold, and center-aligned. Complete each property name. A property may be used once, more than once, or not at all.",
+      "exhibit": "h1 {\n  [1]: blue;\n  [2]: Arial;\n  [3]: 20px;\n  [4]: bold;\n  [5]: center;\n}",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] blue",
+          "right": "color",
+          "options": [
+            "color",
+            "font-family",
+            "font-size",
+            "font-style",
+            "font-weight",
+            "text-align",
+            "text-decoration-color",
+            "vertical-align"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Arial",
+          "right": "font-family",
+          "options": [
+            "color",
+            "font-family",
+            "font-size",
+            "font-style",
+            "font-weight",
+            "text-align",
+            "text-decoration-color",
+            "vertical-align"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] 20px",
+          "right": "font-size",
+          "options": [
+            "color",
+            "font-family",
+            "font-size",
+            "font-style",
+            "font-weight",
+            "text-align",
+            "text-decoration-color",
+            "vertical-align"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "[4] bold",
+          "right": "font-weight",
+          "options": [
+            "color",
+            "font-family",
+            "font-size",
+            "font-style",
+            "font-weight",
+            "text-align",
+            "text-decoration-color",
+            "vertical-align"
+          ]
+        },
+        {
+          "id": "pair-5",
+          "left": "[5] center",
+          "right": "text-align",
+          "options": [
+            "color",
+            "font-family",
+            "font-size",
+            "font-style",
+            "font-weight",
+            "text-align",
+            "text-decoration-color",
+            "vertical-align"
+          ]
+        }
+      ],
+      "explanation": "Set color, font-family, font-size, font-weight, and text-align to satisfy the requested blue Arial heading, 20 pixels in size, bold and centered.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "color",
+        "font-family",
+        "font-size",
+        "font-style",
+        "font-weight",
+        "text-align",
+        "text-decoration-color",
+        "vertical-align"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "html-css-q022",
+      "number": 22,
+      "chapterId": 5,
+      "sourcePage": 42,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 42
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 41
+        }
+      ],
+      "prompt": "You are designing a webpage that displays contoso.png. If the connection is slow, or the user is visually impaired, the text Contoso Logo must be displayed or read aloud. Complete the markup.",
+      "exhibit": "<[1] [2]=\"contoso.png\" [3]=\"Contoso Logo\">",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Image element",
+          "right": "img",
+          "options": [
+            "img",
+            "picture"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Source attribute",
+          "right": "src",
+          "options": [
+            "src",
+            "srcset"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Text-alternative attribute",
+          "right": "alt",
+          "options": [
+            "alt",
+            "title"
+          ]
+        }
+      ],
+      "explanation": "The img element displays the image, src names its file, and alt supplies the Contoso Logo text alternative.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "img",
+        "picture",
+        "src",
+        "srcset",
+        "alt",
+        "title"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "html-css-q023",
+      "number": 23,
+      "chapterId": 6,
+      "sourcePage": 43,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 43
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 42
+        }
+      ],
+      "prompt": "Create a webpage that displays the How-To video HowTo.mp4 from the same folder. Users must be able to play, pause, and seek. If HTML5 video is unsupported, display “Your browser does not support playing this video.” Complete the markup. Segments may be reused or omitted.",
+      "exhibit": "<[1]>\n  [2]\n  Your browser does not support playing this video.\n</[3]>",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Opening element and attributes",
+          "right": "video controls",
+          "options": [
+            "source",
+            "source controls",
+            "<source src=\"HowTo.mp4\" type=\"video/mp4\">",
+            "video",
+            "video controls",
+            "<video src=\"HowTo.mp4\" type=\"video/mp4\">"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] MP4 source element",
+          "right": "<source src=\"HowTo.mp4\" type=\"video/mp4\">",
+          "options": [
+            "source",
+            "source controls",
+            "<source src=\"HowTo.mp4\" type=\"video/mp4\">",
+            "video",
+            "video controls",
+            "<video src=\"HowTo.mp4\" type=\"video/mp4\">"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Closing element",
+          "right": "video",
+          "options": [
+            "source",
+            "source controls",
+            "<source src=\"HowTo.mp4\" type=\"video/mp4\">",
+            "video",
+            "video controls",
+            "<video src=\"HowTo.mp4\" type=\"video/mp4\">"
+          ]
+        }
+      ],
+      "explanation": "The video element’s controls attribute provides the browser’s playback controls. A source element identifies the MP4 resource; fallback text goes inside the video element.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "source",
+        "source controls",
+        "<source src=\"HowTo.mp4\" type=\"video/mp4\">",
+        "video",
+        "video controls",
+        "<video src=\"HowTo.mp4\" type=\"video/mp4\">"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "html-css-q024",
+      "number": 24,
+      "chapterId": 5,
+      "sourcePage": 45,
+      "sourceFile": "HTML and CSS 1.pdf",
+      "sourceReferences": [
+        {
+          "file": "HTML and CSS 1.pdf",
+          "page": 45
+        },
+        {
+          "file": "HTML and CSS 2.pdf",
+          "page": 44
+        }
+      ],
+      "prompt": "Display an HTML5 logo on a webpage. If the page renders slowly, display the text HTML Icon while the image loads. Complete the image element, file attribute, and text-alternative attribute.",
+      "exhibit": "<[1] [2]=\"html15.gif\" [3]=\"HTML Icon\">",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Element",
+          "right": "img",
+          "options": [
+            "figure",
+            "img",
+            "div"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] File attribute",
+          "right": "src",
+          "options": [
+            "href",
+            "src",
+            "target"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Alternative-text attribute",
+          "right": "alt",
+          "options": [
+            "alt",
+            "name",
+            "title"
+          ]
+        }
+      ],
+      "explanation": "Use img, src, and alt. The source screenshot clips the right-hand attribute value; this text version uses HTML Icon, which is explicitly required by its prompt. There is no separately recoverable width field to answer.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "figure",
+        "img",
+        "div",
+        "href",
+        "src",
+        "target",
+        "alt",
+        "name",
+        "title"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    }
+  ]
+}

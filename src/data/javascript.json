@@ -1,0 +1,1349 @@
+{
+  "source": "JavaScript.pdf",
+  "sourceFiles": [
+    "JavaScript.pdf"
+  ],
+  "edition": "Supplied certification reviewer",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Variables, types & scope",
+      "description": "Trace values and understand their types.",
+      "slug": "javascript-1",
+      "count": 3
+    },
+    {
+      "id": 2,
+      "title": "Strings, numbers & Math",
+      "description": "Work with text, precision, and rounding.",
+      "slug": "javascript-2",
+      "count": 3
+    },
+    {
+      "id": 3,
+      "title": "Arrays & iteration",
+      "description": "Transform collections and visit their elements.",
+      "slug": "javascript-3",
+      "count": 3
+    },
+    {
+      "id": 4,
+      "title": "Dates & calendars",
+      "description": "Understand dates and zero-based months.",
+      "slug": "javascript-4",
+      "count": 3
+    },
+    {
+      "id": 5,
+      "title": "Conditions, operators & loops",
+      "description": "Follow the paths your code can take.",
+      "slug": "javascript-5",
+      "count": 6
+    },
+    {
+      "id": 6,
+      "title": "Functions, errors & browser APIs",
+      "description": "Handle errors and interact with the browser.",
+      "slug": "javascript-6",
+      "count": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": "javascript-q001",
+      "number": 1,
+      "chapterId": 2,
+      "sourcePage": 2,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 2
+        }
+      ],
+      "prompt": "You are creating a webpage that tests a user’s ability to accurately type text. Validation must be case-insensitive. Complete the function using the supplied segments; each segment may be reused or omitted. tester is the input element and userText contains the text to match.",
+      "exhibit": "function validate() {\n  var input = document.getElementById(\"tester\").[1];\n  var text = document.getElementById(\"userText\").[2];\n  if (input.[3] == text.[4]) {\n    alert(\"Success\");\n  }\n}",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Input-element property",
+          "right": "value",
+          "options": [
+            "value",
+            "innerHTML",
+            "toLowerCase()"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Text-element property",
+          "right": "innerHTML",
+          "options": [
+            "value",
+            "innerHTML",
+            "toLowerCase()"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Normalize the input string",
+          "right": "value",
+          "options": [
+            "value",
+            "innerHTML",
+            "toLowerCase()"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "[4] Normalize the expected string",
+          "right": "innerHTML",
+          "options": [
+            "value",
+            "innerHTML",
+            "toLowerCase()"
+          ]
+        }
+      ],
+      "explanation": "Source-key caveat: the shown final comparison uses value and innerHTML again after those properties have already produced strings. To compare case-insensitively, normalize the strings with toLowerCase() on both sides. The original marked key is preserved for study.",
+      "status": "qualified",
+      "scorable": false,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "value",
+        "innerHTML",
+        "toLowerCase()"
+      ],
+      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item.",
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q002",
+      "number": 2,
+      "chapterId": 1,
+      "sourcePage": 6,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 6
+        }
+      ],
+      "prompt": "Evaluate the code. What final values for sampleStudent, sampleCourse.name, and sampleCourse.grade are output by console.log?",
+      "exhibit": "function change(student, course) {\n  student = \"JavaScript Student\";\n  course.name = \"JavaScript\";\n  course.grade = 100;\n}\nvar sampleCourse = { \"name\": \"HTML\", \"grade\": 90 };\nvar sampleStudent = \"HTML Student\";\nchange(sampleStudent, sampleCourse);\nconsole.log(sampleStudent, sampleCourse.name, sampleCourse.grade);",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "sampleStudent",
+          "right": "HTML Student",
+          "options": [
+            "HTML Student",
+            "JavaScript Student"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "sampleCourse.name",
+          "right": "JavaScript",
+          "options": [
+            "HTML",
+            "JavaScript"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "sampleCourse.grade",
+          "right": "100",
+          "options": [
+            "90",
+            "100"
+          ]
+        }
+      ],
+      "explanation": "The source selections are HTML Student, JavaScript, and 100. Reassigning a parameter holding a primitive does not reassign the caller’s variable, while updating properties on a shared object is observable through that object.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "HTML Student",
+        "JavaScript Student",
+        "HTML",
+        "JavaScript",
+        "90",
+        "100"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q003",
+      "number": 3,
+      "chapterId": 3,
+      "sourcePage": 8,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 8
+        }
+      ],
+      "prompt": "An array is initialized and modified as shown. Which four elements does it contain afterward, in sequence? Arrange the resulting values in order.",
+      "exhibit": "var array = [20, 40, 60, 80];\narray.shift();\narray.pop();\narray.push(10);\narray.unshift(100);",
+      "options": [
+        {
+          "id": "item-4",
+          "text": "10"
+        },
+        {
+          "id": "item-1",
+          "text": "100"
+        },
+        {
+          "id": "extra-1",
+          "text": "20"
+        },
+        {
+          "id": "item-2",
+          "text": "40"
+        },
+        {
+          "id": "item-3",
+          "text": "60"
+        },
+        {
+          "id": "extra-2",
+          "text": "80"
+        }
+      ],
+      "correctIds": [
+        "item-1",
+        "item-2",
+        "item-3",
+        "item-4"
+      ],
+      "pairs": [],
+      "explanation": "Apply the array operations in order. The source’s final array contains 100, 40, 60, and 10, in that sequence.",
+      "status": "standard",
+      "scorable": true,
+      "type": "ordering",
+      "answerLabel": "Put the source items in the sequence below.",
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q004",
+      "number": 4,
+      "chapterId": 1,
+      "sourcePage": 10,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 10
+        }
+      ],
+      "prompt": "Evaluate the following code segment. Line numbers are for reference only. For each referenced console.log call, select the value it writes to the console.",
+      "exhibit": "01 var n;\n02 console.log(typeof n);\n03 var a = \"3.4\";\n04 console.log(typeof a);\n05 var textArray = [\"Welcome Back\", \"Enter a Name\", \"Incorrect Answer\"];\n06 console.log(typeof textArray);\n07 var c = 2.4;\n08 console.log(typeof c);\n09 var tag = null;\n10 console.log(typeof tag);",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "Line 02: typeof n",
+          "right": "undefined",
+          "options": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "undefined"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "Line 04: typeof a",
+          "right": "string",
+          "options": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "undefined"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "Line 06: typeof textArray",
+          "right": "array",
+          "options": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "undefined"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "Line 08: typeof c",
+          "right": "number",
+          "options": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "undefined"
+          ]
+        },
+        {
+          "id": "pair-5",
+          "left": "Line 10: typeof tag",
+          "right": "object",
+          "options": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "undefined"
+          ]
+        }
+      ],
+      "explanation": "Source-key caveat: the source marks array for typeof textArray. JavaScript typeof returns object for arrays; use Array.isArray to identify an array. The source selections are retained and this question is excluded from standard practice.",
+      "status": "qualified",
+      "scorable": false,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "string",
+        "array",
+        "object",
+        "number",
+        "undefined"
+      ],
+      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item.",
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q005",
+      "number": 5,
+      "chapterId": 2,
+      "sourcePage": 15,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 15
+        }
+      ],
+      "prompt": "You are writing an engineering application that rounds numbers to three or more decimal places. A function receives value, the number to format, and digits, the number of decimal digits to display. Which function returns the value with the specified number of decimal digits?",
+      "exhibit": "",
+      "options": [
+        {
+          "id": "a",
+          "text": "function significance(value, digits) {\n  return value.toPrecision(digits);\n}"
+        },
+        {
+          "id": "b",
+          "text": "function significance(value, digits) {\n  return value.toString(digits);\n}"
+        },
+        {
+          "id": "c",
+          "text": "function significance(value, digits) {\n  return value.toFixed(digits);\n}"
+        },
+        {
+          "id": "d",
+          "text": "function significance(value, digits) {\n  return value.valueOf(digits);\n}"
+        }
+      ],
+      "correctIds": [
+        "c"
+      ],
+      "pairs": [],
+      "explanation": "The source answer is C. Number.prototype.toFixed receives the requested number of digits after the decimal point and returns a formatted string.",
+      "status": "standard",
+      "scorable": true,
+      "type": "single",
+      "answerLabel": "C",
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q006",
+      "number": 6,
+      "chapterId": 5,
+      "sourcePage": 16,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 16
+        }
+      ],
+      "prompt": "Analyze the following code fragment. Line numbers are for reference only. For each statement, select Yes if it is true. Otherwise, select No.",
+      "exhibit": "01 \"use strict\";\n02 var val1 = 25;\n03 var val2 = 4;\n04 function multiply() {\n05   return val1 * val2;\n06 }\n07\n08 console.log(\"Global multiply returns() : \" + multiply());\n09 multiply();\n10\n11 function getProduct() {\n12   var val1 = 2;\n13   var val2 = 3;\n14\n15   function multiply() {\n16     return val1 * val2;\n17   }\n18\n19   return multiply();\n20 }",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "The call to multiply on line 09 returns 100.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "The call to multiply on line 19 returns 100.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        }
+      ],
+      "explanation": "Trace the parameter values and variable scope for each invocation. The source marks the first statement Yes and the second No.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "Yes",
+        "No"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q007",
+      "number": 7,
+      "chapterId": 4,
+      "sourcePage": 17,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 17
+        }
+      ],
+      "prompt": "Create a JavaScript function that accepts a number of months to add to or subtract from the current date and returns the adjusted Date. Complete the three code segments.",
+      "exhibit": "function adjustMonth(value) {\n  [1]\n  [2]\n  [3]\n  return date;\n}",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Initialize the current date",
+          "right": "var date = new Date();",
+          "options": [
+            "var date = new Date();",
+            "var date = Date();",
+            "var date = new Date;",
+            "var date = Date;"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Read its current month",
+          "right": "var month = date.getMonth();",
+          "options": [
+            "var month = date.getMonth;",
+            "var month = getMonth();",
+            "var month = date.getMonth();",
+            "var month = getMonth;"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Update the month",
+          "right": "date.setMonth(month + value);",
+          "options": [
+            "date.setMonth(month + value);",
+            "setMonth(month + value);"
+          ]
+        }
+      ],
+      "explanation": "The PDF selects new Date(), date.getMonth(), and date.setMonth(month + value). Those choices work, but new Date without parentheses is also valid JavaScript when no arguments are passed. Because the first dropdown contains two valid constructions, the source does not provide a unique key for that field.",
+      "status": "qualified",
+      "scorable": false,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "var date = new Date();",
+        "var date = Date();",
+        "var date = new Date;",
+        "var date = Date;",
+        "var month = date.getMonth;",
+        "var month = getMonth();",
+        "var month = date.getMonth();",
+        "var month = getMonth;",
+        "date.setMonth(month + value);",
+        "setMonth(month + value);"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": "",
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    {
+      "id": "javascript-q008",
+      "number": 8,
+      "chapterId": 3,
+      "sourcePage": 22,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 22
+        }
+      ],
+      "prompt": "You are writing a script for Adventure Works. It must declare and initialize an array, fill it with ten random integers, and add every other number beginning with the first element. Complete the code.",
+      "exhibit": "var numbers = [1];\nfor (var i = 0; i < 10; i++) {\n  numbers.[2](Math.round(Math.abs(Math.random() * 10)));\n}\nvar sum = 0;\nfor (var j = 0; j < 10; j = [3]) {\n  sum += [4];\n}\nconsole.log(sum);",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Array initializer",
+          "right": "[]",
+          "options": [
+            "0",
+            "{}",
+            "[]",
+            "\"\""
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Add a number to the array",
+          "right": "push",
+          "options": [
+            "pop",
+            "push",
+            "sort",
+            "splice"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Update j",
+          "right": "j++",
+          "options": [
+            "j++",
+            "j+1",
+            "j+2",
+            "j--"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "[4] Array element to add",
+          "right": "array[j]",
+          "options": [
+            "sum[j]",
+            "numbers[j]",
+            "numbers(j)",
+            "array[j]"
+          ]
+        }
+      ],
+      "explanation": "The PDF selects [], push, j++, and array[j]. However, j = j++ assigns the old value back and fails to advance the loop; every-other-element traversal calls for j = j+2. The declared array is numbers, so the element expression should be numbers[j], not array[j]. The source key is retained but excluded from standard practice.",
+      "status": "qualified",
+      "scorable": false,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "0",
+        "{}",
+        "[]",
+        "\"\"",
+        "pop",
+        "push",
+        "sort",
+        "splice",
+        "j++",
+        "j+1",
+        "j+2",
+        "j--",
+        "sum[j]",
+        "numbers[j]",
+        "numbers(j)",
+        "array[j]"
+      ],
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item.",
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q009",
+      "number": 9,
+      "chapterId": 1,
+      "sourcePage": 26,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 26
+        }
+      ],
+      "prompt": "A JavaScript program for Blue Yonder Airlines initializes the variables below. Select the data type of each referenced variable based on its initialized value.",
+      "exhibit": "01 var flightDestination = \"Denver\";\n02 var flight = 5;\n03 var roundTrip = 2489.58;\n04 var onTime = true;\n05 var id = flight + flightDestination;",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "Line 01: flightDestination",
+          "right": "String",
+          "options": [
+            "Number",
+            "String",
+            "Boolean",
+            "Null",
+            "Undefined"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "Line 03: roundTrip",
+          "right": "Number",
+          "options": [
+            "Number",
+            "String",
+            "Boolean",
+            "Null",
+            "Undefined"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "Line 04: onTime",
+          "right": "Boolean",
+          "options": [
+            "Number",
+            "String",
+            "Boolean",
+            "Null",
+            "Undefined"
+          ]
+        }
+      ],
+      "explanation": "The source identifies the quoted value as String, the numeric value as Number, and the logical value as Boolean. These labels describe value types; typeof uses lowercase strings for these results.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "Number",
+        "String",
+        "Boolean",
+        "Null",
+        "Undefined"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q010",
+      "number": 10,
+      "chapterId": 2,
+      "sourcePage": 30,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 30
+        }
+      ],
+      "prompt": "You are planning to use the Math object in a JavaScript application. Evaluate the code and select the final value of each variable.",
+      "exhibit": "var ceil = Math.ceil(100.5);\nvar floor = Math.floor(100.5);\nvar round = Math.round(100.5);",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "ceil",
+          "right": "101",
+          "options": [
+            "100",
+            "101"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "floor",
+          "right": "100",
+          "options": [
+            "100",
+            "101"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "round",
+          "right": "101",
+          "options": [
+            "100",
+            "101"
+          ]
+        }
+      ],
+      "explanation": "For 100.5, ceil rounds upward to 101, floor rounds downward to 100, and round selects 101.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "100",
+        "101"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q011",
+      "number": 11,
+      "chapterId": 4,
+      "sourcePage": 32,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 32
+        }
+      ],
+      "prompt": "You want to initialize a Date object for January 1, 2017 using numeric year, month, and day parameters. Select the year and month. The day value is fixed to 1 below from the explicit requirement; the PDF cuts off that part of the expression.",
+      "exhibit": "var date = new Date([1], [2], 1);",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Year",
+          "right": "2017",
+          "options": [
+            "17",
+            "2017"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Month",
+          "right": "0",
+          "options": [
+            "0",
+            "1",
+            "Jan",
+            "January"
+          ]
+        }
+      ],
+      "explanation": "The visible source selections are 2017 and 0. Numeric Date months are zero-based, so January is 0. The day argument 1 is supplied by the prompt’s January 1 requirement, rather than recovered from the clipped screenshot.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "17",
+        "2017",
+        "0",
+        "1",
+        "Jan",
+        "January"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q012",
+      "number": 12,
+      "chapterId": 5,
+      "sourcePage": 34,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 34
+        }
+      ],
+      "prompt": "Write a program that advises a person to ride a bike when the temperature is above 65 degrees and it is not raining. Otherwise, advise taking the train if the car has half a tank of gas or less, and driving the car when it has more fuel. Complete the source’s conditional structure.",
+      "exhibit": "if (temperature > 65 [1] !raining)\n  advice = \"Ride Bike\";\nelse if (fuelTank [2] .5)\n  advice = \"Take Train\";\nelse\n  advice = \"Drive your car\";",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Combine the weather conditions",
+          "right": "&&",
+          "options": [
+            "&&",
+            "==",
+            "||",
+            "&",
+            ">"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Compare the fuel level",
+          "right": "<=",
+          "options": [
+            "==",
+            "||",
+            "<=",
+            "&&",
+            ">"
+          ]
+        }
+      ],
+      "explanation": "Use logical AND when both warm weather and the no-rain condition are required, and compare the fuel level with the stated threshold using <=.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "&&",
+        "==",
+        "||",
+        "&",
+        ">",
+        "<="
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q013",
+      "number": 13,
+      "chapterId": 5,
+      "sourcePage": 37,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 37
+        }
+      ],
+      "prompt": "Create ticketPrice(age). Customers younger than 5 or at least 65 enter free. Customers aged 5 through 17 pay $10 USD; everyone else pays $20 USD. Complete the conditions.",
+      "exhibit": "function ticketPrice(age) {\n  var price = 20;\n  [1]\n    price = 0;\n  }\n  [2]\n    price = 10;\n  }\n  return price;\n}",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Free-admission condition",
+          "right": "if (age < 5 || age >= 65) {",
+          "options": [
+            "if (age <= 5 && age > 65) {",
+            "if (age < 5 && age >= 65) {",
+            "if (age <= 5 || age > 65) {",
+            "if (age < 5 || age >= 65) {"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Youth-price condition",
+          "right": "if (age >= 5 && age < 18) {",
+          "options": [
+            "if (age >= 5 && age < 18) {",
+            "if (age > 5 && age <= 18) {",
+            "if (age >= 5 || age < 18) {",
+            "if (age > 5 || age <= 18) {"
+          ]
+        }
+      ],
+      "explanation": "The free-admission ranges are alternatives, so join them with OR. A bounded youth range requires both its lower and upper bounds, so join those comparisons with AND.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "if (age <= 5 && age > 65) {",
+        "if (age < 5 && age >= 65) {",
+        "if (age <= 5 || age > 65) {",
+        "if (age < 5 || age >= 65) {",
+        "if (age >= 5 && age < 18) {",
+        "if (age > 5 && age <= 18) {",
+        "if (age >= 5 || age < 18) {",
+        "if (age > 5 || age <= 18) {"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q014",
+      "number": 14,
+      "chapterId": 5,
+      "sourcePage": 39,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 39
+        }
+      ],
+      "prompt": "Write a JavaScript function that accepts a weekday string and returns the appropriate discount. Complete lines 03, 04, and 07 of the source function.",
+      "exhibit": "01 function getDiscount(day) {\n02   var discount = 0;\n03   [1]\n04     [2]\n05       discount = .1;\n06       break;\n07     [3]\n08       discount = 0;\n09       break;\n10   }\n11   return discount;\n12 }",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Line 03",
+          "right": "switch (day) {",
+          "options": [
+            "case (day) {",
+            "default (day) {",
+            "case (default) {",
+            "switch (day) {"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Line 04",
+          "right": "case \"Wednesday\":",
+          "options": [
+            "case \"Wednesday\":",
+            "default:",
+            "case default:",
+            "switch \"Wednesday\""
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Line 07",
+          "right": "default:",
+          "options": [
+            "case \"Wednesday\":",
+            "default:",
+            "case default:",
+            "switch \"Wednesday\""
+          ]
+        }
+      ],
+      "explanation": "A switch evaluates the day, the Wednesday case applies that discount, and default handles unmatched values. The break statements prevent unintended fall-through.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "case (day) {",
+        "default (day) {",
+        "case (default) {",
+        "switch (day) {",
+        "case \"Wednesday\":",
+        "default:",
+        "case default:",
+        "switch \"Wednesday\""
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q015",
+      "number": 15,
+      "chapterId": 3,
+      "sourcePage": 44,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 44
+        }
+      ],
+      "prompt": "Write a loop that traverses an array named list to find orange. If an element is null, immediately go to the next element. When orange is found, exit the loop. Complete the three keywords. The source clips the array literal and the right edge of the loop header; only those clipped portions are annotated below.",
+      "exhibit": "function doWork() {\n  // list: source array; its literal is clipped in the PDF.\n  [1] (i = 0; i < list.length; /* update clipped */) {\n    if (list[i] == null)\n      [2]\n    if (list[i] == 'orange') {\n      alert('found');\n      [3]\n    }\n    console.log(list[i]);\n  }\n}",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Loop keyword",
+          "right": "for",
+          "options": [
+            "for",
+            "break",
+            "continue",
+            "while",
+            "do"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Skip the null element",
+          "right": "continue",
+          "options": [
+            "for",
+            "break",
+            "continue",
+            "while",
+            "do"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Stop after finding orange",
+          "right": "break",
+          "options": [
+            "for",
+            "break",
+            "continue",
+            "while",
+            "do"
+          ]
+        }
+      ],
+      "explanation": "A for loop traverses the array. continue skips the remainder of an iteration for a null value; break exits the loop after finding the target.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "for",
+        "break",
+        "continue",
+        "while",
+        "do"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q016",
+      "number": 16,
+      "chapterId": 5,
+      "sourcePage": 48,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 48
+        }
+      ],
+      "prompt": "Create countdown(start), which displays the numbers from start down to and including zero in increments of one. Complete the three portions of the for header.",
+      "exhibit": "function countdown(start) {\n  for ([1] [2] [3]) {\n    console.log(i);\n  }\n}",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Initializer",
+          "right": "var i = start;",
+          "options": [
+            "var i = start;",
+            "var i == start;",
+            "var i <= start;",
+            "var i < start;"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Condition",
+          "right": "i > 0;",
+          "options": [
+            "i <= 0;",
+            "i < 0;",
+            "i > 0;",
+            "i >= 0;"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Update",
+          "right": "--i",
+          "options": [
+            "++i",
+            "+i",
+            "--i",
+            "-i"
+          ]
+        }
+      ],
+      "explanation": "Source-key caveat: the highlighted condition i > 0 excludes zero even though the prompt asks to include it. An inclusive countdown needs i >= 0. The source’s marked selections remain visible for comparison.",
+      "status": "qualified",
+      "scorable": false,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "var i = start;",
+        "var i == start;",
+        "var i <= start;",
+        "var i < start;",
+        "i <= 0;",
+        "i < 0;",
+        "i > 0;",
+        "i >= 0;",
+        "++i",
+        "+i",
+        "--i",
+        "-i"
+      ],
+      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item.",
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q017",
+      "number": 17,
+      "chapterId": 4,
+      "sourcePage": 50,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 50
+        }
+      ],
+      "prompt": "You are creating a calendar application and need to determine the number of days for each month. Complete the three visible code segments. The supplied source cuts off the remainder after the 30-day case; that missing remainder is not invented here.",
+      "exhibit": "var daysInMonth;\nvar month;\nmonth = new Date().getMonth();\n[1]\n  case 1:\n    daysInMonth = 28; // February; ignore leap years.\n    [2]\n  case 3:\n  case 5:\n  case 8:\n  case 10:\n    daysInMonth = 30;\n    [3]\n  // Remaining source content is clipped.\n}",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Dispatch by month",
+          "right": "switch (month) {",
+          "options": [
+            "switch (month) {",
+            "case (month) {",
+            "break {"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] End the February case",
+          "right": "continue;",
+          "options": [
+            "break;",
+            "continue;",
+            "while (month);"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] End the 30-day case",
+          "right": "break;",
+          "options": [
+            "break;",
+            "continue;"
+          ]
+        }
+      ],
+      "explanation": "Source-key caveat: the marked continue after the February case is not valid as shown, because the switch is not inside a loop. A break is needed to leave that case rather than continue an enclosing iteration.",
+      "status": "qualified",
+      "scorable": false,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "switch (month) {",
+        "case (month) {",
+        "break {",
+        "break;",
+        "continue;",
+        "while (month);"
+      ],
+      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item.",
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q018",
+      "number": 18,
+      "chapterId": 6,
+      "sourcePage": 55,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 55
+        }
+      ],
+      "prompt": "Create a safe-division check with numerator and denominator parameters. It should return false when the denominator is zero and true otherwise. Review the code, then select Yes or No for each statement.",
+      "exhibit": "01 function isSafeDivide(numerator, denominator) {\n02   if (denominator = 0) {\n03     return false;\n04   } else {\n05     return true;\n06   }\n07 }",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "The function will always return false.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "The operator at line 02 should be !=.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        }
+      ],
+      "explanation": "The source marks No and No. Line 02 assigns 0 to denominator rather than comparing it; the assigned value is falsy, so this code takes the else branch. To meet the requirement, compare the denominator with zero (for example, denominator === 0), rather than replacing the operator with !=.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "Yes",
+        "No"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q019",
+      "number": 19,
+      "chapterId": 5,
+      "sourcePage": 57,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 57
+        }
+      ],
+      "prompt": "Variable x has the value 5 and variable y has the value 7. Select True if each expression evaluates to true. Otherwise, select False.",
+      "exhibit": "var x = 5;\nvar y = 7;",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "x < 7 && y > 6",
+          "right": "True",
+          "options": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "x == 6 || y == 6",
+          "right": "False",
+          "options": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "x !== 7",
+          "right": "True",
+          "options": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "!(x == y)",
+          "right": "True",
+          "options": [
+            "True",
+            "False"
+          ]
+        }
+      ],
+      "explanation": "Substitute x = 5 and y = 7 into each expression. The conjunction is true, the equality disjunction is false, x differs from 7, and negating x == y gives true.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "True",
+        "False"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    },
+    {
+      "id": "javascript-q020",
+      "number": 20,
+      "chapterId": 6,
+      "sourcePage": 58,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 58
+        }
+      ],
+      "prompt": "You are developing a webpage that displays information using popup boxes. Match alert, confirm, and prompt with their scenarios. The scenario descriptions are cut off in the supplied PDF, so the mappings below are a clearly labeled concept reference rather than a recovered scoring key.",
+      "exhibit": "Available functions:\nalert\nconfirm\nprompt",
+      "options": [],
+      "correctIds": [],
+      "pairs": [],
+      "explanation": "The standard browser functions are prompt for text input, alert for a message, and confirm for an accept/cancel choice. The original scenario wording cannot be recovered from the clipped source, so this exercise remains study-only.",
+      "status": "invalid",
+      "scorable": false,
+      "type": "reference",
+      "answerLabel": "Source diagram for study",
+      "studyNote": "The source answer diagram is incomplete or inconsistent. This exercise is available as a flashcard and is excluded from quizzes.",
+      "contentFormat": "text",
+      "answerExhibit": "Visible source order:\nprompt  → [scenario description clipped]\nalert   → [scenario description clipped]\nconfirm → [scenario description clipped]\n\nConcept reference:\nprompt  → Ask the user to enter text.\nalert   → Show an informational message.\nconfirm → Ask the user to accept or cancel."
+    },
+    {
+      "id": "javascript-q021",
+      "number": 21,
+      "chapterId": 6,
+      "sourcePage": 60,
+      "sourceFile": "JavaScript.pdf",
+      "sourceReferences": [
+        {
+          "file": "JavaScript.pdf",
+          "page": 60
+        }
+      ],
+      "prompt": "You are designing unitTest(expression) to invoke library functions using the source’s eval call. If invocation throws an exception, display “The function does not exist.” Complete the exception-handling keywords.",
+      "exhibit": "function unitTest(expression) {\n  [1] {\n    eval(expression);\n  }\n  [2] (err) {\n    alert(\"The function does not exist.\");\n  }\n}",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Protect the invocation",
+          "right": "try",
+          "options": [
+            "catch",
+            "finally",
+            "try"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Handle its exception",
+          "right": "catch",
+          "options": [
+            "catch",
+            "finally",
+            "try"
+          ]
+        }
+      ],
+      "explanation": "Place the potentially throwing call inside try and handle an exception with catch. Treat the supplied eval code as study material; the reviewer displays it as an image and does not execute it.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "See the source selections and matches below.",
+      "matchOptions": [
+        "catch",
+        "finally",
+        "try"
+      ],
+      "contentFormat": "text",
+      "answerExhibit": ""
+    }
+  ]
+}
