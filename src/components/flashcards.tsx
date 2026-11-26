@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight, Check, CheckCircle2, ChevronLeft, ChevronRight, 
 import { Button } from "@/components/ui/button";
 import { useStudyActions } from "@/lib/store";
 import { useQuestionBank } from "@/lib/certification-context";
-import { gradeAnswer, isAnswerComplete, recordAnswer, shuffled, type StudyState, type CardRating, type Question } from "@/lib/study";
+import { gradeAnswer, isAnswerComplete, needsReview, recordAnswer, shuffled, type StudyState, type CardRating, type Question } from "@/lib/study";
 import { AnswerChoices, AnswerInstruction } from "./answer-choices";
 import { LearningCounter } from "./learning-counter";
 import { AnswerContent, BookmarkButton, ChapterSelect, EmptyState, Exhibit, QuestionBadge } from "./study-parts";
@@ -13,8 +13,17 @@ import { AnswerContent, BookmarkButton, ChapterSelect, EmptyState, Exhibit, Ques
 type Filter = "all" | "bookmarks" | "learning" | "known" | "unseen";
 export interface FlashcardStart { chapterId: number; filter: Filter; questionId?: string }
 
+function rememberLocation(chapter: number, filter: Filter, questionId?: string) {
+  const url = new URL(window.location.href);
+  url.searchParams.set("view", "flashcards");
+  if (chapter) url.searchParams.set("chapter", String(chapter)); else url.searchParams.delete("chapter");
+  if (filter !== "all") url.searchParams.set("filter", filter); else url.searchParams.delete("filter");
+  if (questionId) url.searchParams.set("question", questionId); else url.searchParams.delete("question");
+  window.history.replaceState(null, "", url);
+}
+
 function makeDeck(questions: Question[], chapterId: number, filter: Filter, state: StudyState) {
-  return questions.filter(q => (!chapterId || q.chapterId === chapterId) && (filter === "all" || (filter === "bookmarks" && state.bookmarks.includes(q.id)) || (filter === "learning" && state.cards[q.id] === "learning") || (filter === "known" && state.cards[q.id] === "known") || (filter === "unseen" && !state.cards[q.id] && !state.results[q.id])));
+  return questions.filter(q => (!chapterId || q.chapterId === chapterId) && (filter === "all" || (filter === "bookmarks" && state.bookmarks.includes(q.id)) || (filter === "learning" && needsReview(q.id, state)) || (filter === "known" && state.cards[q.id] === "known") || (filter === "unseen" && !state.cards[q.id] && !state.results[q.id])));
 }
 
 export function Flashcards({ state, start, practice }: { state: StudyState; start: FlashcardStart; practice: (chapterId: number) => void }) {
@@ -48,7 +57,7 @@ export function Flashcards({ state, start, practice }: { state: StudyState; star
     submittedRef.current = true;
     const correct = gradeAnswer(current, selected, {});
     setChecked(correct);
-    updateStudy(s => ({ ...recordAnswer(s, current.id, correct), cards: { ...s.cards, [current.id]: correct ? "known" : "learning" } }));
+    updateStudy(s => recordAnswer(s, current.id, correct));
     requestAnimationFrame(() => feedbackRef.current?.focus());
   }
 
@@ -56,17 +65,20 @@ export function Flashcards({ state, start, practice }: { state: StudyState; star
     const next = deck[nextIndex];
     if (!next) return;
     setIndex(nextIndex); setFlipped(false); clearAnswer();
+    rememberLocation(chapterId, filter, next.id);
     updateStudy(s => ({ ...s, lastStudy: { mode: "flashcards", chapterId, questionId: next.id } }));
     requestAnimationFrame(() => questionRef.current?.focus());
-  }, [deck, chapterId, clearAnswer, updateStudy]);
+  }, [deck, chapterId, filter, clearAnswer, updateStudy]);
   function selectDeck(nextChapter: number, nextFilter: Filter) {
     const nextDeck = makeDeck(questions, nextChapter, nextFilter, state);
     setChapterId(nextChapter); setFilter(nextFilter); setDeck(nextDeck); setIndex(0); setFlipped(false); setFinished(false); clearAnswer();
+    rememberLocation(nextChapter, nextFilter, nextDeck[0]?.id);
     if (nextDeck[0]) updateStudy(s => ({ ...s, lastStudy: { mode: "flashcards", chapterId: nextChapter, questionId: nextDeck[0].id } }));
   }
   function shuffleDeck() {
     const nextDeck = shuffled(deck);
     setDeck(nextDeck); setIndex(0); setFlipped(false); setFinished(false); clearAnswer();
+    rememberLocation(chapterId, filter, nextDeck[0]?.id);
     if (nextDeck[0]) updateStudy(s => ({ ...s, lastStudy: { mode: "flashcards", chapterId, questionId: nextDeck[0].id } }));
   }
   function rate(rating: CardRating) {
@@ -91,7 +103,7 @@ export function Flashcards({ state, start, practice }: { state: StudyState; star
 
   return <div className="study-view">
     <div className="page-heading"><div><span className="eyebrow">A LITTLE RECALL GOES A LONG WAY</span><h1>Flashcards</h1><p>Choose an answer, submit it, and learn from the explanation.</p></div><span className="heading-mark"><Sparkles size={30} /></span></div>
-    <div className="filter-bar"><div><label htmlFor="flash-chapter">Chapter</label><ChapterSelect id="flash-chapter" value={chapterId} onChange={id => selectDeck(id, filter)} /></div><div><label htmlFor="card-filter">Show cards</label><select id="card-filter" value={filter} onChange={e => selectDeck(chapterId, e.target.value as Filter)}><option value="all">All cards</option><option value="bookmarks">Bookmarked</option><option value="learning">Still learning</option><option value="known">Got it</option><option value="unseen">Not studied yet</option></select></div><Button variant="outline" onClick={shuffleDeck} disabled={!deck.length}><Shuffle size={16} /> Shuffle</Button></div>
+    <div className="filter-bar"><div><label htmlFor="flash-chapter">Chapter</label><ChapterSelect id="flash-chapter" value={chapterId} onChange={id => selectDeck(id, filter)} /></div><div><label htmlFor="card-filter">Show cards</label><select id="card-filter" value={filter} onChange={e => selectDeck(chapterId, e.target.value as Filter)}><option value="all">All cards</option><option value="bookmarks">Bookmarked</option><option value="learning">Needs review</option><option value="known">Got it</option><option value="unseen">Not studied yet</option></select></div><Button variant="outline" onClick={shuffleDeck} disabled={!deck.length}><Shuffle size={16} /> Shuffle</Button></div>
     {deck.length ? <><LearningCounter correct={correctCount} learning={learningCount} total={deck.length} scope="This deck" /><p className="counter-note">Based on your latest submitted answer to each question. Revealing an answer does not change these counts.</p></> : null}
     {!current ? <EmptyState title="A clean slate">There are no cards in this selection. Try another chapter or save a bookmark.<Button variant="outline" onClick={() => selectDeck(0, "all")}>Show all cards</Button></EmptyState> : finished ? <div className="session-complete"><div className="complete-icon"><Check size={34} /></div><span className="eyebrow">THAT’S A WRAP</span><h2>A little more confident.</h2><p>You reached the end of this {deck.length}-card deck. Your answers and ratings are saved.</p><div className="button-row"><Button onClick={() => { setFinished(false); move(0); }}><RotateCcw size={16} /> Review again</Button><Button variant="outline" onClick={() => practice(chapterId)}>Try a practice quiz <ArrowRight size={16} /></Button></div><Button variant="ghost" onClick={() => { setFinished(false); setFlipped(true); }}>Back to the last answer</Button></div> : <>
       <div className="deck-position"><span>{chapters.find(c => c.id === current.chapterId)?.title}</span><strong>{index + 1} <span>/ {deck.length}</span></strong></div>
@@ -105,7 +117,8 @@ export function Flashcards({ state, start, practice }: { state: StudyState; star
             <AnswerChoices question={current} selected={selected} checked={checked} choose={choose} />
             {checked !== null ? <div className={`quiz-feedback ${checked ? "correct" : "wrong"}`} ref={feedbackRef} tabIndex={-1} role="status">
               <h3>{checked ? <CheckCircle2 size={22} aria-hidden="true" /> : <CircleHelp size={22} aria-hidden="true" />}{checked ? "Correct. You’ve got it!" : "Not quite. Let’s learn this one."}</h3>
-              <AnswerContent question={current} />
+              <AnswerContent question={current} response={{ selected, matches: {}, submitted: true, correct: checked }} />
+              <div className="confidence-rating"><p>How confident do you feel? This rating is separate from your answer.</p>{(["learning", "known"] as const).map(rating => <Button key={rating} variant="outline" size="sm" aria-pressed={state.cards[current.id] === rating} onClick={() => updateStudy(s => ({ ...s, cards: { ...s.cards, [current.id]: rating } }))}>{rating === "known" ? "Got it" : "Still learning"}</Button>)}</div>
             </div> : <div className="flash-submit-row"><Button onClick={submitAnswer} disabled={!selected.length}>Submit answer <Check size={16} /></Button><Button variant="ghost" onClick={() => setFlipped(true)}>Reveal answer</Button><span>Select {current.type === "multiple" ? current.correctIds.length + " answers" : "one answer"} to submit.</span></div>}
           </> : <>
             {current.options.length ? <div className="flash-options">{current.options.map(o => <p key={o.id}><span>{current.type === "ordering" ? "•" : o.id.toUpperCase()}</span>{o.text}</p>)}</div> : <p className="muted">Read the exercise, recall your answer, then reveal it to check yourself.</p>}

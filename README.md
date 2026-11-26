@@ -8,6 +8,12 @@ Use Node.js 24 LTS. Run `npm install` once, then `npm run dev` and open http://1
 
 For the static version, run `npm run build`, then `npm run preview`. The dependency-free preview serves `out/` on this device. Any static host can serve that output directory. Stop one local server before starting the other on the same port.
 
+## Appearance
+
+The interface uses a charcoal workspace sidebar, warm surfaces, rust accents, and shared design tokens across the dashboard, chapters, flashcards, quizzes, answer feedback, progress, and dialogs. The dashboard includes a study-session shortcut, a progress ring, current metrics, and a chapter list.
+
+Use the color-theme selector in the top bar to choose **Light**, **Dark**, or **System**. System is the default and follows operating-system changes. A manual choice persists in this browser and synchronizes across open tabs. Appearance loads before app hydration to avoid a light flash in dark mode. If browser storage is unavailable, the selector still works for the current tab. The theme preference is separate from certification progress and backups.
+
 ## Certifications
 
 Choose a certification in the header. Chapters, flashcards, practice, bookmarks, and progress are scoped to that certification. Selection is remembered in the browser. New question banks load when selected; questions and code are rendered directly as text.
@@ -30,9 +36,13 @@ CCST remains separate: 136 standard questions by default, with its original sour
 
 ## Answering and learning progress
 
-Multiple-choice flashcards and practice questions let learners select a letter or its full answer row, change their selection, and explicitly submit. Multi-answer questions allow several selections. Submitted choices lock while the answer and explanation appear. Revealing a flashcard without submitting keeps the self-rating flow and does not add a graded attempt.
+Multiple-choice flashcards and practice questions let learners select a letter or its full answer row, change their selection, and explicitly submit. Multi-answer questions allow several selections. In Learn mode, submitted choices lock while the answer and explanation appear. In Test mode, answers can be saved and revised, and grading is deferred until the session finishes. Revealing a flashcard without submitting keeps the self-rating flow and does not add a graded attempt.
 
-A live counter stays visible while scrolling: **Correct**, **Needs learning**, and **Not answered**. Flashcards count the latest submitted result per question within the selected deck, so correcting a mistake moves it between categories without counting it twice. Practice counts submissions within the current session, including the final question. Answers save to the existing certification-specific browser storage.
+A live counter stays visible while scrolling: **Correct**, **Needs review**, and **Not answered**. Flashcards count the latest submitted result per question within the selected deck, so correcting a mistake moves it between categories without counting it twice. Practice counts submissions within the current session, including the final question. Answers save to the existing certification-specific browser storage.
+
+Confidence ratings stay separate from submitted answers. “Needs review” combines questions last answered incorrectly with cards marked “Still learning” in both practice and flashcards. Overview and Your progress show latest-answer accuracy across distinct questions; historical attempt totals are preserved. Existing ratings, including those assigned by earlier versions, are retained. Returning learners get direct actions to resume, review, or study new questions.
+
+Practice includes Previous, Skip, Flag for review, and an answered/unanswered question navigator. Finishing with unanswered or flagged questions asks for confirmation. Unanswered items receive no session-score credit and do not add graded attempts. Discard requires confirmation; checked Learn answers remain saved, while unfinished Test answers are not graded. Views, chapters, and flashcard position/filters use the URL and support browser Back/Forward.
 
 ## Browser data and compatibility
 
@@ -41,10 +51,10 @@ Progress is private to the current browser profile and site origin. It does not 
 - The existing `ccst-study-room:v1` key and CCST question IDs are retained, so prior progress and version-1 backups keep working.
 - HTML/CSS uses `studyroom:html-css:v1`; JavaScript uses `studyroom:javascript:v1`. New question IDs are certification-prefixed.
 - Backups identify their certification. Import validates both identity and question IDs before asking to replace anything. Import and reset affect only the selected certification, including when the backup is empty.
-- Ratings, bookmarks, checked-answer totals, last flashcard position, and up to 100 completed practice sessions are stored. Unfinished quiz order is not resumed after leaving the view or reloading.
+- Ratings, bookmarks, checked-answer totals, last flashcard position, and up to 100 completed practice sessions are stored. One unfinished quiz per certification is saved, including shuffled question/option order, selections, review flags, and position. Pause, navigation, certification switches, reloads, and compatible backups preserve it.
 - Storage failures show a notice and keep changes in memory for the session. Corrupt stored data and incompatible backups are handled without breaking study. Other tabs receive storage updates.
 
-Existing attempt totals and completed scores are retained. Earlier selections were not stored, so old scores cannot be regraded; new attempts use the reviewed keys. Bookmarks and flashcard ratings remain compatible.
+Existing attempt totals and completed scores are retained. New completed sessions retain actual selections for review in Your progress. Earlier selections were not stored, so old scores cannot be regraded; new attempts use the reviewed keys. Bookmarks and flashcard ratings remain compatible.
 
 There is no service worker; offline access is not guaranteed.
 
@@ -62,6 +72,10 @@ npm run build
 `scripts/progress-regression-browser-check.mjs` checks progress updates made in another tab while a certification is inactive, removed progress, resume after shuffling, and preservation of session-only progress when browser storage is blocked. It uses the same `BASE_URL` and `PLAYWRIGHT_MODULE` settings as the other browser checks.
 
 `scripts/startup-navigation-browser-check.mjs` checks delayed and failed saved-certification downloads, startup with unavailable browser storage, and shared button/arrow-key flashcard navigation, including question focus, answer reset, saved position, and deck boundaries.
+
+`scripts/study-ux-browser-check.mjs` checks saved draft choices, duplicate grading protection, certification isolation, pause/resume, refresh, Back/Forward, completion confirmation, selections in history, delayed test grading, shared review filters, and drawer focus/Escape behavior.
+
+`scripts/appearance-browser-check.mjs` captures every main screen in both themes and checks representative text contrast, 320–1440px overflow, preference persistence, live system-theme changes, cross-tab updates, pre-hydration theme initialization, and unavailable browser storage. Previews are written to `test-results/appearance/`.
 
 ## Updating source content
 

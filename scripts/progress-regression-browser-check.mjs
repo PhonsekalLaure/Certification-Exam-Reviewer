@@ -68,7 +68,9 @@ try {
   assert.equal((await saved(page)).lastStudy.questionId, "html-css-q002");
   await page.reload();
   await page.waitForFunction(() => document.querySelector('select[aria-label="Certification"]')?.value === "html-css");
-  await page.getByRole("button", { name: "Continue studying", exact: true }).click();
+  assert.equal(await page.locator(".flash-front h2").textContent(), displayed);
+  await nav(page, "Overview");
+  await page.getByRole("button", { name: /Continue studying/ }).click();
   assert.equal(await page.locator(".flash-front h2").textContent(), displayed);
   console.log("PASS: Reload and Continue studying resume the card displayed after shuffling");
 

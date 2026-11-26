@@ -45,10 +45,13 @@ try {
   await page.getByRole("heading", { name: "Not quite. Let’s learn this one.", exact: true }).waitFor();
   assert.deepEqual(await counts(), [0, 1, singleDeckSize - 1]);
   assert.equal((await saved()).results[single.id].attempts, 1);
+  assert.equal(await page.evaluate(() => document.activeElement.classList.contains("quiz-feedback")), true);
+  assert.equal((await saved()).cards[single.id], undefined);
+  await page.getByRole("button", { name: "Still learning", exact: true }).click();
   assert.equal((await saved()).cards[single.id], "learning");
   assert.equal(await page.locator('.quiz-option:not(:disabled)').count(), 0);
   assert.equal(await page.locator('.quiz-option.wrong .option-result').textContent(), "Your answer");
-  assert.equal(await page.evaluate(() => document.activeElement.classList.contains("quiz-feedback")), true);
+
   console.log("PASS: Keyboard letter selection, explicit submission, wrong-answer feedback, and duplicate-submit protection");
 
   await openCard(single);
@@ -57,6 +60,7 @@ try {
   await page.getByRole("heading", { name: "Correct. You’ve got it!", exact: true }).waitFor();
   assert.deepEqual(await counts(), [1, 0, singleDeckSize - 1]);
   assert.equal((await saved()).results[single.id].attempts, 2);
+  await page.getByRole("button", { name: "Got it", exact: true }).click();
   await page.reload();
   await nav("Flashcards");
   assert.deepEqual(await counts(), [1, 0, bank.questions.length - 1]);
@@ -70,6 +74,7 @@ try {
   await submit().click();
   await page.getByRole("heading", { name: "Correct. You’ve got it!", exact: true }).waitFor();
   assert.deepEqual(await counts(), [2, 0, multiDeckSize - 2]);
+  await page.getByRole("button", { name: "Got it", exact: true }).click();
   await page.getByLabel("Show cards", { exact: true }).selectOption("known");
   assert.deepEqual(await counts(), [2, 0, 0]);
   await page.getByLabel("Show cards", { exact: true }).selectOption("all");

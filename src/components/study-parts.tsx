@@ -3,7 +3,7 @@
 import { Bookmark, Check, Info, ArrowRight, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useQuestionBank } from "@/lib/certification-context";
-import type { Question, Chapter, StudyState } from "@/lib/study";
+import type { Question, Chapter, StudyState, PracticeAnswer } from "@/lib/study";
 import { useStudyActions } from "@/lib/store";
 
 
@@ -40,17 +40,20 @@ export function Exhibit({ question, showPrompts = false }: { question: Question;
   return <>{question.exhibit ? question.contentFormat === "text" ? <CodeExhibit text={question.exhibit} label={`Code and markup for question ${question.number}`} blanks={question.type === "matching"} /> : <pre className="log-exhibit" tabIndex={0} aria-label="Code or log exhibit">{question.exhibit}</pre> : null}{showPrompts && question.type === "matching" ? <div className="recall-prompts"><span className="eyebrow">CONSIDER EACH RESPONSE</span><ol>{question.pairs.map(pair => <li key={pair.id}>{pair.left}</li>)}</ol></div> : null}</>;
 }
 
-export function AnswerContent({ question }: { question: Question }) {
+export function AnswerContent({ question, response }: { question: Question; response?: PracticeAnswer }) {
   const { source, edition } = useQuestionBank();
   return <>
+    {response ? <div className="answer-comparison"><h4>Your answer{!response.submitted ? " · Not submitted" : ""}</h4>{question.type === "matching" ? <dl className="answer-pairs">{question.pairs.map(pair => <div key={pair.id}><dt>{pair.left}</dt><dd>{response.matches[pair.id] || "No answer selected"}</dd></div>)}</dl> : response.selected.length ? <ol>{response.selected.map(id => <li key={id}>{question.options.find(o => o.id === id)?.text ?? id}</li>)}</ol> : <p>No answer selected.</p>}</div> : null}
     <div className="answer-key"><span className="eyebrow">{question.review ? "REVIEWED ANSWER" : "SOURCE ANSWER"}</span><h3>{question.type === "matching" ? "The matching pairs" : question.answerLabel}</h3></div>
     <SourceNote question={question} />
     {question.type === "matching" ? <dl className="answer-pairs">{question.pairs.map(pair => <div key={pair.id}><dt>{pair.left}</dt><dd>{pair.right}</dd></div>)}</dl> : question.status !== "invalid" ? <ul className="correct-answers">{question.correctIds.map((id, i) => <li key={id}><span>{question.type === "ordering" ? i + 1 : <Check size={16} />}</span>{question.options.find(o => o.id === id)?.text}</li>)}</ul> : null}
     {question.answerExhibit ? <CodeExhibit text={question.answerExhibit} label="Source answer and study reference" /> : null}
-    {question.review ? <div className="explanation review-note"><h4>{question.review.kind === "adapted" ? "Adapted exercise" : question.review.kind === "corrected" ? "Source correction" : "Answer reviewed"}</h4><p>{question.review.summary} Reviewed {question.review.reviewedAt}.</p><p>{question.review.references.map(ref => <a key={ref.url} href={ref.url} target="_blank" rel="noreferrer">{ref.label}</a>)}</p></div> : null}
     <div className="explanation"><h4>Why this answer?</h4><p>{question.explanation}</p></div>
+    <details className="answer-sources"><summary>Sources &amp; answer review</summary>
+    {question.review ? <div className="explanation review-note"><h4>{question.review.kind === "adapted" ? "Adapted exercise" : question.review.kind === "corrected" ? "Source correction" : "Answer reviewed"}</h4><p>{question.review.summary} Reviewed {question.review.reviewedAt}.</p><p>{question.review.references.map(ref => <a key={ref.url} href={ref.url} target="_blank" rel="noreferrer">{ref.label}</a>)}</p></div> : null}
     <p className="source-reference">{edition} · {question.sourceFile ?? source}, page {question.sourcePage} · Question {String(question.number).padStart(3, "0")}</p>
     {question.sourceReferences && question.sourceReferences.length > 1 ? <p className="source-reference">Also supplied in: {question.sourceReferences.slice(1).map(ref => `${ref.file}, page ${ref.page}`).join("; ")}</p> : null}
+    </details>
   </>;
 }
 
@@ -62,10 +65,10 @@ export function ChapterCard({ chapter, state, open }: { chapter: Chapter; state:
   const { questions } = useQuestionBank();
   const studied = questions.filter(q => q.chapterId === chapter.id && (state.cards[q.id] || state.results[q.id])).length;
   return <button className={`chapter-card chapter-color-${chapter.id}`} onClick={open}>
-    <div className="chapter-card-top"><span className="chapter-number">{String(chapter.id).padStart(2, "0")}</span><span>{chapter.count} questions</span><ArrowRight size={18} className="chapter-arrow" /></div>
-    <h3>{chapter.title}</h3><p>{chapter.description}</p>
-    <Meter value={studied / chapter.count * 100} label={`${chapter.title}: ${studied} of ${chapter.count} studied`} />
-    <div className="chapter-card-bottom"><span>{studied ? `${studied} of ${chapter.count} studied` : "A fresh start"}</span><span>{Math.round(studied / chapter.count * 100)}%</span></div>
+    <div className="chapter-card-top"><span className="chapter-number">{String(chapter.id).padStart(2, "0")}</span><span>{chapter.count} questions</span></div>
+    <div className="chapter-copy"><h3>{chapter.title}</h3><p>{chapter.description}</p></div>
+    <div className="chapter-card-progress"><Meter value={studied / chapter.count * 100} label={`${chapter.title}: ${studied} of ${chapter.count} studied`} /><div className="chapter-card-bottom"><span>{studied ? `${studied} of ${chapter.count} studied` : "Ready to explore"}</span><span>{Math.round(studied / chapter.count * 100)}%</span></div></div>
+    <ArrowRight size={18} className="chapter-arrow" />
   </button>;
 }
 

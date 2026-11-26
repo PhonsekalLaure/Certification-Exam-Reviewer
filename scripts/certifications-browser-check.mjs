@@ -26,7 +26,7 @@ try {
     if (!localStorage.getItem("ccst-study-room:v1")) localStorage.setItem("ccst-study-room:v1", JSON.stringify({ version: 1, bookmarks: ["q017"], cards: { q001: "known" }, results: {}, sessions: [], lastStudy: null }));
   });
   await page.goto(process.env.BASE_URL || "http://127.0.0.1:3000");
-  await page.getByRole("heading", { name: /Build confidence/ }).waitFor();
+  await page.getByRole("heading", { name: "Ready for your next step?" }).waitFor();
   assert.equal((await readState("ccst")).cards.q001, "known");
   await chooseCertification("html-css");
   assert.equal(await page.locator(".chapter-card").count(), 6);

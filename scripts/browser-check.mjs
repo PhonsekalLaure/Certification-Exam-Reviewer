@@ -89,10 +89,10 @@ try {
   const download = await downloadPromise;
   await download.saveAs("test-results/backup.json");
   assert.equal(JSON.parse(readFileSync("test-results/backup.json", "utf8")).sessions.length, 1);
-  await page.getByRole("button", { name: "Reset all progress", exact: true }).click();
+  await page.getByRole("button", { name: "Reset this certification", exact: true }).click();
   await page.getByRole("button", { name: "Keep current progress", exact: true }).click();
   assert.equal((await saved()).sessions.length, 1);
-  await page.getByRole("button", { name: "Reset all progress", exact: true }).click();
+  await page.getByRole("button", { name: "Reset this certification", exact: true }).click();
   await page.getByRole("button", { name: "Clear progress", exact: true }).click();
   assert.equal((await saved()).sessions.length, 0);
   await page.getByLabel("Choose a study backup").setInputFiles("test-results/backup.json");
@@ -120,7 +120,7 @@ try {
   }, storageKey);
   await page.reload();
   await nav("Practice quizzes");
-  await page.getByText("Focus on my mistakes", { exact: true }).click();
+  await page.getByText("Focus on needs review", { exact: true }).click();
   await page.getByRole("button", { name: "Start practice", exact: true }).click();
   for (const id of ["d", "c", "b", "a"]) await page.locator(".quiz-option").getByText(bank.questions.find(q => q.number === 151).options.find(o => o.id === id).text, { exact: true }).click();
   await page.getByRole("button", { name: "Submit answer", exact: true }).click();
