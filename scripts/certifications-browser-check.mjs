@@ -60,7 +60,7 @@ try {
       assert.equal(await page.locator(".flash-card .answer-key").count(), 0);
       if (q.exhibit) assert.equal(await page.locator(".flash-card .code-exhibit code").first().textContent(), q.exhibit);
       if (q.type === "matching") assert.deepEqual(await page.locator(".recall-prompts li").allTextContents(), q.pairs.map(pair => pair.left));
-      if (q.options.length) assert.equal(await page.locator(".flash-options p").count(), q.options.length);
+      if (q.options.length) assert.equal(await page.locator(".flash-options p, .flash-front .quiz-option").count(), q.options.length);
       assert.equal(await page.locator(".code-exhibit img, .code-exhibit script, .code-exhibit iframe").count(), 0);
       await page.getByRole("button", { name: "Reveal answer", exact: true }).click();
       await page.locator(".flash-answer .answer-key").waitFor();
@@ -85,15 +85,17 @@ try {
       seen.push(q.id);
       if (q.type === "matching") for (const pair of q.pairs) {
         if (pair.options) assert.deepEqual(await page.locator(`#match-${pair.id} option`).allTextContents(), ["Choose a match…", ...pair.options]);
-        await page.locator(`#match-${pair.id}`).selectOption(pair.right);
+        await page.locator(`#match-${pair.id}`).selectOption(pair.acceptedAnswers?.at(-1) ?? pair.right);
       }
       else for (const answer of q.correctIds) {
         const index = q.options.findIndex(o => o.id === answer);
         if (q.type === "ordering") await page.locator(".quiz-option").getByText(q.options[index].text, { exact: true }).click();
         else await page.getByRole("button", { name: new RegExp(`^${answer.toUpperCase()} `) }).click();
       }
-      await page.getByRole("button", { name: "Check answer", exact: true }).click();
+      await page.getByRole("button", { name: "Submit answer", exact: true }).click();
       await page.getByRole("heading", { name: "You’ve got it.", exact: true }).waitFor();
+      assert.equal(await page.locator(".match-wrong").count(), 0);
+      assert.equal(await page.locator(".answer-key .eyebrow").textContent(), "REVIEWED ANSWER");
       const finish = page.getByRole("button", { name: "See results", exact: true });
       if (await finish.count()) { await finish.click(); break; }
       await page.getByRole("button", { name: "Next question", exact: true }).click();

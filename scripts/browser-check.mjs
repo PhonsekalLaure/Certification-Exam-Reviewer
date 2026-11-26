@@ -67,7 +67,7 @@ try {
     } else {
       for (const id of q.correctIds) await page.locator(".quiz-option").getByText(q.options.find(o => o.id === id).text, { exact: true }).click();
     }
-    await page.getByRole("button", { name: "Check answer", exact: true }).click();
+    await page.getByRole("button", { name: "Submit answer", exact: true }).click();
     await page.getByRole("heading", { name: "You’ve got it.", exact: true }).waitFor();
     total++;
     const finish = page.getByRole("button", { name: "See results", exact: true });
@@ -123,13 +123,13 @@ try {
   await page.getByText("Focus on my mistakes", { exact: true }).click();
   await page.getByRole("button", { name: "Start practice", exact: true }).click();
   for (const id of ["d", "c", "b", "a"]) await page.locator(".quiz-option").getByText(bank.questions.find(q => q.number === 151).options.find(o => o.id === id).text, { exact: true }).click();
-  await page.getByRole("button", { name: "Check answer", exact: true }).click();
+  await page.getByRole("button", { name: "Submit answer", exact: true }).click();
   await page.getByRole("heading", { name: "A good one to revisit.", exact: true }).waitFor();
   assert.equal(await page.locator(".quiz-option.wrong").count(), 4);
   await page.getByRole("button", { name: "See results", exact: true }).click();
   await page.getByRole("button", { name: "Retry missed questions", exact: true }).click();
   for (const id of ["a", "b", "c", "d"]) await page.locator(".quiz-option").getByText(bank.questions.find(q => q.number === 151).options.find(o => o.id === id).text, { exact: true }).click();
-  await page.getByRole("button", { name: "Check answer", exact: true }).click();
+  await page.getByRole("button", { name: "Submit answer", exact: true }).click();
   await page.getByRole("heading", { name: "You’ve got it.", exact: true }).waitFor();
   assert.equal((await saved()).results.q151.lastCorrect, true);
   passed("Mistake filtering, wrong ordering feedback, and retrying missed questions work");

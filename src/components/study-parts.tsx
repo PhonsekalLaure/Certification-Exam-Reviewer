@@ -24,7 +24,7 @@ export function Meter({ value, label, className = "" }: { value: number; label: 
 
 export function QuestionBadge({ question }: { question: Question }) {
   const labels = { single: "Single answer", multiple: "Multiple answers", matching: "Matching", ordering: "Put in order", reference: "Source exercise" };
-  return <span className="badge badge-neutral">{labels[question.type]}</span>;
+  return <span className="badge badge-neutral">{labels[question.type]}{question.review?.kind === "adapted" ? " · Adapted" : ""}</span>;
 }
 
 export function SourceNote({ question }: { question: Question }) {
@@ -43,10 +43,11 @@ export function Exhibit({ question, showPrompts = false }: { question: Question;
 export function AnswerContent({ question }: { question: Question }) {
   const { source, edition } = useQuestionBank();
   return <>
-    <div className="answer-key"><span className="eyebrow">SOURCE ANSWER</span><h3>{question.type === "matching" ? "The matching pairs" : question.answerLabel}</h3></div>
+    <div className="answer-key"><span className="eyebrow">{question.review ? "REVIEWED ANSWER" : "SOURCE ANSWER"}</span><h3>{question.type === "matching" ? "The matching pairs" : question.answerLabel}</h3></div>
     <SourceNote question={question} />
     {question.type === "matching" ? <dl className="answer-pairs">{question.pairs.map(pair => <div key={pair.id}><dt>{pair.left}</dt><dd>{pair.right}</dd></div>)}</dl> : question.status !== "invalid" ? <ul className="correct-answers">{question.correctIds.map((id, i) => <li key={id}><span>{question.type === "ordering" ? i + 1 : <Check size={16} />}</span>{question.options.find(o => o.id === id)?.text}</li>)}</ul> : null}
     {question.answerExhibit ? <CodeExhibit text={question.answerExhibit} label="Source answer and study reference" /> : null}
+    {question.review ? <div className="explanation review-note"><h4>{question.review.kind === "adapted" ? "Adapted exercise" : question.review.kind === "corrected" ? "Source correction" : "Answer reviewed"}</h4><p>{question.review.summary} Reviewed {question.review.reviewedAt}.</p><p>{question.review.references.map(ref => <a key={ref.url} href={ref.url} target="_blank" rel="noreferrer">{ref.label}</a>)}</p></div> : null}
     <div className="explanation"><h4>Why this answer?</h4><p>{question.explanation}</p></div>
     <p className="source-reference">{edition} · {question.sourceFile ?? source}, page {question.sourcePage} · Question {String(question.number).padStart(3, "0")}</p>
     {question.sourceReferences && question.sourceReferences.length > 1 ? <p className="source-reference">Also supplied in: {question.sourceReferences.slice(1).map(ref => `${ref.file}, page ${ref.page}`).join("; ")}</p> : null}

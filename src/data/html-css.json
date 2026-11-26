@@ -66,14 +66,14 @@
           "page": 2
         }
       ],
-      "prompt": "For each statement about relative and absolute links, select Yes if it is true. Otherwise, select No.",
+      "prompt": "A page is at https://www.contoso.com/courses/index.html and has no base element. For each statement about path-relative and absolute URLs, select Yes or No. Here, path-relative excludes network-path references beginning with //.",
       "exhibit": "",
       "options": [],
       "correctIds": [],
       "pairs": [
         {
           "id": "pair-1",
-          "left": "A relative link requires that you use a protocol and server path.",
+          "left": "A path-relative link must include a protocol and server name.",
           "right": "No",
           "options": [
             "Yes",
@@ -82,7 +82,7 @@
         },
         {
           "id": "pair-2",
-          "left": "You can link to a document in a subdirectory of the current webpage by specifying only the subdirectory name and the filename.",
+          "left": "lessons/intro.html can reference a document in a subdirectory of the current page’s directory.",
           "right": "Yes",
           "options": [
             "Yes",
@@ -91,8 +91,8 @@
         },
         {
           "id": "pair-3",
-          "left": "You can use a relative link to reference image files from a repository on a different server.",
-          "right": "Yes",
+          "left": "images/logo.png can reference an image on a different server without changing the document base URL.",
+          "right": "No",
           "options": [
             "Yes",
             "No"
@@ -100,7 +100,7 @@
         },
         {
           "id": "pair-4",
-          "left": "The following is an example of an absolute link: https://www.contoso.com/products.html",
+          "left": "https://www.contoso.com/products.html is an absolute URL.",
           "right": "Yes",
           "options": [
             "Yes",
@@ -108,18 +108,72 @@
           ]
         }
       ],
-      "explanation": "Source-key caveat: the third statement is marked Yes in the PDF, but a relative URL resolves against a base URL; it does not independently name a different server. Keep this source key separate from the concept being learned.",
-      "status": "qualified",
-      "scorable": false,
+      "explanation": "With no base element, a path-relative URL is resolved against the current document URL and keeps its server. images/logo.png cannot name another server. A network-path reference beginning //host is a different form and is outside this explicitly scoped question.",
+      "status": "standard",
+      "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "No / Yes / No / Yes",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "Yes",
         "No"
       ],
-      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item.",
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "adapted",
+        "reviewedAt": "2026-11-26",
+        "summary": "Adapted from the source: ambiguous or clipped wording/markup has been completed for a self-contained practice question.",
+        "references": [
+          {
+            "label": "Resolving relative references",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/API/URL_API/Resolving_relative_references"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "A path-relative link must include a protocol and server name.",
+              "right": "No",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "lessons/intro.html can reference a document in a subdirectory of the current page’s directory.",
+              "right": "Yes",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "pair-3",
+              "left": "images/logo.png can reference an image on a different server without changing the document base URL.",
+              "right": "No",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "pair-4",
+              "left": "https://www.contoso.com/products.html is an absolute URL.",
+              "right": "Yes",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "html-css-q002",
@@ -137,7 +191,7 @@
           "page": 3
         }
       ],
-      "prompt": "You are creating a page on your personal website to display your family portrait. You need browsers to display the text Family Portrait before the photo is downloaded. Complete the markup. Each segment may be used once, more than once, or not at all.",
+      "prompt": "Display the image portrait.png with the text alternative Family Portrait for assistive technology or when the image is unavailable. Complete the element and attributes. Choices may be reused or omitted.",
       "exhibit": "<[1] [2]=\"portrait.png\" [3]=\"Family Portrait\">",
       "options": [],
       "correctIds": [],
@@ -182,11 +236,13 @@
           ]
         }
       ],
-      "explanation": "Use an img element, src for the image URL, and alt for alternative text. The alt text also gives assistive technology an alternative to the image.",
+      "explanation": "img embeds the image, src identifies its resource, and alt supplies the text alternative. alt is useful when the image cannot be rendered and for assistive technology; a particular pre-download visual display is not guaranteed.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "img / src / alt",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "img",
         "picture",
@@ -195,8 +251,64 @@
         "href",
         "alt"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "adapted",
+        "reviewedAt": "2026-11-26",
+        "summary": "Adapted from the source: ambiguous or clipped wording/markup has been completed for a self-contained practice question.",
+        "references": [
+          {
+            "label": "Image text alternatives",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "[1] Image element",
+              "right": "img",
+              "options": [
+                "img",
+                "picture",
+                "src",
+                "title",
+                "href",
+                "alt"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "[2] Image URL attribute",
+              "right": "src",
+              "options": [
+                "img",
+                "picture",
+                "src",
+                "title",
+                "href",
+                "alt"
+              ]
+            },
+            {
+              "id": "pair-3",
+              "left": "[3] Alternative-text attribute",
+              "right": "alt",
+              "options": [
+                "img",
+                "picture",
+                "src",
+                "title",
+                "href",
+                "alt"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "html-css-q003",
@@ -214,7 +326,7 @@
           "page": 4
         }
       ],
-      "prompt": "Complete the link pseudo-class rules so links appear red when the page loads, green while being activated, orange when the pointer moves over them, and blue if previously visited. Each selector may be used once, more than once, or not at all.",
+      "prompt": "Complete the link pseudo-class rules: unvisited links red, visited links blue, links under the pointer orange, and links during activation green. Each selector may be used once, more than once, or not at all.",
       "exhibit": "[1] { color: red; }\n[2] { color: blue; }\n[3] { color: orange; }\n[4] { color: green; }",
       "options": [],
       "correctIds": [],
@@ -264,19 +376,30 @@
           ]
         }
       ],
-      "explanation": "The source orders the link rules as link, visited, hover, active. These pseudo-classes distinguish unvisited, visited, pointer-hovered, and activated links.",
+      "explanation": "Use a:link for unvisited links, a:visited for visited links, a:hover for pointer hover, and a:active for activation. Keeping these equal-specificity rules in link, visited, hover, active order lets the interactive states override earlier colors.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "a:link / a:visited / a:hover / a:active",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "a:active",
         "a:visited",
         "a:link",
         "a:hover"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "CSS cascade and specificity",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Specificity"
+          }
+        ]
+      }
     },
     {
       "id": "html-css-q004",
@@ -318,13 +441,24 @@
         "a"
       ],
       "pairs": [],
-      "explanation": "The source answer is A. The markup supplies no author stylesheet or inline style, so the browser uses its default styles.",
+      "explanation": "No author CSS is supplied, so the browser uses its default stylesheet. User styles and browser preferences can also affect rendering.",
       "status": "standard",
       "scorable": true,
       "type": "single",
-      "answerLabel": "A",
+      "answerLabel": "The browser default style will be used.",
       "contentFormat": "text",
-      "answerExhibit": ""
+      "answerExhibit": "",
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "CSS cascade and specificity",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Specificity"
+          }
+        ]
+      }
     },
     {
       "id": "html-css-q005",
@@ -384,17 +518,28 @@
           ]
         }
       ],
-      "explanation": "Read the full stylesheet and markup together, then compare the specificity and source order of the applicable declarations. The source selections are No, Yes, Yes, No.",
+      "explanation": "The inline paragraph color is blue. The later internal h1 rule makes Awards maroon and the h2 rule makes Rock Climbing 101 blue. The unstyled paragraph uses black from the internal rule, which follows the external rule of equal specificity.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "No / Yes / Yes / No",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "Yes",
         "No"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "CSS cascade and specificity",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Specificity"
+          }
+        ]
+      }
     },
     {
       "id": "html-css-q006",
@@ -433,17 +578,53 @@
         }
       ],
       "correctIds": [
-        "a"
+        "d"
       ],
       "pairs": [],
-      "explanation": "The PDF marks A (Pink), but the paragraph is directly matched by .light p and therefore has a green background. The pink inline background belongs to the enclosing div; background-color is not inherited. The source key is retained for comparison and is excluded from standard practice.",
-      "status": "qualified",
-      "scorable": false,
+      "explanation": "Green is correct. The .light p selector directly sets the paragraph background and is more specific than p. Pink belongs to the enclosing div; background-color is not inherited. This corrects the PDF key, Pink.",
+      "status": "standard",
+      "scorable": true,
       "type": "single",
-      "answerLabel": "A",
+      "answerLabel": "Green",
       "contentFormat": "text",
       "answerExhibit": "",
-      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+      "review": {
+        "kind": "corrected",
+        "reviewedAt": "2026-11-26",
+        "summary": "Corrected source key or code. The explanation identifies the repair.",
+        "references": [
+          {
+            "label": "CSS cascade and specificity",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Specificity"
+          }
+        ],
+        "originalAnswer": {
+          "type": "single",
+          "answerLabel": "A",
+          "correctIds": [
+            "a"
+          ],
+          "pairs": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Pink"
+            },
+            {
+              "id": "b",
+              "text": "Blue"
+            },
+            {
+              "id": "c",
+              "text": "Yellow"
+            },
+            {
+              "id": "d",
+              "text": "Green"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "html-css-q007",
@@ -485,13 +666,24 @@
         "d"
       ],
       "pairs": [],
-      "explanation": "The universal selector, *, selects all elements. The source identifies option D; the other selectors have narrower scope.",
+      "explanation": "The universal selector * matches every element. The other choices are combinators or an incomplete pseudo-class prefix.",
       "status": "standard",
       "scorable": true,
       "type": "single",
-      "answerLabel": "D",
+      "answerLabel": "*",
       "contentFormat": "text",
-      "answerExhibit": ""
+      "answerExhibit": "",
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "CSS cascade and specificity",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Specificity"
+          }
+        ]
+      }
     },
     {
       "id": "html-css-q008",
@@ -554,11 +746,13 @@
           ]
         }
       ],
-      "explanation": "The selector h1 targets heading elements, and the declaration text-align: center centers their inline content.",
+      "explanation": "h1 selects all h1 elements; text-align: center centers their inline content.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "h1 / text-align / center",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "text-align",
         "center",
@@ -567,8 +761,17 @@
         ".",
         ".h1"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "CSS cascade and specificity",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Specificity"
+          }
+        ]
+      }
     },
     {
       "id": "html-css-q009",
@@ -602,7 +805,7 @@
         },
         {
           "id": "pair-2",
-          "left": "Percent and EM are relative measurements, and the size of each depends upon its parent.",
+          "left": "The em unit always refers to the root element’s font size.",
           "right": "No",
           "options": [
             "Yes",
@@ -611,7 +814,7 @@
         },
         {
           "id": "pair-3",
-          "left": "Pixels are recommended units for specifying size.",
+          "left": "width: 50% always means half the viewport width.",
           "right": "No",
           "options": [
             "Yes",
@@ -620,26 +823,80 @@
         },
         {
           "id": "pair-4",
-          "left": "The font-family attribute helps ensure maximum compatibility between web browsers.",
-          "right": "No",
+          "left": "A font-family fallback list can help when the preferred font is unavailable.",
+          "right": "Yes",
           "options": [
             "Yes",
             "No"
           ]
         }
       ],
-      "explanation": "The PDF marks Yes, No, No, No. Its unit and compatibility statements are too broad for a universal key: the reference for a percentage depends on the property, and em for font-size differs from em used in other properties. Keep this wording and key in context.",
-      "status": "qualified",
-      "scorable": false,
+      "explanation": "CSS comments use /* ... */. em does not always refer to the root font size; rem does. Percentage references depend on the property and context, so width: 50% is not always half the viewport. A font-family fallback list helps when the preferred font is unavailable. These statements replace ambiguous source generalizations.",
+      "status": "standard",
+      "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "Yes / No / No / Yes",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "Yes",
         "No"
       ],
-      "contentFormat": "text",
-      "answerExhibit": "",
-      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+      "review": {
+        "kind": "adapted",
+        "reviewedAt": "2026-11-26",
+        "summary": "Adapted from the source: ambiguous or clipped wording/markup has been completed for a self-contained practice question.",
+        "references": [
+          {
+            "label": "CSS length units",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/length"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "A CSS comment starts with /* and ends with */.",
+              "right": "Yes",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "The em unit always refers to the root element’s font size.",
+              "right": "No",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "pair-3",
+              "left": "width: 50% always means half the viewport width.",
+              "right": "No",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "pair-4",
+              "left": "A font-family fallback list can help when the preferred font is unavailable.",
+              "right": "Yes",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "html-css-q010",
@@ -687,7 +944,7 @@
         {
           "id": "pair-3",
           "left": "Line 03: text color",
-          "right": "red",
+          "right": "purple",
           "options": [
             "red",
             "blue",
@@ -696,11 +953,13 @@
           ]
         }
       ],
-      "explanation": "The PDF selects red, 30 pixels, and red. Line 03 has no matching ID or author color rule in the shown code and instead inherits purple from body. The first two selections follow #style1; the final red selection is inconsistent with the exhibit.",
-      "status": "qualified",
-      "scorable": false,
+      "explanation": "Line 02 matches #style1, giving red text at 30px. Line 03 has no overriding color rule and inherits purple from body. The source final selection, red, is corrected to purple.",
+      "status": "standard",
+      "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "red / 30 pixels / purple",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "red",
         "blue",
@@ -711,9 +970,58 @@
         "40 pixels",
         "10 pixels"
       ],
-      "contentFormat": "text",
-      "answerExhibit": "",
-      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+      "review": {
+        "kind": "corrected",
+        "reviewedAt": "2026-11-26",
+        "summary": "Corrected source key or code. The explanation identifies the repair.",
+        "references": [
+          {
+            "label": "CSS cascade and specificity",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Specificity"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "Line 02: text color",
+              "right": "red",
+              "options": [
+                "red",
+                "blue",
+                "green",
+                "purple"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "Line 02: font size",
+              "right": "30 pixels",
+              "options": [
+                "20 pixels",
+                "30 pixels",
+                "40 pixels",
+                "10 pixels"
+              ]
+            },
+            {
+              "id": "pair-3",
+              "left": "Line 03: text color",
+              "right": "purple",
+              "options": [
+                "red",
+                "blue",
+                "green",
+                "purple"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "html-css-q011",
@@ -783,13 +1091,24 @@
         "item-9"
       ],
       "pairs": [],
-      "explanation": "Place the document type first, metadata inside head, and visible content inside body. Close nested elements in reverse order.",
+      "explanation": "The doctype precedes html. The title belongs inside head; the visible greeting belongs inside body. Close each element in nesting order.",
       "status": "standard",
       "scorable": true,
       "type": "ordering",
-      "answerLabel": "Put the source items in the sequence below.",
+      "answerLabel": "<!DOCTYPE html> → <html> → <head> → <title>Northwind Traders</title> → </head> → <body> → <p>Welcome to the Northwind Traders website.</p> → </body> → </html>",
       "contentFormat": "text",
-      "answerExhibit": ""
+      "answerExhibit": "",
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "CSS cascade and specificity",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Specificity"
+          }
+        ]
+      }
     },
     {
       "id": "html-css-q012",
@@ -808,18 +1127,18 @@
         }
       ],
       "prompt": "You are creating a simple HTML page that displays Hello World. Complete the document using well-formed markup. Each tag may be used once, more than once, or not at all.",
-      "exhibit": "<[1]>\n<[2]>\n  <[3]>\n    Hello World\n  </[4]>\n</[5]>",
+      "exhibit": "<[1]>\n<[2]>\n  <head>\n    <meta charset=\"utf-8\">\n    <title>Hello World</title>\n  </head>\n  <[3]>\n    Hello World\n  </[4]>\n</[5]>",
       "options": [],
       "correctIds": [],
       "pairs": [
         {
           "id": "pair-1",
           "left": "[1] Document-type declaration",
-          "right": "DOCTYPE html!",
+          "right": "!DOCTYPE html",
           "options": [
             "body",
             "html",
-            "DOCTYPE html!",
+            "!DOCTYPE html",
             "head"
           ]
         },
@@ -830,7 +1149,7 @@
           "options": [
             "body",
             "html",
-            "DOCTYPE html!",
+            "!DOCTYPE html",
             "head"
           ]
         },
@@ -841,7 +1160,7 @@
           "options": [
             "body",
             "html",
-            "DOCTYPE html!",
+            "!DOCTYPE html",
             "head"
           ]
         },
@@ -852,7 +1171,7 @@
           "options": [
             "body",
             "html",
-            "DOCTYPE html!",
+            "!DOCTYPE html",
             "head"
           ]
         },
@@ -863,25 +1182,98 @@
           "options": [
             "body",
             "html",
-            "DOCTYPE html!",
+            "!DOCTYPE html",
             "head"
           ]
         }
       ],
-      "explanation": "Source-key caveat: the source prints DOCTYPE html! in the first slot. Valid HTML puts the exclamation mark before DOCTYPE: <!DOCTYPE html>. The visible content belongs inside body, within the html element.",
-      "status": "qualified",
-      "scorable": false,
+      "explanation": "The declaration is <!DOCTYPE html>, so the first blank inside angle brackets is !DOCTYPE html. html encloses head and body; Hello World belongs in body. The PDF misplaced the exclamation mark. A fixed head and title have been added to make the exercise complete.",
+      "status": "standard",
+      "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "!DOCTYPE html / html / body / body / html",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "body",
         "html",
-        "DOCTYPE html!",
+        "!DOCTYPE html",
         "head"
       ],
-      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item.",
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "corrected",
+        "reviewedAt": "2026-11-26",
+        "summary": "Corrected source key or code. The explanation identifies the repair.",
+        "references": [
+          {
+            "label": "HTML head element",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/head"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "[1] Document-type declaration",
+              "right": "!DOCTYPE html",
+              "options": [
+                "body",
+                "html",
+                "!DOCTYPE html",
+                "head"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "[2] Root element",
+              "right": "html",
+              "options": [
+                "body",
+                "html",
+                "!DOCTYPE html",
+                "head"
+              ]
+            },
+            {
+              "id": "pair-3",
+              "left": "[3] Content element",
+              "right": "body",
+              "options": [
+                "body",
+                "html",
+                "!DOCTYPE html",
+                "head"
+              ]
+            },
+            {
+              "id": "pair-4",
+              "left": "[4] Closing content element",
+              "right": "body",
+              "options": [
+                "body",
+                "html",
+                "!DOCTYPE html",
+                "head"
+              ]
+            },
+            {
+              "id": "pair-5",
+              "left": "[5] Closing root element",
+              "right": "html",
+              "options": [
+                "body",
+                "html",
+                "!DOCTYPE html",
+                "head"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "html-css-q013",
@@ -899,19 +1291,70 @@
           "page": 24
         }
       ],
-      "prompt": "You are designing a webpage for Contoso using HTML. Select four markup segments for the head section and arrange them in order. The source permits more than one valid order, but its displayed answer is malformed. Review this exercise as a study reference.",
-      "exhibit": "Available source segments:\n<meta charset=\"utf-8\">\n<!DOCTYPE html>\n<title>About Contoso</title>\n<header>New Releases</header>\n<head/>\n<h3>Contact Us</h3>\n<head>\n<\"meta enctype=\"utf-8>",
-      "options": [],
-      "correctIds": [],
+      "prompt": "Build a head section for the About Contoso page. Select four segments in order, placing the charset declaration before the title. Omit segments that do not belong inside this head section.",
+      "exhibit": "",
+      "options": [
+        {
+          "id": "head-0",
+          "text": "<head>"
+        },
+        {
+          "id": "head-1",
+          "text": "<meta charset=\"utf-8\">"
+        },
+        {
+          "id": "head-2",
+          "text": "<title>About Contoso</title>"
+        },
+        {
+          "id": "head-3",
+          "text": "</head>"
+        },
+        {
+          "id": "head-4",
+          "text": "<!DOCTYPE html>"
+        },
+        {
+          "id": "head-5",
+          "text": "<header>New Releases</header>"
+        },
+        {
+          "id": "head-6",
+          "text": "<head/>"
+        }
+      ],
+      "correctIds": [
+        "head-0",
+        "head-1",
+        "head-2",
+        "head-3"
+      ],
       "pairs": [],
-      "explanation": "The source answer places a document-type declaration inside a head-section exercise and uses <head/> instead of a closing </head>. A head section can contain character-encoding metadata and a title; the doctype belongs before the document element. The example labeled Concept reference shows the distinction. This source item is not scored.",
-      "status": "invalid",
-      "scorable": false,
-      "type": "reference",
-      "answerLabel": "Source diagram for study",
-      "studyNote": "The source answer diagram is incomplete or inconsistent. This exercise is available as a flashcard and is excluded from quizzes.",
+      "explanation": "A head section can contain charset metadata and a title. This exercise explicitly requires charset before title, giving a unique order. The doctype belongs before html, header belongs in body, and </head> closes head. The malformed source diagram has been replaced with an adapted, complete exercise.",
+      "status": "standard",
+      "scorable": true,
+      "type": "ordering",
+      "answerLabel": "<head> → <meta charset=\"utf-8\"> → <title>About Contoso</title> → </head>",
       "contentFormat": "text",
-      "answerExhibit": "Source diagram’s selected segments:\n<!DOCTYPE html>\n<head>\n<title>About Contoso</title>\n<head/>\n\nConcept reference, distinct from the malformed source key:\n<head>\n  <meta charset=\"utf-8\">\n  <title>About Contoso</title>\n</head>"
+      "answerExhibit": "",
+      "review": {
+        "kind": "adapted",
+        "reviewedAt": "2026-11-26",
+        "summary": "Adapted from the source: ambiguous or clipped wording/markup has been completed for a self-contained practice question.",
+        "references": [
+          {
+            "label": "HTML head element",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/head"
+          }
+        ],
+        "originalAnswer": {
+          "type": "reference",
+          "answerLabel": "Source diagram for study",
+          "correctIds": [],
+          "pairs": [],
+          "options": []
+        }
+      }
     },
     {
       "id": "html-css-q014",
@@ -929,19 +1372,97 @@
           "page": 26
         }
       ],
-      "prompt": "You are creating the Blue Yonder Airlines home page. It uses JavaScript and must display “Your browser does not support JavaScript!” when scripting is unavailable. Match a metadata element to each content or attribute-value pair. Each element may be used once, more than once, or not at all. The source’s completed diagram is incomplete, so this is a study reference.",
-      "exhibit": "Available elements:\n<script>  <meta>  <title>  <noscript>  <base>\n\nTargets:\n1. href=\"style.css\"\n2. src=\"_js/form.js\"\n3. Blue Yonder Airlines\n4. Your browser does not support JavaScript!",
+      "prompt": "Complete this Blue Yonder Airlines page: load style.css as a stylesheet, load _js/form.js as an external script, set the page title, and show the specified fallback when scripting is disabled. Select the element name for each blank.",
+      "exhibit": "<head>\n  <[1] rel=\"stylesheet\" href=\"style.css\">\n  <[2] src=\"_js/form.js\"></[2]>\n  <[3]>Blue Yonder Airlines</[3]>\n</head>\n<body>\n  <[4]>Your browser does not support JavaScript!</[4]>\n</body>",
       "options": [],
       "correctIds": [],
-      "pairs": [],
-      "explanation": "The source leaves target boxes blank and omits link from its choices even though style.css is a stylesheet. Its marked meta placement is not a stylesheet link. The concept reference supplies the appropriate elements without inventing a complete original key. This exercise is not scored.",
-      "status": "invalid",
-      "scorable": false,
-      "type": "reference",
-      "answerLabel": "Source diagram for study",
-      "studyNote": "The source answer diagram is incomplete or inconsistent. This exercise is available as a flashcard and is excluded from quizzes.",
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Stylesheet element",
+          "right": "link",
+          "options": [
+            "link",
+            "script",
+            "title",
+            "noscript",
+            "meta",
+            "base"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] External-script element",
+          "right": "script",
+          "options": [
+            "link",
+            "script",
+            "title",
+            "noscript",
+            "meta",
+            "base"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Tab-title element",
+          "right": "title",
+          "options": [
+            "link",
+            "script",
+            "title",
+            "noscript",
+            "meta",
+            "base"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "[4] Scripting-fallback element",
+          "right": "noscript",
+          "options": [
+            "link",
+            "script",
+            "title",
+            "noscript",
+            "meta",
+            "base"
+          ]
+        }
+      ],
+      "explanation": "link with rel=\"stylesheet\" loads the CSS file; script with src loads JavaScript; title names the browser tab; noscript supplies fallback content when scripting is disabled. meta cannot link a stylesheet. Missing source choices and targets have been replaced with a complete adapted exercise.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "link / script / title / noscript",
       "contentFormat": "text",
-      "answerExhibit": "Source diagram:\n<meta> next to href=\"style.css\"; the other target boxes are unfilled.\n\nConcept reference:\nExternal JavaScript: <script src=\"_js/form.js\"></script>\nPage title: <title>Blue Yonder Airlines</title>\nFallback: <noscript>Your browser does not support JavaScript!</noscript>\nExternal stylesheet: <link rel=\"stylesheet\" href=\"style.css\">"
+      "answerExhibit": "",
+      "review": {
+        "kind": "adapted",
+        "reviewedAt": "2026-11-26",
+        "summary": "Adapted from the source: ambiguous or clipped wording/markup has been completed for a self-contained practice question.",
+        "references": [
+          {
+            "label": "HTML head element",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/head"
+          }
+        ],
+        "originalAnswer": {
+          "type": "reference",
+          "answerLabel": "Source diagram for study",
+          "correctIds": [],
+          "pairs": [],
+          "options": []
+        }
+      },
+      "matchOptions": [
+        "link",
+        "script",
+        "title",
+        "noscript",
+        "meta",
+        "base"
+      ]
     },
     {
       "id": "html-css-q015",
@@ -959,7 +1480,7 @@
           "page": 28
         }
       ],
-      "prompt": "You are designing a responsive webpage. For browser widths below 768 pixels, display the welcome background SmallLogo.png. On other browsers, display NormalLogo.png. Complete the code using the provided choices.",
+      "prompt": "For viewport widths below 768 CSS pixels, use SmallLogo.png as the welcome background. At 768 CSS pixels and above, use NormalLogo.png. Complete the CSS.",
       "exhibit": ".welcome {\n  background-image: url([1]);\n}\n@media only screen and ([2]: 768px) {\n  .welcome {\n    background-image: url([3]);\n  }\n}",
       "options": [],
       "correctIds": [],
@@ -976,7 +1497,7 @@
         {
           "id": "pair-2",
           "left": "[2] Media-query feature",
-          "right": "max-width",
+          "right": "min-width",
           "options": [
             "min-width",
             "max-width"
@@ -992,20 +1513,65 @@
           ]
         }
       ],
-      "explanation": "Source-key caveat: the marked selections use the small image as the base and switch to the normal image under max-width, reversing the stated small-screen requirement. A consistent solution uses the normal image as the base and the small image for widths below the breakpoint, or the inverse base with an appropriate min-width rule.",
-      "status": "qualified",
-      "scorable": false,
+      "explanation": "Use SmallLogo.png as the default, then min-width: 768px to switch to NormalLogo.png at 768px and above. A max-width query would reverse the requirement, including its boundary. The key now covers 767px, 768px, and wider viewports.",
+      "status": "standard",
+      "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "SmallLogo.png / min-width / NormalLogo.png",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "NormalLogo.png",
         "SmallLogo.png",
         "min-width",
         "max-width"
       ],
-      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item.",
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "corrected",
+        "reviewedAt": "2026-11-26",
+        "summary": "Corrected source key or code. The explanation identifies the repair.",
+        "references": [
+          {
+            "label": "Media-query width",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/width"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "[1] Default background image",
+              "right": "SmallLogo.png",
+              "options": [
+                "NormalLogo.png",
+                "SmallLogo.png"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "[2] Media-query feature",
+              "right": "min-width",
+              "options": [
+                "min-width",
+                "max-width"
+              ]
+            },
+            {
+              "id": "pair-3",
+              "left": "[3] Background image inside the media query",
+              "right": "NormalLogo.png",
+              "options": [
+                "NormalLogo.png",
+                "SmallLogo.png"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "html-css-q016",
@@ -1023,14 +1589,14 @@
           "page": 30
         }
       ],
-      "prompt": "A webpage contains the following HTML. For each layout statement, select Yes if it is true. Otherwise, select No.",
-      "exhibit": "01 <div style=\"position: relative; display: inline;\">Welcome!</div>\n02 <div style=\"position: relative; display: inline;\">\n03   How is the Internet different from the Web?\n04   <img src=\"icon.jpg\" alt=\"TCP/IP icon\" style=\"float: left; height: 200px;\" </img>\n05   <p>The Internet is a network of networks, defined by the TCP/IP standards.</p>\n06   <p>The Web is an information space.</p>\n07 </div>",
+      "prompt": "For this explicitly sized layout, select Yes or No for each statement. No additional styles apply. The image floats left; consider how ordinary text and cleared text relate to it.",
+      "exhibit": "<style>\n  .container { width: 600px; font: 16px/24px Arial; }\n  .label, .question { display: inline; }\n  .icon { float: left; width: 100px; height: 200px; }\n  .after { clear: both; }\n</style>\n<div class=\"container\">\n  <span class=\"label\">Welcome!</span>\n  <span class=\"question\">What is the Internet?</span>\n  <img class=\"icon\" src=\"icon.jpg\" alt=\"TCP/IP icon\">\n  <p class=\"description\">The Internet is a network of networks.</p>\n  <p class=\"after\">The Web is an information space.</p>\n</div>",
       "options": [],
       "correctIds": [],
       "pairs": [
         {
           "id": "pair-1",
-          "left": "Line 03 will display next to Line 01.",
+          "left": "Both spans use inline display.",
           "right": "Yes",
           "options": [
             "Yes",
@@ -1039,8 +1605,8 @@
         },
         {
           "id": "pair-2",
-          "left": "The image will display beneath the text on Line 03.",
-          "right": "Yes",
+          "left": "The description paragraph must be placed entirely below the floated image.",
+          "right": "No",
           "options": [
             "Yes",
             "No"
@@ -1048,7 +1614,7 @@
         },
         {
           "id": "pair-3",
-          "left": "Lines 05 and 06 display beneath the image.",
+          "left": "The paragraph with class after clears the float and starts below the image.",
           "right": "Yes",
           "options": [
             "Yes",
@@ -1056,18 +1622,63 @@
           ]
         }
       ],
-      "explanation": "The PDF marks all three statements Yes. The shown img tag is malformed, and the paragraphs have no clear rule to force them below the left-floated image; text may wrap beside it depending on available space. Preserve the source’s key as a source reference, not a reliable universal layout prediction.",
-      "status": "qualified",
-      "scorable": false,
+      "explanation": "Both spans explicitly use display: inline. A following paragraph can wrap beside a floated image and is not forced entirely below it. clear: both on the final paragraph moves it below preceding floats. Valid markup and explicit layout rules replace the source’s malformed, underspecified exhibit.",
+      "status": "standard",
+      "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "Yes / No / Yes",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "Yes",
         "No"
       ],
-      "contentFormat": "text",
-      "answerExhibit": "",
-      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+      "review": {
+        "kind": "adapted",
+        "reviewedAt": "2026-11-26",
+        "summary": "Adapted from the source: ambiguous or clipped wording/markup has been completed for a self-contained practice question.",
+        "references": [
+          {
+            "label": "CSS clear",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/clear"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "Both spans use inline display.",
+              "right": "Yes",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "The description paragraph must be placed entirely below the floated image.",
+              "right": "No",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "pair-3",
+              "left": "The paragraph with class after clears the float and starts below the image.",
+              "right": "Yes",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "html-css-q017",
@@ -1085,8 +1696,8 @@
           "page": 32
         }
       ],
-      "prompt": "You are reviewing the CSS below. The source says you apply the productBox style to a div and claims it will display white text on a green background. Select “No change is needed” if that claim is correct; otherwise, select the replacement description.",
-      "exhibit": ".product {\n  color: #000000;\n  background-color: #00FF00;\n}",
+      "prompt": "The .productBox rule below applies to the displayed div. A designer claims it displays white text on a green background. Choose No change is needed if that claim is correct; otherwise, select its replacement description.",
+      "exhibit": ".productBox {\n  color: #000000;\n  background-color: #00FF00;\n}\n\n<div class=\"productBox\">Product information</div>",
       "options": [
         {
           "id": "a",
@@ -1109,14 +1720,50 @@
         "c"
       ],
       "pairs": [],
-      "explanation": "The PDF marks C, which describes #000000 text and #00FF00 background if the shown rule matches. However, the selector is .product while the prompt names productBox. That mismatch must be resolved before predicting an actual element’s appearance.",
-      "status": "qualified",
-      "scorable": false,
+      "explanation": "The corrected .productBox selector matches the displayed div. #000000 is black and #00FF00 is green. The source’s .product versus productBox mismatch has been repaired; answer C remains correct.",
+      "status": "standard",
+      "scorable": true,
       "type": "single",
-      "answerLabel": "C",
+      "answerLabel": "Black text on a green background.",
       "contentFormat": "text",
       "answerExhibit": "",
-      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+      "review": {
+        "kind": "corrected",
+        "reviewedAt": "2026-11-26",
+        "summary": "Corrected source key or code. The explanation identifies the repair.",
+        "references": [
+          {
+            "label": "CSS hexadecimal colors",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/hex-color"
+          }
+        ],
+        "originalAnswer": {
+          "type": "single",
+          "answerLabel": "C",
+          "correctIds": [
+            "c"
+          ],
+          "pairs": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "No change is needed."
+            },
+            {
+              "id": "b",
+              "text": "White text on a red background."
+            },
+            {
+              "id": "c",
+              "text": "Black text on a green background."
+            },
+            {
+              "id": "d",
+              "text": "Black text on a blue background."
+            }
+          ]
+        }
+      }
     },
     {
       "id": "html-css-q018",
@@ -1134,8 +1781,8 @@
           "page": 33
         }
       ],
-      "prompt": "You are creating an About Us page for Northwind Traders. Its example paragraph uses blue italic text, a 50-pixel line height, and a 1.5em font size. Complete the four CSS property names in the source rule.",
-      "exhibit": "p {\n  [1]: #000ff;\n  [2]: 50px;\n  [3]: 1.5em;\n  [4]: italic;\n}",
+      "prompt": "You are creating an About Us page for Northwind Traders. Its example paragraph uses blue italic text, a 50-pixel line height, and a 1.5em font size. Complete the four CSS property names in the rule.",
+      "exhibit": "p {\n  [1]: #0000ff;\n  [2]: 50px;\n  [3]: 1.5em;\n  [4]: italic;\n}",
       "options": [],
       "correctIds": [],
       "pairs": [
@@ -1183,11 +1830,13 @@
           ]
         }
       ],
-      "explanation": "The selected property names are color, line-height, font-size, and font-style. The source displays the five-digit value #000ff, which is not valid CSS hexadecimal color syntax. Blue would conventionally be #0000ff or #00f. The transcription preserves the source literal and flags it.",
-      "status": "qualified",
-      "scorable": false,
+      "explanation": "Use color, line-height, font-size, and font-style. #0000ff is valid blue; the source’s five-digit #000ff was invalid. The font size 1.5em is relative to the inherited font size, whereas line-height is explicitly 50px.",
+      "status": "standard",
+      "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "color / line-height / font-size / font-style",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "color",
         "font-variant",
@@ -1202,9 +1851,68 @@
         "font-style",
         "font-family"
       ],
-      "contentFormat": "text",
-      "answerExhibit": "",
-      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+      "review": {
+        "kind": "corrected",
+        "reviewedAt": "2026-11-26",
+        "summary": "Corrected source key or code. The explanation identifies the repair.",
+        "references": [
+          {
+            "label": "CSS hexadecimal colors",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/hex-color"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "[1] Text-color property",
+              "right": "color",
+              "options": [
+                "color",
+                "font-variant",
+                "border-color",
+                "background-color"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "[2] Line-spacing property",
+              "right": "line-height",
+              "options": [
+                "position",
+                "line-height",
+                "text-indent",
+                "letter-spacing"
+              ]
+            },
+            {
+              "id": "pair-3",
+              "left": "[3] Text-size property",
+              "right": "font-size",
+              "options": [
+                "font-size",
+                "font-variant",
+                "font-weight"
+              ]
+            },
+            {
+              "id": "pair-4",
+              "left": "[4] Italic-text property",
+              "right": "font-style",
+              "options": [
+                "font-style",
+                "font-family",
+                "font-variant",
+                "font-weight"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "html-css-q019",
@@ -1229,7 +1937,7 @@
       "pairs": [
         {
           "id": "pair-1",
-          "left": "The background of the page will be red.",
+          "left": "The background color is red.",
           "right": "No",
           "options": [
             "Yes",
@@ -1238,26 +1946,62 @@
         },
         {
           "id": "pair-2",
-          "left": "The page will display the watermark multiple times horizontally starting at the right.",
-          "right": "No",
+          "left": "The image uses horizontal repetition and is positioned at the right edge.",
+          "right": "Yes",
           "options": [
             "Yes",
             "No"
           ]
         }
       ],
-      "explanation": "The PDF marks both statements No. #0000FF is blue, so the first No is appropriate. repeat-x requests horizontal repetition and right sets horizontal positioning, making the source’s second No questionable as worded. Read the actual declaration rather than memorizing that selection.",
-      "status": "qualified",
-      "scorable": false,
+      "explanation": "#0000FF is blue, not red. repeat-x requests horizontal repetition and right positions the background image at the right edge. The second statement is now precise and true, correcting the source’s second No.",
+      "status": "standard",
+      "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "No / Yes",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "Yes",
         "No"
       ],
-      "contentFormat": "text",
-      "answerExhibit": "",
-      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+      "review": {
+        "kind": "corrected",
+        "reviewedAt": "2026-11-26",
+        "summary": "Corrected source key or code. The explanation identifies the repair.",
+        "references": [
+          {
+            "label": "CSS background",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/background"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "The background color is red.",
+              "right": "No",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "The image uses horizontal repetition and is positioned at the right edge.",
+              "right": "Yes",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "html-css-q020",
@@ -1275,7 +2019,7 @@
           "page": 39
         }
       ],
-      "prompt": "Evaluate the term “Static positioning” in this statement: “Static positioning places an element at specific coordinates relative to the page or the element’s container.” Select “No change is needed” if the statement is correct; otherwise, choose its replacement.",
+      "prompt": "Evaluate the term Static positioning in this statement: “Static positioning removes an element from normal flow and uses top/right/bottom/left offsets relative to its nearest positioned ancestor’s containing block.” Assume such an ancestor exists and no transform establishes another containing block. Choose the replacement term, or No change is needed.",
       "exhibit": "",
       "options": [
         {
@@ -1296,17 +2040,53 @@
         }
       ],
       "correctIds": [
-        "c"
+        "b"
       ],
       "pairs": [],
-      "explanation": "The PDF marks C (Relative positioning). For explicit placement relative to a containing block, B (Absolute positioning) is the conventional intended description. Relative positioning offsets an element from its own normal-flow position. The original key is retained but excluded from standard practice.",
-      "status": "qualified",
-      "scorable": false,
+      "explanation": "Absolute positioning removes the element from normal flow. In this stated setup, offsets are measured from its nearest positioned ancestor’s containing block. Relative positioning instead offsets an element from its normal position and preserves its flow space. The source’s vague wording and Relative key have been corrected.",
+      "status": "standard",
+      "scorable": true,
       "type": "single",
-      "answerLabel": "C",
+      "answerLabel": "Absolute positioning",
       "contentFormat": "text",
       "answerExhibit": "",
-      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+      "review": {
+        "kind": "adapted",
+        "reviewedAt": "2026-11-26",
+        "summary": "Adapted from the source: ambiguous or clipped wording/markup has been completed for a self-contained practice question.",
+        "references": [
+          {
+            "label": "CSS positioning",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position"
+          }
+        ],
+        "originalAnswer": {
+          "type": "single",
+          "answerLabel": "C",
+          "correctIds": [
+            "c"
+          ],
+          "pairs": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "No change is needed."
+            },
+            {
+              "id": "b",
+              "text": "Absolute positioning"
+            },
+            {
+              "id": "c",
+              "text": "Relative positioning"
+            },
+            {
+              "id": "d",
+              "text": "Fixed positioning"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "html-css-q021",
@@ -1405,11 +2185,13 @@
           ]
         }
       ],
-      "explanation": "Set color, font-family, font-size, font-weight, and text-align to satisfy the requested blue Arial heading, 20 pixels in size, bold and centered.",
+      "explanation": "color sets blue, font-family selects Arial, font-size sets 20px, font-weight makes the text bold, and text-align centers inline content.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "color / font-family / font-size / font-weight / text-align",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "color",
         "font-family",
@@ -1420,8 +2202,17 @@
         "text-decoration-color",
         "vertical-align"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "CSS cascade and specificity",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Specificity"
+          }
+        ]
+      }
     },
     {
       "id": "html-css-q022",
@@ -1439,7 +2230,7 @@
           "page": 41
         }
       ],
-      "prompt": "You are designing a webpage that displays contoso.png. If the connection is slow, or the user is visually impaired, the text Contoso Logo must be displayed or read aloud. Complete the markup.",
+      "prompt": "Display the image contoso.png with the text alternative Contoso Logo for assistive technology or when the image is unavailable. Complete the element and attributes. Choices may be reused or omitted.",
       "exhibit": "<[1] [2]=\"contoso.png\" [3]=\"Contoso Logo\">",
       "options": [],
       "correctIds": [],
@@ -1472,11 +2263,13 @@
           ]
         }
       ],
-      "explanation": "The img element displays the image, src names its file, and alt supplies the Contoso Logo text alternative.",
+      "explanation": "Use img with src=\"contoso.png\" and alt=\"Contoso Logo\". alt is the image’s text alternative; title is advisory information and is not a substitute.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "img / src / alt",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "img",
         "picture",
@@ -1485,8 +2278,52 @@
         "alt",
         "title"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "adapted",
+        "reviewedAt": "2026-11-26",
+        "summary": "Adapted from the source: ambiguous or clipped wording/markup has been completed for a self-contained practice question.",
+        "references": [
+          {
+            "label": "Image text alternatives",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "[1] Image element",
+              "right": "img",
+              "options": [
+                "img",
+                "picture"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "[2] Source attribute",
+              "right": "src",
+              "options": [
+                "src",
+                "srcset"
+              ]
+            },
+            {
+              "id": "pair-3",
+              "left": "[3] Text-alternative attribute",
+              "right": "alt",
+              "options": [
+                "alt",
+                "title"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "html-css-q023",
@@ -1549,11 +2386,13 @@
           ]
         }
       ],
-      "explanation": "The video element’s controls attribute provides the browser’s playback controls. A source element identifies the MP4 resource; fallback text goes inside the video element.",
+      "explanation": "video controls provides the playback controls. A nested source points to HowTo.mp4 with MIME type video/mp4. The closing tag is video. Fallback child text is for browsers without video-element support; it is not a general codec-error message.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "video controls / <source src=\"HowTo.mp4\" type=\"video/mp4\"> / video",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "source",
         "source controls",
@@ -1562,8 +2401,17 @@
         "video controls",
         "<video src=\"HowTo.mp4\" type=\"video/mp4\">"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "HTML video element",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video"
+          }
+        ]
+      }
     },
     {
       "id": "html-css-q024",
@@ -1581,7 +2429,7 @@
           "page": 44
         }
       ],
-      "prompt": "Display an HTML5 logo on a webpage. If the page renders slowly, display the text HTML Icon while the image loads. Complete the image element, file attribute, and text-alternative attribute.",
+      "prompt": "Display the image html15.gif with the text alternative HTML Icon for assistive technology or when the image is unavailable. Complete the element and attributes. Choices may be reused or omitted.",
       "exhibit": "<[1] [2]=\"html15.gif\" [3]=\"HTML Icon\">",
       "options": [],
       "correctIds": [],
@@ -1617,11 +2465,13 @@
           ]
         }
       ],
-      "explanation": "Use img, src, and alt. The source screenshot clips the right-hand attribute value; this text version uses HTML Icon, which is explicitly required by its prompt. There is no separately recoverable width field to answer.",
+      "explanation": "Use img, src, and alt. HTML Icon is the text alternative explicitly required in the source prompt; the clipped attribute value is completed from that requirement. How and when alternative text appears visually depends on the browser.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "img / src / alt",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "figure",
         "img",
@@ -1633,8 +2483,55 @@
         "name",
         "title"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "adapted",
+        "reviewedAt": "2026-11-26",
+        "summary": "Adapted from the source: ambiguous or clipped wording/markup has been completed for a self-contained practice question.",
+        "references": [
+          {
+            "label": "Image text alternatives",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "[1] Element",
+              "right": "img",
+              "options": [
+                "figure",
+                "img",
+                "div"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "[2] File attribute",
+              "right": "src",
+              "options": [
+                "href",
+                "src",
+                "target"
+              ]
+            },
+            {
+              "id": "pair-3",
+              "left": "[3] Alternative-text attribute",
+              "right": "alt",
+              "options": [
+                "alt",
+                "name",
+                "title"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     }
   ]
 }

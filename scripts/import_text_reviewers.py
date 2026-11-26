@@ -1,7 +1,10 @@
 """Rebuild native text exercises from reviewed transcriptions; no OCR dependency."""
 import json
+import sys
+sys.dont_write_bytecode = True
 from pathlib import Path
 from text_reviewer_content import HTML_TEXT, JS_TEXT
+from reviewed_answers import apply_review
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -49,7 +52,14 @@ def convert(bank, entries):
 def main():
     for name,entries in [('html-css',HTML_TEXT),('javascript',JS_TEXT)]:
         path=ROOT/f'src/data/{name}.json'
-        bank=convert(json.loads(path.read_text(encoding='utf-8')),entries)
+        bank=json.loads(path.read_text(encoding='utf-8'))
+        source_keys=json.loads((ROOT/'scripts/source_reviewer_keys.json').read_text(encoding='utf-8'))[name]
+        # Restore source-era keys before transcription so repeated imports are deterministic.
+        for q in bank['questions']:
+            for key in ['matchOptions','studyNote','review']:
+                q.pop(key,None)
+            q.update(source_keys[str(q['number'])])
+        bank=apply_review(convert(bank,entries),name,source_keys)
         path.write_text(json.dumps(bank,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         print(name,len(bank['questions']),'text exercises;',sum(q['scorable'] for q in bank['questions']),'standard quiz items')
 

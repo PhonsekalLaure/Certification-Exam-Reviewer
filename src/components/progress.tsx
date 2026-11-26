@@ -5,7 +5,7 @@ import { ArrowDownToLine, ArrowUpFromLine, Check, HardDrive, History, Trash2, X 
 import { Button } from "@/components/ui/button";
 import { useStudyActions } from "@/lib/store";
 import { useQuestionBank, useCertification } from "@/lib/certification-context";
-import { EMPTY_STATE, parseStudyState, type StudyState } from "@/lib/study";
+import { EMPTY_STATE, parseStudyState, studySummary, type StudyState } from "@/lib/study";
 import { Meter } from "./study-parts";
 
 export function Progress({ state }: { state: StudyState }) {
@@ -17,9 +17,7 @@ export function Progress({ state }: { state: StudyState }) {
   const [action, setAction] = useState<"reset" | "import">("reset");
   const dialog = useRef<HTMLDialogElement>(null);
   const fileInput = useRef<HTMLInputElement>(null);
-  const totals = Object.values(state.results).reduce((sum, r) => ({ attempts: sum.attempts + r.attempts, correct: sum.correct + r.correct }), { attempts: 0, correct: 0 });
-  const studied = questions.filter(q => state.cards[q.id] || state.results[q.id]).length;
-  const known = Object.values(state.cards).filter(r => r === "known").length;
+  const { totals, studied, known } = studySummary(questions, state);
 
   function exportBackup() {
     const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });

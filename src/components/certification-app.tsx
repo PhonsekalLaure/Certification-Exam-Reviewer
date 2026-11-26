@@ -11,21 +11,28 @@ const loaders = {
   javascript: async () => (await import("@/data/javascript.json")).default,
 };
 export function CertificationApp() {
-  const [selected, setSelected] = useState<{ id: CertificationId; bank: QuestionBank }>({ id: "ccst", bank: ccst as QuestionBank });
+  const [selected, setSelected] = useState<{ id: CertificationId; bank: QuestionBank } | null>(null);
   const [loading, setLoading] = useState(false);
   const [loadError, setLoadError] = useState("");
   const requestId = useRef(0);
   useEffect(() => {
     let cancelled = false;
-    let saved: string | null = null;
-    try { saved = localStorage.getItem(ACTIVE_KEY); } catch { /* Selection is optional. */ }
-    const id = certifications.find(c => c.id === saved)?.id;
     const request = requestId.current;
-    if (id && id !== "ccst") loaders[id]().then(bank => {
-      if (!cancelled && request === requestId.current) setSelected({ id, bank: bank as QuestionBank });
-    }).catch(() => {
-      if (!cancelled && request === requestId.current) setLoadError("The saved certification could not be loaded. Choose it again to retry.");
-    });
+    async function restoreCertification() {
+      let saved: string | null = null;
+      try { saved = localStorage.getItem(ACTIVE_KEY); } catch { /* Selection is optional. */ }
+      const id = certifications.find(c => c.id === saved)?.id ?? "ccst";
+      try {
+        const bank = await loaders[id]();
+        if (!cancelled && request === requestId.current) setSelected({ id, bank: bank as QuestionBank });
+      } catch {
+        if (!cancelled && request === requestId.current) {
+          setSelected({ id: "ccst", bank: ccst as QuestionBank });
+          setLoadError("The saved certification could not be loaded. Choose it again to retry.");
+        }
+      }
+    }
+    void restoreCertification();
     return () => { cancelled = true; };
   }, []);
   async function selectCertification(id: CertificationId) {
@@ -39,5 +46,6 @@ export function CertificationApp() {
     } catch { if (request === requestId.current) setLoadError("This certification could not be loaded. Please try again."); }
     finally { if (request === requestId.current) setLoading(false); }
   }
+  if (!selected) return <main className="startup-loading" aria-busy="true"><div className="panel"><span className="eyebrow">STUDYROOM</span><h1>Opening your study room</h1><p role="status">Loading your saved certification…</p></div></main>;
   return <CertificationContext value={{ certification: certifications.find(c => c.id === selected.id)!, bank: selected.bank, selectCertification, loading, loadError }}><StudyRoom key={selected.id} /></CertificationContext>;
 }

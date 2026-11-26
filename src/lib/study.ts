@@ -10,7 +10,7 @@ export interface Question {
   exhibit: string;
   options: { id: string; text: string }[];
   correctIds: string[];
-  pairs: { id: string; left: string; right: string; options?: string[] }[];
+  pairs: { id: string; left: string; right: string; options?: string[]; acceptedAnswers?: string[] }[];
   answerLabel: string;
   explanation: string;
   status: QuestionStatus;
@@ -21,6 +21,13 @@ export interface Question {
   studyNote?: string;
   contentFormat?: "text";
   answerExhibit?: string;
+  review?: {
+    kind: "verified" | "corrected" | "adapted";
+    reviewedAt: string;
+    summary: string;
+    references: { label: string; url: string }[];
+    originalAnswer?: unknown;
+  };
 }
 export interface Chapter { id: number; title: string; description: string; slug: string; count: number }
 export type CardRating = "learning" | "known";
@@ -35,6 +42,22 @@ export interface StudyState {
 }
 export const EMPTY_STATE: StudyState = { version: 1, bookmarks: [], cards: {}, results: {}, sessions: [], lastStudy: null };
 
+export function studySummary(questions: readonly Question[], state: StudyState) {
+  return {
+    studied: questions.filter(q => state.cards[q.id] || state.results[q.id]).length,
+    known: Object.values(state.cards).filter(rating => rating === "known").length,
+    totals: Object.values(state.results).reduce((sum, result) => ({ attempts: sum.attempts + result.attempts, correct: sum.correct + result.correct }), { attempts: 0, correct: 0 }),
+  };
+}
+
+export function recordAnswer(state: StudyState, questionId: string, correct: boolean): StudyState {
+  const previous = state.results[questionId] ?? { attempts: 0, correct: 0, lastCorrect: false };
+  return {
+    ...state,
+    results: { ...state.results, [questionId]: { attempts: previous.attempts + 1, correct: previous.correct + Number(correct), lastCorrect: correct } },
+  };
+}
+
 export function shuffled<T>(items: readonly T[], random: () => number = Math.random): T[] {
   const output = [...items];
   for (let i = output.length - 1; i > 0; i--) {
@@ -44,9 +67,13 @@ export function shuffled<T>(items: readonly T[], random: () => number = Math.ran
   return output;
 }
 
+export function isCorrectMatch(pair: Question["pairs"][number], answer: string | undefined): boolean {
+  return answer === pair.right || Boolean(answer && pair.acceptedAnswers?.includes(answer));
+}
+
 export function gradeAnswer(question: Question, selected: string[], matches: Record<string, string>): boolean {
   if (question.status === "invalid" || question.type === "reference") return false;
-  if (question.type === "matching") return question.pairs.every(pair => matches[pair.id] === pair.right);
+  if (question.type === "matching") return question.pairs.every(pair => isCorrectMatch(pair, matches[pair.id]));
   if (question.type === "ordering") return selected.length === question.correctIds.length && selected.every((id, i) => id === question.correctIds[i]);
   return selected.length === question.correctIds.length && question.correctIds.every(id => selected.includes(id));
 }

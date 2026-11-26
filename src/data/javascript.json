@@ -61,7 +61,7 @@
           "page": 2
         }
       ],
-      "prompt": "You are creating a webpage that tests a user’s ability to accurately type text. Validation must be case-insensitive. Complete the function using the supplied segments; each segment may be reused or omitted. tester is the input element and userText contains the text to match.",
+      "prompt": "You are creating a webpage that tests a user’s ability to accurately type text. Validation must be case-insensitive. Complete the function using the supplied segments; each segment may be reused or omitted. tester is the input element and userText contains the text to match. Assume userText is a paragraph containing plain text only, without child elements or encoded markup.",
       "exhibit": "function validate() {\n  var input = document.getElementById(\"tester\").[1];\n  var text = document.getElementById(\"userText\").[2];\n  if (input.[3] == text.[4]) {\n    alert(\"Success\");\n  }\n}",
       "options": [],
       "correctIds": [],
@@ -89,7 +89,7 @@
         {
           "id": "pair-3",
           "left": "[3] Normalize the input string",
-          "right": "value",
+          "right": "toLowerCase()",
           "options": [
             "value",
             "innerHTML",
@@ -99,7 +99,7 @@
         {
           "id": "pair-4",
           "left": "[4] Normalize the expected string",
-          "right": "innerHTML",
+          "right": "toLowerCase()",
           "options": [
             "value",
             "innerHTML",
@@ -107,19 +107,77 @@
           ]
         }
       ],
-      "explanation": "Source-key caveat: the shown final comparison uses value and innerHTML again after those properties have already produced strings. To compare case-insensitively, normalize the strings with toLowerCase() on both sides. The original marked key is preserved for study.",
-      "status": "qualified",
-      "scorable": false,
+      "explanation": "Read the input’s value and the paragraph’s innerHTML, then call toLowerCase() on both strings. The paragraph is explicitly plain text here. This corrects the source’s invalid value/innerHTML selections in the normalization blanks. For arbitrary text content, textContent is preferable to serializing markup.",
+      "status": "standard",
+      "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "value / innerHTML / toLowerCase() / toLowerCase()",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "value",
         "innerHTML",
         "toLowerCase()"
       ],
-      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item.",
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "corrected",
+        "reviewedAt": "2026-11-26",
+        "summary": "Corrected source key or code. The explanation identifies the repair.",
+        "references": [
+          {
+            "label": "String.toLowerCase",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "[1] Input-element property",
+              "right": "value",
+              "options": [
+                "value",
+                "innerHTML",
+                "toLowerCase()"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "[2] Text-element property",
+              "right": "innerHTML",
+              "options": [
+                "value",
+                "innerHTML",
+                "toLowerCase()"
+              ]
+            },
+            {
+              "id": "pair-3",
+              "left": "[3] Normalize the input string",
+              "right": "toLowerCase()",
+              "options": [
+                "value",
+                "innerHTML",
+                "toLowerCase()"
+              ]
+            },
+            {
+              "id": "pair-4",
+              "left": "[4] Normalize the expected string",
+              "right": "toLowerCase()",
+              "options": [
+                "value",
+                "innerHTML",
+                "toLowerCase()"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "javascript-q002",
@@ -166,11 +224,13 @@
           ]
         }
       ],
-      "explanation": "The source selections are HTML Student, JavaScript, and 100. Reassigning a parameter holding a primitive does not reassign the caller’s variable, while updating properties on a shared object is observable through that object.",
+      "explanation": "Reassigning the student parameter does not change sampleStudent. Mutating the object through course changes sampleCourse.name and grade. The final values are HTML Student, JavaScript, and 100.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "HTML Student / JavaScript / 100",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "HTML Student",
         "JavaScript Student",
@@ -179,8 +239,17 @@
         "90",
         "100"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "JavaScript guide",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+          }
+        ]
+      }
     },
     {
       "id": "javascript-q003",
@@ -229,13 +298,24 @@
         "item-4"
       ],
       "pairs": [],
-      "explanation": "Apply the array operations in order. The source’s final array contains 100, 40, 60, and 10, in that sequence.",
+      "explanation": "shift removes 20, pop removes 80, push adds 10 at the end, and unshift adds 100 at the front. The final array is [100, 40, 60, 10].",
       "status": "standard",
       "scorable": true,
       "type": "ordering",
-      "answerLabel": "Put the source items in the sequence below.",
+      "answerLabel": "100 → 40 → 60 → 10",
       "contentFormat": "text",
-      "answerExhibit": ""
+      "answerExhibit": "",
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "JavaScript guide",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+          }
+        ]
+      }
     },
     {
       "id": "javascript-q004",
@@ -281,7 +361,7 @@
         {
           "id": "pair-3",
           "left": "Line 06: typeof textArray",
-          "right": "array",
+          "right": "object",
           "options": [
             "string",
             "array",
@@ -315,11 +395,13 @@
           ]
         }
       ],
-      "explanation": "Source-key caveat: the source marks array for typeof textArray. JavaScript typeof returns object for arrays; use Array.isArray to identify an array. The source selections are retained and this question is excluded from standard practice.",
-      "status": "qualified",
-      "scorable": false,
+      "explanation": "The outputs are undefined, string, object, number, object. Arrays are objects: typeof does not return array. typeof null also returns object, a longstanding JavaScript behavior. Use Array.isArray when you need an array-specific test.",
+      "status": "standard",
+      "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "undefined / string / object / number / object",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "string",
         "array",
@@ -327,9 +409,85 @@
         "number",
         "undefined"
       ],
-      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item.",
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "corrected",
+        "reviewedAt": "2026-11-26",
+        "summary": "Corrected source key or code. The explanation identifies the repair.",
+        "references": [
+          {
+            "label": "JavaScript typeof",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "Line 02: typeof n",
+              "right": "undefined",
+              "options": [
+                "string",
+                "array",
+                "object",
+                "number",
+                "undefined"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "Line 04: typeof a",
+              "right": "string",
+              "options": [
+                "string",
+                "array",
+                "object",
+                "number",
+                "undefined"
+              ]
+            },
+            {
+              "id": "pair-3",
+              "left": "Line 06: typeof textArray",
+              "right": "object",
+              "options": [
+                "string",
+                "array",
+                "object",
+                "number",
+                "undefined"
+              ]
+            },
+            {
+              "id": "pair-4",
+              "left": "Line 08: typeof c",
+              "right": "number",
+              "options": [
+                "string",
+                "array",
+                "object",
+                "number",
+                "undefined"
+              ]
+            },
+            {
+              "id": "pair-5",
+              "left": "Line 10: typeof tag",
+              "right": "object",
+              "options": [
+                "string",
+                "array",
+                "object",
+                "number",
+                "undefined"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "javascript-q005",
@@ -343,7 +501,7 @@
           "page": 15
         }
       ],
-      "prompt": "You are writing an engineering application that rounds numbers to three or more decimal places. A function receives value, the number to format, and digits, the number of decimal digits to display. Which function returns the value with the specified number of decimal digits?",
+      "prompt": "For a finite Number value with absolute value below 10^21 and an integer digits from 3 through 100, choose the function that returns a string formatted with exactly digits decimal places.",
       "exhibit": "",
       "options": [
         {
@@ -367,13 +525,24 @@
         "c"
       ],
       "pairs": [],
-      "explanation": "The source answer is C. Number.prototype.toFixed receives the requested number of digits after the decimal point and returns a formatted string.",
+      "explanation": "toFixed(digits) returns a string formatted with the specified number of decimal places for the stated range. toPrecision counts significant digits and toString interprets its argument as a radix. Binary floating-point representation can affect rounding.",
       "status": "standard",
       "scorable": true,
       "type": "single",
-      "answerLabel": "C",
+      "answerLabel": "function significance(value, digits) {\n  return value.toFixed(digits);\n}",
       "contentFormat": "text",
-      "answerExhibit": ""
+      "answerExhibit": "",
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "JavaScript guide",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+          }
+        ]
+      }
     },
     {
       "id": "javascript-q006",
@@ -403,7 +572,7 @@
         },
         {
           "id": "pair-2",
-          "left": "The call to multiply on line 19 returns 100.",
+          "left": "When getProduct() is invoked, its call to multiply on line 19 returns 100.",
           "right": "No",
           "options": [
             "Yes",
@@ -411,17 +580,28 @@
           ]
         }
       ],
-      "explanation": "Trace the parameter values and variable scope for each invocation. The source marks the first statement Yes and the second No.",
+      "explanation": "The outer multiply reads 25 and 4, returning 100. When getProduct is invoked, its nested multiply reads the local 2 and 3, returning 6. Merely declaring getProduct does not execute its body.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "Yes / No",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "Yes",
         "No"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "JavaScript guide",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+          }
+        ]
+      }
     },
     {
       "id": "javascript-q007",
@@ -435,7 +615,7 @@
           "page": 17
         }
       ],
-      "prompt": "Create a JavaScript function that accepts a number of months to add to or subtract from the current date and returns the adjusted Date. Complete the three code segments.",
+      "prompt": "Create a JavaScript function that accepts a number of months to add to or subtract from the current date and returns the adjusted Date. Complete the three code segments. More than one first-row construction is valid; either is accepted. value is an integer and standard Date overflow behavior is intended.",
       "exhibit": "function adjustMonth(value) {\n  [1]\n  [2]\n  [3]\n  return date;\n}",
       "options": [],
       "correctIds": [],
@@ -449,6 +629,10 @@
             "var date = Date();",
             "var date = new Date;",
             "var date = Date;"
+          ],
+          "acceptedAnswers": [
+            "var date = new Date();",
+            "var date = new Date;"
           ]
         },
         {
@@ -472,11 +656,13 @@
           ]
         }
       ],
-      "explanation": "The PDF selects new Date(), date.getMonth(), and date.setMonth(month + value). Those choices work, but new Date without parentheses is also valid JavaScript when no arguments are passed. Because the first dropdown contains two valid constructions, the source does not provide a unique key for that field.",
-      "status": "qualified",
-      "scorable": false,
+      "explanation": "Both new Date() and new Date create a current Date when no arguments are passed, so both first-row choices are accepted. Date() without new returns a string. getMonth() reads the zero-based local month and setMonth(month + value) adjusts it. End-of-month overflow follows Date rules rather than clamping to the last day.",
+      "status": "standard",
+      "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "var date = new Date(); / var month = date.getMonth(); / date.setMonth(month + value);",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "var date = new Date();",
         "var date = Date();",
@@ -489,9 +675,60 @@
         "date.setMonth(month + value);",
         "setMonth(month + value);"
       ],
-      "contentFormat": "text",
-      "answerExhibit": "",
-      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+      "review": {
+        "kind": "corrected",
+        "reviewedAt": "2026-11-26",
+        "summary": "Corrected source key or code. The explanation identifies the repair.",
+        "references": [
+          {
+            "label": "Date constructor",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "[1] Initialize the current date",
+              "right": "var date = new Date();",
+              "options": [
+                "var date = new Date();",
+                "var date = Date();",
+                "var date = new Date;",
+                "var date = Date;"
+              ],
+              "acceptedAnswers": [
+                "var date = new Date();",
+                "var date = new Date;"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "[2] Read its current month",
+              "right": "var month = date.getMonth();",
+              "options": [
+                "var month = date.getMonth;",
+                "var month = getMonth();",
+                "var month = date.getMonth();",
+                "var month = getMonth;"
+              ]
+            },
+            {
+              "id": "pair-3",
+              "left": "[3] Update the month",
+              "right": "date.setMonth(month + value);",
+              "options": [
+                "date.setMonth(month + value);",
+                "setMonth(month + value);"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "javascript-q008",
@@ -535,7 +772,7 @@
         {
           "id": "pair-3",
           "left": "[3] Update j",
-          "right": "j++",
+          "right": "j+2",
           "options": [
             "j++",
             "j+1",
@@ -546,7 +783,7 @@
         {
           "id": "pair-4",
           "left": "[4] Array element to add",
-          "right": "array[j]",
+          "right": "numbers[j]",
           "options": [
             "sum[j]",
             "numbers[j]",
@@ -555,11 +792,13 @@
           ]
         }
       ],
-      "explanation": "The PDF selects [], push, j++, and array[j]. However, j = j++ assigns the old value back and fails to advance the loop; every-other-element traversal calls for j = j+2. The declared array is numbers, so the element expression should be numbers[j], not array[j]. The source key is retained but excluded from standard practice.",
-      "status": "qualified",
-      "scorable": false,
+      "explanation": "Initialize numbers with [], append with push, advance j using j+2, and add numbers[j]. j = j++ restores the old value and can prevent termination. array[j] refers to a different, undeclared name. The corrected loop sums indices 0, 2, 4, 6, and 8.",
+      "status": "standard",
+      "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "[] / push / j+2 / numbers[j]",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "0",
         "{}",
@@ -578,9 +817,69 @@
         "numbers(j)",
         "array[j]"
       ],
-      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item.",
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "corrected",
+        "reviewedAt": "2026-11-26",
+        "summary": "Corrected source key or code. The explanation identifies the repair.",
+        "references": [
+          {
+            "label": "Loops and iteration",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "[1] Array initializer",
+              "right": "[]",
+              "options": [
+                "0",
+                "{}",
+                "[]",
+                "\"\""
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "[2] Add a number to the array",
+              "right": "push",
+              "options": [
+                "pop",
+                "push",
+                "sort",
+                "splice"
+              ]
+            },
+            {
+              "id": "pair-3",
+              "left": "[3] Update j",
+              "right": "j+2",
+              "options": [
+                "j++",
+                "j+1",
+                "j+2",
+                "j--"
+              ]
+            },
+            {
+              "id": "pair-4",
+              "left": "[4] Array element to add",
+              "right": "numbers[j]",
+              "options": [
+                "sum[j]",
+                "numbers[j]",
+                "numbers(j)",
+                "array[j]"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "javascript-q009",
@@ -636,11 +935,13 @@
           ]
         }
       ],
-      "explanation": "The source identifies the quoted value as String, the numeric value as Number, and the logical value as Boolean. These labels describe value types; typeof uses lowercase strings for these results.",
+      "explanation": "The quoted destination is a String, 2489.58 is a Number, and true is a Boolean. These answer labels name the types; typeof would return lowercase strings.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "String / Number / Boolean",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "Number",
         "String",
@@ -648,8 +949,17 @@
         "Null",
         "Undefined"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "JavaScript guide",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+          }
+        ]
+      }
     },
     {
       "id": "javascript-q010",
@@ -696,17 +1006,28 @@
           ]
         }
       ],
-      "explanation": "For 100.5, ceil rounds upward to 101, floor rounds downward to 100, and round selects 101.",
+      "explanation": "Math.ceil rounds upward to 101, Math.floor rounds downward to 100, and Math.round(100.5) returns 101.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "101 / 100 / 101",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "100",
         "101"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "JavaScript guide",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+          }
+        ]
+      }
     },
     {
       "id": "javascript-q011",
@@ -720,7 +1041,7 @@
           "page": 32
         }
       ],
-      "prompt": "You want to initialize a Date object for January 1, 2017 using numeric year, month, and day parameters. Select the year and month. The day value is fixed to 1 below from the explicit requirement; the PDF cuts off that part of the expression.",
+      "prompt": "Initialize a Date for January 1, 2017 using numeric year, month, and day arguments. Select the year and month. The day argument is fixed to 1.",
       "exhibit": "var date = new Date([1], [2], 1);",
       "options": [],
       "correctIds": [],
@@ -746,11 +1067,13 @@
           ]
         }
       ],
-      "explanation": "The visible source selections are 2017 and 0. Numeric Date months are zero-based, so January is 0. The day argument 1 is supplied by the prompt’s January 1 requirement, rather than recovered from the clipped screenshot.",
+      "explanation": "Numeric Date months are zero-based: January is 0. Use 2017 for the year and 1 for the day. The clipped day argument has been supplied from the prompt’s explicit January 1 requirement.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "2017 / 0",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "17",
         "2017",
@@ -759,8 +1082,45 @@
         "Jan",
         "January"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "adapted",
+        "reviewedAt": "2026-11-26",
+        "summary": "Adapted from the source: ambiguous or clipped wording/markup has been completed for a self-contained practice question.",
+        "references": [
+          {
+            "label": "Date constructor",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "[1] Year",
+              "right": "2017",
+              "options": [
+                "17",
+                "2017"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "[2] Month",
+              "right": "0",
+              "options": [
+                "0",
+                "1",
+                "Jan",
+                "January"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "javascript-q012",
@@ -804,11 +1164,13 @@
           ]
         }
       ],
-      "explanation": "Use logical AND when both warm weather and the no-rain condition are required, and compare the fuel level with the stated threshold using <=.",
+      "explanation": "&& requires both warm weather and no rain. Only when that condition fails does the <= .5 fuel check choose the train; more fuel selects driving.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "&& / <=",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "&&",
         "==",
@@ -817,8 +1179,17 @@
         ">",
         "<="
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "JavaScript guide",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+          }
+        ]
+      }
     },
     {
       "id": "javascript-q013",
@@ -860,11 +1231,13 @@
           ]
         }
       ],
-      "explanation": "The free-admission ranges are alternatives, so join them with OR. A bounded youth range requires both its lower and upper bounds, so join those comparisons with AND.",
+      "explanation": "age < 5 || age >= 65 covers both free groups. age >= 5 && age < 18 covers ages 5 through 17. The remaining ages keep the default price of 20.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "if (age < 5 || age >= 65) { / if (age >= 5 && age < 18) {",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "if (age <= 5 && age > 65) {",
         "if (age < 5 && age >= 65) {",
@@ -875,8 +1248,17 @@
         "if (age >= 5 || age < 18) {",
         "if (age > 5 || age <= 18) {"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "JavaScript guide",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+          }
+        ]
+      }
     },
     {
       "id": "javascript-q014",
@@ -929,11 +1311,13 @@
           ]
         }
       ],
-      "explanation": "A switch evaluates the day, the Wednesday case applies that discount, and default handles unmatched values. The break statements prevent unintended fall-through.",
+      "explanation": "switch (day) selects a branch; case \"Wednesday\": assigns 0.1 and break exits the switch. default: returns a zero discount for other strings.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "switch (day) { / case \"Wednesday\": / default:",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "case (day) {",
         "default (day) {",
@@ -944,8 +1328,17 @@
         "case default:",
         "switch \"Wednesday\""
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "JavaScript guide",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+          }
+        ]
+      }
     },
     {
       "id": "javascript-q015",
@@ -959,8 +1352,8 @@
           "page": 44
         }
       ],
-      "prompt": "Write a loop that traverses an array named list to find orange. If an element is null, immediately go to the next element. When orange is found, exit the loop. Complete the three keywords. The source clips the array literal and the right edge of the loop header; only those clipped portions are annotated below.",
-      "exhibit": "function doWork() {\n  // list: source array; its literal is clipped in the PDF.\n  [1] (i = 0; i < list.length; /* update clipped */) {\n    if (list[i] == null)\n      [2]\n    if (list[i] == 'orange') {\n      alert('found');\n      [3]\n    }\n    console.log(list[i]);\n  }\n}",
+      "prompt": "Complete doWork(list) to traverse a supplied array, skip null elements, and stop when the string orange is found. Choose the loop keyword, the keyword that skips the current iteration, and the keyword that exits the loop.",
+      "exhibit": "function doWork(list) {\n  [1] (var i = 0; i < list.length; i++) {\n    if (list[i] === null)\n      [2];\n    if (list[i] === \"orange\") {\n      alert(\"found\");\n      [3];\n    }\n    console.log(list[i]);\n  }\n}",
       "options": [],
       "correctIds": [],
       "pairs": [
@@ -1001,11 +1394,13 @@
           ]
         }
       ],
-      "explanation": "A for loop traverses the array. continue skips the remainder of an iteration for a null value; break exits the loop after finding the target.",
+      "explanation": "for traverses the supplied list, continue skips a null entry, and break stops at orange. The array is now an explicit function parameter and the clipped loop header is completed with a local index and i++; these are labeled adaptations, not recovered source text.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "for / continue / break",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "for",
         "break",
@@ -1013,8 +1408,61 @@
         "while",
         "do"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "adapted",
+        "reviewedAt": "2026-11-26",
+        "summary": "Adapted from the source: ambiguous or clipped wording/markup has been completed for a self-contained practice question.",
+        "references": [
+          {
+            "label": "Loops and iteration",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "[1] Loop keyword",
+              "right": "for",
+              "options": [
+                "for",
+                "break",
+                "continue",
+                "while",
+                "do"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "[2] Skip the null element",
+              "right": "continue",
+              "options": [
+                "for",
+                "break",
+                "continue",
+                "while",
+                "do"
+              ]
+            },
+            {
+              "id": "pair-3",
+              "left": "[3] Stop after finding orange",
+              "right": "break",
+              "options": [
+                "for",
+                "break",
+                "continue",
+                "while",
+                "do"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "javascript-q016",
@@ -1028,7 +1476,7 @@
           "page": 48
         }
       ],
-      "prompt": "Create countdown(start), which displays the numbers from start down to and including zero in increments of one. Complete the three portions of the for header.",
+      "prompt": "Create countdown(start), which displays the numbers from start down to and including zero in increments of one. Complete the three portions of the for header. Assume start is a nonnegative integer.",
       "exhibit": "function countdown(start) {\n  for ([1] [2] [3]) {\n    console.log(i);\n  }\n}",
       "options": [],
       "correctIds": [],
@@ -1047,7 +1495,7 @@
         {
           "id": "pair-2",
           "left": "[2] Condition",
-          "right": "i > 0;",
+          "right": "i >= 0;",
           "options": [
             "i <= 0;",
             "i < 0;",
@@ -1067,11 +1515,13 @@
           ]
         }
       ],
-      "explanation": "Source-key caveat: the highlighted condition i > 0 excludes zero even though the prompt asks to include it. An inclusive countdown needs i >= 0. The source’s marked selections remain visible for comparison.",
-      "status": "qualified",
-      "scorable": false,
+      "explanation": "Initialize i to start, test i >= 0, and decrement with --i. The source’s i > 0 omitted zero. The stated nonnegative integer input makes the endpoint behavior well defined.",
+      "status": "standard",
+      "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "var i = start; / i >= 0; / --i",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "var i = start;",
         "var i == start;",
@@ -1086,9 +1536,58 @@
         "--i",
         "-i"
       ],
-      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item.",
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "corrected",
+        "reviewedAt": "2026-11-26",
+        "summary": "Corrected source key or code. The explanation identifies the repair.",
+        "references": [
+          {
+            "label": "Loops and iteration",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "[1] Initializer",
+              "right": "var i = start;",
+              "options": [
+                "var i = start;",
+                "var i == start;",
+                "var i <= start;",
+                "var i < start;"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "[2] Condition",
+              "right": "i >= 0;",
+              "options": [
+                "i <= 0;",
+                "i < 0;",
+                "i > 0;",
+                "i >= 0;"
+              ]
+            },
+            {
+              "id": "pair-3",
+              "left": "[3] Update",
+              "right": "--i",
+              "options": [
+                "++i",
+                "+i",
+                "--i",
+                "-i"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "javascript-q017",
@@ -1102,8 +1601,8 @@
           "page": 50
         }
       ],
-      "prompt": "You are creating a calendar application and need to determine the number of days for each month. Complete the three visible code segments. The supplied source cuts off the remainder after the 30-day case; that missing remainder is not invented here.",
-      "exhibit": "var daysInMonth;\nvar month;\nmonth = new Date().getMonth();\n[1]\n  case 1:\n    daysInMonth = 28; // February; ignore leap years.\n    [2]\n  case 3:\n  case 5:\n  case 8:\n  case 10:\n    daysInMonth = 30;\n    [3]\n  // Remaining source content is clipped.\n}",
+      "prompt": "Complete getDaysInMonth(month) for an integer month index from 0 (January) to 11 (December). Ignore leap years: February has 28 days. Choose the switch header and the two case-ending statements.",
+      "exhibit": "function getDaysInMonth(month) {\n  var daysInMonth;\n  [1]\n    case 1:\n      daysInMonth = 28;\n      [2]\n    case 3:\n    case 5:\n    case 8:\n    case 10:\n      daysInMonth = 30;\n      [3]\n    default:\n      daysInMonth = 31;\n  }\n  return daysInMonth;\n}",
       "options": [],
       "correctIds": [],
       "pairs": [
@@ -1120,7 +1619,7 @@
         {
           "id": "pair-2",
           "left": "[2] End the February case",
-          "right": "continue;",
+          "right": "break;",
           "options": [
             "break;",
             "continue;",
@@ -1137,11 +1636,13 @@
           ]
         }
       ],
-      "explanation": "Source-key caveat: the marked continue after the February case is not valid as shown, because the switch is not inside a loop. A break is needed to leave that case rather than continue an enclosing iteration.",
-      "status": "qualified",
-      "scorable": false,
+      "explanation": "Use switch (month) and break after both completed cases. continue cannot end a switch case when no enclosing loop exists. The adapted function completes the clipped source with a 31-day default and a return; month indices are 0–11 and leap years are explicitly ignored.",
+      "status": "standard",
+      "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "switch (month) { / break; / break;",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "switch (month) {",
         "case (month) {",
@@ -1150,9 +1651,54 @@
         "continue;",
         "while (month);"
       ],
-      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item.",
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "adapted",
+        "reviewedAt": "2026-11-26",
+        "summary": "Adapted from the source: ambiguous or clipped wording/markup has been completed for a self-contained practice question.",
+        "references": [
+          {
+            "label": "Loops and iteration",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration"
+          }
+        ],
+        "originalAnswer": {
+          "type": "matching",
+          "answerLabel": "See the source selections and matches below.",
+          "correctIds": [],
+          "pairs": [
+            {
+              "id": "pair-1",
+              "left": "[1] Dispatch by month",
+              "right": "switch (month) {",
+              "options": [
+                "switch (month) {",
+                "case (month) {",
+                "break {"
+              ]
+            },
+            {
+              "id": "pair-2",
+              "left": "[2] End the February case",
+              "right": "break;",
+              "options": [
+                "break;",
+                "continue;",
+                "while (month);"
+              ]
+            },
+            {
+              "id": "pair-3",
+              "left": "[3] End the 30-day case",
+              "right": "break;",
+              "options": [
+                "break;",
+                "continue;"
+              ]
+            }
+          ],
+          "options": []
+        }
+      }
     },
     {
       "id": "javascript-q018",
@@ -1166,7 +1712,7 @@
           "page": 55
         }
       ],
-      "prompt": "Create a safe-division check with numerator and denominator parameters. It should return false when the denominator is zero and true otherwise. Review the code, then select Yes or No for each statement.",
+      "prompt": "Create a safe-division check with numerator and denominator parameters. It should return false when the denominator is zero and true otherwise. Review the code, then select Yes or No for each statement. Assume both parameters are finite numbers.",
       "exhibit": "01 function isSafeDivide(numerator, denominator) {\n02   if (denominator = 0) {\n03     return false;\n04   } else {\n05     return true;\n06   }\n07 }",
       "options": [],
       "correctIds": [],
@@ -1190,17 +1736,28 @@
           ]
         }
       ],
-      "explanation": "The source marks No and No. Line 02 assigns 0 to denominator rather than comparing it; the assigned value is falsy, so this code takes the else branch. To meet the requirement, compare the denominator with zero (for example, denominator === 0), rather than replacing the operator with !=.",
+      "explanation": "Both statements are No. denominator = 0 assigns a falsy value, so the shown function always takes else and returns true. For the stated numeric inputs, denominator === 0 would implement the intended check; != would invert the intended test.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "No / No",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "Yes",
         "No"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "JavaScript guide",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+          }
+        ]
+      }
     },
     {
       "id": "javascript-q019",
@@ -1256,17 +1813,28 @@
           ]
         }
       ],
-      "explanation": "Substitute x = 5 and y = 7 into each expression. The conjunction is true, the equality disjunction is false, x differs from 7, and negating x == y gives true.",
+      "explanation": "With x = 5 and y = 7, both comparisons joined by && are true; neither equality joined by || is true; x !== 7 is true; and negating x == y gives true.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "True / False / True / True",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "True",
         "False"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "JavaScript guide",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+          }
+        ]
+      }
     },
     {
       "id": "javascript-q020",
@@ -1280,19 +1848,72 @@
           "page": 58
         }
       ],
-      "prompt": "You are developing a webpage that displays information using popup boxes. Match alert, confirm, and prompt with their scenarios. The scenario descriptions are cut off in the supplied PDF, so the mappings below are a clearly labeled concept reference rather than a recovered scoring key.",
-      "exhibit": "Available functions:\nalert\nconfirm\nprompt",
+      "prompt": "Choose the browser popup function for each scenario: collect a text response, show a message, or request an OK/Cancel decision. Each function may be used once, more than once, or not at all.",
+      "exhibit": "",
       "options": [],
       "correctIds": [],
-      "pairs": [],
-      "explanation": "The standard browser functions are prompt for text input, alert for a message, and confirm for an accept/cancel choice. The original scenario wording cannot be recovered from the clipped source, so this exercise remains study-only.",
-      "status": "invalid",
-      "scorable": false,
-      "type": "reference",
-      "answerLabel": "Source diagram for study",
-      "studyNote": "The source answer diagram is incomplete or inconsistent. This exercise is available as a flashcard and is excluded from quizzes.",
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "Ask the user to enter their name as text.",
+          "right": "prompt",
+          "options": [
+            "alert",
+            "confirm",
+            "prompt"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "Show an informational message without requesting input or a decision.",
+          "right": "alert",
+          "options": [
+            "alert",
+            "confirm",
+            "prompt"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "Ask the user to accept with OK or decline with Cancel.",
+          "right": "confirm",
+          "options": [
+            "alert",
+            "confirm",
+            "prompt"
+          ]
+        }
+      ],
+      "explanation": "prompt requests text (or returns null on cancel), alert displays an informational message, and confirm requests an OK/Cancel decision returning a Boolean. The PDF’s clipped scenarios have been replaced with these explicitly authored scenarios.",
+      "status": "standard",
+      "scorable": true,
+      "type": "matching",
+      "answerLabel": "prompt / alert / confirm",
       "contentFormat": "text",
-      "answerExhibit": "Visible source order:\nprompt  → [scenario description clipped]\nalert   → [scenario description clipped]\nconfirm → [scenario description clipped]\n\nConcept reference:\nprompt  → Ask the user to enter text.\nalert   → Show an informational message.\nconfirm → Ask the user to accept or cancel."
+      "answerExhibit": "",
+      "review": {
+        "kind": "adapted",
+        "reviewedAt": "2026-11-26",
+        "summary": "Adapted from the source: ambiguous or clipped wording/markup has been completed for a self-contained practice question.",
+        "references": [
+          {
+            "label": "Window.prompt",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt"
+          }
+        ],
+        "originalAnswer": {
+          "type": "reference",
+          "answerLabel": "Source diagram for study",
+          "correctIds": [],
+          "pairs": [],
+          "options": []
+        }
+      },
+      "matchOptions": [
+        "alert",
+        "confirm",
+        "prompt"
+      ]
     },
     {
       "id": "javascript-q021",
@@ -1332,18 +1953,29 @@
           ]
         }
       ],
-      "explanation": "Place the potentially throwing call inside try and handle an exception with catch. Treat the supplied eval code as study material; the reviewer displays it as an image and does not execute it.",
+      "explanation": "try protects the invocation and catch handles its thrown exception. The requested message is shown for any caught exception; it does not prove that a missing function was the cause. eval remains only as literal study code and is never run by the reviewer UI.",
       "status": "standard",
       "scorable": true,
       "type": "matching",
-      "answerLabel": "See the source selections and matches below.",
+      "answerLabel": "try / catch",
+      "contentFormat": "text",
+      "answerExhibit": "",
       "matchOptions": [
         "catch",
         "finally",
         "try"
       ],
-      "contentFormat": "text",
-      "answerExhibit": ""
+      "review": {
+        "kind": "verified",
+        "reviewedAt": "2026-11-26",
+        "summary": "Answer and explanation reviewed against the displayed exercise.",
+        "references": [
+          {
+            "label": "JavaScript guide",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+          }
+        ]
+      }
     }
   ]
 }

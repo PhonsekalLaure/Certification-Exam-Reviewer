@@ -1,0 +1,2117 @@
+{
+  "html-css": {
+    "1": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "A relative link requires that you use a protocol and server path.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "You can link to a document in a subdirectory of the current webpage by specifying only the subdirectory name and the filename.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "You can use a relative link to reference image files from a repository on a different server.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "The following is an example of an absolute link: https://www.contoso.com/products.html",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "Source-key caveat: the third statement is marked Yes in the PDF, but a relative URL resolves against a base URL; it does not independently name a different server. Keep this source key separate from the concept being learned.",
+      "status": "qualified",
+      "scorable": false,
+      "matchOptions": [
+        "Yes",
+        "No"
+      ],
+      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item."
+    },
+    "2": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Image element",
+          "right": "img",
+          "options": [
+            "img",
+            "picture",
+            "src",
+            "title",
+            "href",
+            "alt"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Image URL attribute",
+          "right": "src",
+          "options": [
+            "img",
+            "picture",
+            "src",
+            "title",
+            "href",
+            "alt"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Alternative-text attribute",
+          "right": "alt",
+          "options": [
+            "img",
+            "picture",
+            "src",
+            "title",
+            "href",
+            "alt"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "Use an img element, src for the image URL, and alt for alternative text. The alt text also gives assistive technology an alternative to the image.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "img",
+        "picture",
+        "src",
+        "title",
+        "href",
+        "alt"
+      ]
+    },
+    "3": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Red link",
+          "right": "a:link",
+          "options": [
+            "a:active",
+            "a:visited",
+            "a:link",
+            "a:hover"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Blue link",
+          "right": "a:visited",
+          "options": [
+            "a:active",
+            "a:visited",
+            "a:link",
+            "a:hover"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Orange link",
+          "right": "a:hover",
+          "options": [
+            "a:active",
+            "a:visited",
+            "a:link",
+            "a:hover"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "[4] Green link",
+          "right": "a:active",
+          "options": [
+            "a:active",
+            "a:visited",
+            "a:link",
+            "a:hover"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "The source orders the link rules as link, visited, hover, active. These pseudo-classes distinguish unvisited, visited, pointer-hovered, and activated links.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "a:active",
+        "a:visited",
+        "a:link",
+        "a:hover"
+      ]
+    },
+    "4": {
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "The browser default style will be used."
+        },
+        {
+          "id": "b",
+          "text": "An inline style will be used."
+        },
+        {
+          "id": "c",
+          "text": "An international style will be used."
+        },
+        {
+          "id": "d",
+          "text": "An external style will be used."
+        }
+      ],
+      "correctIds": [
+        "a"
+      ],
+      "pairs": [],
+      "answerLabel": "A",
+      "explanation": "The source answer is A. The markup supplies no author stylesheet or inline style, so the browser uses its default styles.",
+      "status": "standard",
+      "scorable": true
+    },
+    "5": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "“Certificates will be awarded in June.” is displayed in grey.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "“Coming soon!” is displayed in blue.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "“Awards” is displayed in maroon.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "“Rock Climbing 101” is displayed in purple.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "Read the full stylesheet and markup together, then compare the specificity and source order of the applicable declarations. The source selections are No, Yes, Yes, No.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "Yes",
+        "No"
+      ]
+    },
+    "6": {
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pink"
+        },
+        {
+          "id": "b",
+          "text": "Blue"
+        },
+        {
+          "id": "c",
+          "text": "Yellow"
+        },
+        {
+          "id": "d",
+          "text": "Green"
+        }
+      ],
+      "correctIds": [
+        "a"
+      ],
+      "pairs": [],
+      "answerLabel": "A",
+      "explanation": "The PDF marks A (Pink), but the paragraph is directly matched by .light p and therefore has a green background. The pink inline background belongs to the enclosing div; background-color is not inherited. The source key is retained for comparison and is excluded from standard practice.",
+      "status": "qualified",
+      "scorable": false,
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    "7": {
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "+"
+        },
+        {
+          "id": "b",
+          "text": ">"
+        },
+        {
+          "id": "c",
+          "text": ":"
+        },
+        {
+          "id": "d",
+          "text": "*"
+        }
+      ],
+      "correctIds": [
+        "d"
+      ],
+      "pairs": [],
+      "answerLabel": "D",
+      "explanation": "The universal selector, *, selects all elements. The source identifies option D; the other selectors have narrower scope.",
+      "status": "standard",
+      "scorable": true
+    },
+    "8": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Selector",
+          "right": "h1",
+          "options": [
+            "text-align",
+            "center",
+            "h1",
+            "=",
+            ".",
+            ".h1"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Property",
+          "right": "text-align",
+          "options": [
+            "text-align",
+            "center",
+            "h1",
+            "=",
+            ".",
+            ".h1"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Value",
+          "right": "center",
+          "options": [
+            "text-align",
+            "center",
+            "h1",
+            "=",
+            ".",
+            ".h1"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "The selector h1 targets heading elements, and the declaration text-align: center centers their inline content.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "text-align",
+        "center",
+        "h1",
+        "=",
+        ".",
+        ".h1"
+      ]
+    },
+    "9": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "A CSS comment starts with /* and ends with */.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "Percent and EM are relative measurements, and the size of each depends upon its parent.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "Pixels are recommended units for specifying size.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "The font-family attribute helps ensure maximum compatibility between web browsers.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "The PDF marks Yes, No, No, No. Its unit and compatibility statements are too broad for a universal key: the reference for a percentage depends on the property, and em for font-size differs from em used in other properties. Keep this wording and key in context.",
+      "status": "qualified",
+      "scorable": false,
+      "matchOptions": [
+        "Yes",
+        "No"
+      ],
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    "10": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "Line 02: text color",
+          "right": "red",
+          "options": [
+            "red",
+            "blue",
+            "green",
+            "purple"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "Line 02: font size",
+          "right": "30 pixels",
+          "options": [
+            "20 pixels",
+            "30 pixels",
+            "40 pixels",
+            "10 pixels"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "Line 03: text color",
+          "right": "red",
+          "options": [
+            "red",
+            "blue",
+            "green",
+            "purple"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "The PDF selects red, 30 pixels, and red. Line 03 has no matching ID or author color rule in the shown code and instead inherits purple from body. The first two selections follow #style1; the final red selection is inconsistent with the exhibit.",
+      "status": "qualified",
+      "scorable": false,
+      "matchOptions": [
+        "red",
+        "blue",
+        "green",
+        "purple",
+        "20 pixels",
+        "30 pixels",
+        "40 pixels",
+        "10 pixels"
+      ],
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    "11": {
+      "type": "ordering",
+      "options": [
+        {
+          "id": "item-1",
+          "text": "<!DOCTYPE html>"
+        },
+        {
+          "id": "item-8",
+          "text": "</body>"
+        },
+        {
+          "id": "item-5",
+          "text": "</head>"
+        },
+        {
+          "id": "item-9",
+          "text": "</html>"
+        },
+        {
+          "id": "item-6",
+          "text": "<body>"
+        },
+        {
+          "id": "item-3",
+          "text": "<head>"
+        },
+        {
+          "id": "item-2",
+          "text": "<html>"
+        },
+        {
+          "id": "item-7",
+          "text": "<p>Welcome to the Northwind Traders website.</p>"
+        },
+        {
+          "id": "item-4",
+          "text": "<title>Northwind Traders</title>"
+        }
+      ],
+      "correctIds": [
+        "item-1",
+        "item-2",
+        "item-3",
+        "item-4",
+        "item-5",
+        "item-6",
+        "item-7",
+        "item-8",
+        "item-9"
+      ],
+      "pairs": [],
+      "answerLabel": "Put the source items in the sequence below.",
+      "explanation": "Place the document type first, metadata inside head, and visible content inside body. Close nested elements in reverse order.",
+      "status": "standard",
+      "scorable": true
+    },
+    "12": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Document-type declaration",
+          "right": "DOCTYPE html!",
+          "options": [
+            "body",
+            "html",
+            "DOCTYPE html!",
+            "head"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Root element",
+          "right": "html",
+          "options": [
+            "body",
+            "html",
+            "DOCTYPE html!",
+            "head"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Content element",
+          "right": "body",
+          "options": [
+            "body",
+            "html",
+            "DOCTYPE html!",
+            "head"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "[4] Closing content element",
+          "right": "body",
+          "options": [
+            "body",
+            "html",
+            "DOCTYPE html!",
+            "head"
+          ]
+        },
+        {
+          "id": "pair-5",
+          "left": "[5] Closing root element",
+          "right": "html",
+          "options": [
+            "body",
+            "html",
+            "DOCTYPE html!",
+            "head"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "Source-key caveat: the source prints DOCTYPE html! in the first slot. Valid HTML puts the exclamation mark before DOCTYPE: <!DOCTYPE html>. The visible content belongs inside body, within the html element.",
+      "status": "qualified",
+      "scorable": false,
+      "matchOptions": [
+        "body",
+        "html",
+        "DOCTYPE html!",
+        "head"
+      ],
+      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item."
+    },
+    "13": {
+      "type": "reference",
+      "options": [],
+      "correctIds": [],
+      "pairs": [],
+      "answerLabel": "Source diagram for study",
+      "explanation": "The source answer places a document-type declaration inside a head-section exercise and uses <head/> instead of a closing </head>. A head section can contain character-encoding metadata and a title; the doctype belongs before the document element. The example labeled Concept reference shows the distinction. This source item is not scored.",
+      "status": "invalid",
+      "scorable": false,
+      "studyNote": "The source answer diagram is incomplete or inconsistent. This exercise is available as a flashcard and is excluded from quizzes."
+    },
+    "14": {
+      "type": "reference",
+      "options": [],
+      "correctIds": [],
+      "pairs": [],
+      "answerLabel": "Source diagram for study",
+      "explanation": "The source leaves target boxes blank and omits link from its choices even though style.css is a stylesheet. Its marked meta placement is not a stylesheet link. The concept reference supplies the appropriate elements without inventing a complete original key. This exercise is not scored.",
+      "status": "invalid",
+      "scorable": false,
+      "studyNote": "The source answer diagram is incomplete or inconsistent. This exercise is available as a flashcard and is excluded from quizzes."
+    },
+    "15": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Default background image",
+          "right": "SmallLogo.png",
+          "options": [
+            "NormalLogo.png",
+            "SmallLogo.png"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Media-query feature",
+          "right": "max-width",
+          "options": [
+            "min-width",
+            "max-width"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Background image inside the media query",
+          "right": "NormalLogo.png",
+          "options": [
+            "NormalLogo.png",
+            "SmallLogo.png"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "Source-key caveat: the marked selections use the small image as the base and switch to the normal image under max-width, reversing the stated small-screen requirement. A consistent solution uses the normal image as the base and the small image for widths below the breakpoint, or the inverse base with an appropriate min-width rule.",
+      "status": "qualified",
+      "scorable": false,
+      "matchOptions": [
+        "NormalLogo.png",
+        "SmallLogo.png",
+        "min-width",
+        "max-width"
+      ],
+      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item."
+    },
+    "16": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "Line 03 will display next to Line 01.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "The image will display beneath the text on Line 03.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "Lines 05 and 06 display beneath the image.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "The PDF marks all three statements Yes. The shown img tag is malformed, and the paragraphs have no clear rule to force them below the left-floated image; text may wrap beside it depending on available space. Preserve the source’s key as a source reference, not a reliable universal layout prediction.",
+      "status": "qualified",
+      "scorable": false,
+      "matchOptions": [
+        "Yes",
+        "No"
+      ],
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    "17": {
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "No change is needed."
+        },
+        {
+          "id": "b",
+          "text": "White text on a red background."
+        },
+        {
+          "id": "c",
+          "text": "Black text on a green background."
+        },
+        {
+          "id": "d",
+          "text": "Black text on a blue background."
+        }
+      ],
+      "correctIds": [
+        "c"
+      ],
+      "pairs": [],
+      "answerLabel": "C",
+      "explanation": "The PDF marks C, which describes #000000 text and #00FF00 background if the shown rule matches. However, the selector is .product while the prompt names productBox. That mismatch must be resolved before predicting an actual element’s appearance.",
+      "status": "qualified",
+      "scorable": false,
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    "18": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Text-color property",
+          "right": "color",
+          "options": [
+            "color",
+            "font-variant",
+            "border-color",
+            "background-color"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Line-spacing property",
+          "right": "line-height",
+          "options": [
+            "position",
+            "line-height",
+            "text-indent",
+            "letter-spacing"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Text-size property",
+          "right": "font-size",
+          "options": [
+            "font-size",
+            "font-variant",
+            "font-weight"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "[4] Italic-text property",
+          "right": "font-style",
+          "options": [
+            "font-style",
+            "font-family",
+            "font-variant",
+            "font-weight"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "The selected property names are color, line-height, font-size, and font-style. The source displays the five-digit value #000ff, which is not valid CSS hexadecimal color syntax. Blue would conventionally be #0000ff or #00f. The transcription preserves the source literal and flags it.",
+      "status": "qualified",
+      "scorable": false,
+      "matchOptions": [
+        "color",
+        "font-variant",
+        "border-color",
+        "background-color",
+        "position",
+        "line-height",
+        "text-indent",
+        "letter-spacing",
+        "font-size",
+        "font-weight",
+        "font-style",
+        "font-family"
+      ],
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    "19": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "The background of the page will be red.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "The page will display the watermark multiple times horizontally starting at the right.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "The PDF marks both statements No. #0000FF is blue, so the first No is appropriate. repeat-x requests horizontal repetition and right sets horizontal positioning, making the source’s second No questionable as worded. Read the actual declaration rather than memorizing that selection.",
+      "status": "qualified",
+      "scorable": false,
+      "matchOptions": [
+        "Yes",
+        "No"
+      ],
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    "20": {
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "No change is needed."
+        },
+        {
+          "id": "b",
+          "text": "Absolute positioning"
+        },
+        {
+          "id": "c",
+          "text": "Relative positioning"
+        },
+        {
+          "id": "d",
+          "text": "Fixed positioning"
+        }
+      ],
+      "correctIds": [
+        "c"
+      ],
+      "pairs": [],
+      "answerLabel": "C",
+      "explanation": "The PDF marks C (Relative positioning). For explicit placement relative to a containing block, B (Absolute positioning) is the conventional intended description. Relative positioning offsets an element from its own normal-flow position. The original key is retained but excluded from standard practice.",
+      "status": "qualified",
+      "scorable": false,
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    "21": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] blue",
+          "right": "color",
+          "options": [
+            "color",
+            "font-family",
+            "font-size",
+            "font-style",
+            "font-weight",
+            "text-align",
+            "text-decoration-color",
+            "vertical-align"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Arial",
+          "right": "font-family",
+          "options": [
+            "color",
+            "font-family",
+            "font-size",
+            "font-style",
+            "font-weight",
+            "text-align",
+            "text-decoration-color",
+            "vertical-align"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] 20px",
+          "right": "font-size",
+          "options": [
+            "color",
+            "font-family",
+            "font-size",
+            "font-style",
+            "font-weight",
+            "text-align",
+            "text-decoration-color",
+            "vertical-align"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "[4] bold",
+          "right": "font-weight",
+          "options": [
+            "color",
+            "font-family",
+            "font-size",
+            "font-style",
+            "font-weight",
+            "text-align",
+            "text-decoration-color",
+            "vertical-align"
+          ]
+        },
+        {
+          "id": "pair-5",
+          "left": "[5] center",
+          "right": "text-align",
+          "options": [
+            "color",
+            "font-family",
+            "font-size",
+            "font-style",
+            "font-weight",
+            "text-align",
+            "text-decoration-color",
+            "vertical-align"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "Set color, font-family, font-size, font-weight, and text-align to satisfy the requested blue Arial heading, 20 pixels in size, bold and centered.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "color",
+        "font-family",
+        "font-size",
+        "font-style",
+        "font-weight",
+        "text-align",
+        "text-decoration-color",
+        "vertical-align"
+      ]
+    },
+    "22": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Image element",
+          "right": "img",
+          "options": [
+            "img",
+            "picture"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Source attribute",
+          "right": "src",
+          "options": [
+            "src",
+            "srcset"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Text-alternative attribute",
+          "right": "alt",
+          "options": [
+            "alt",
+            "title"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "The img element displays the image, src names its file, and alt supplies the Contoso Logo text alternative.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "img",
+        "picture",
+        "src",
+        "srcset",
+        "alt",
+        "title"
+      ]
+    },
+    "23": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Opening element and attributes",
+          "right": "video controls",
+          "options": [
+            "source",
+            "source controls",
+            "<source src=\"HowTo.mp4\" type=\"video/mp4\">",
+            "video",
+            "video controls",
+            "<video src=\"HowTo.mp4\" type=\"video/mp4\">"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] MP4 source element",
+          "right": "<source src=\"HowTo.mp4\" type=\"video/mp4\">",
+          "options": [
+            "source",
+            "source controls",
+            "<source src=\"HowTo.mp4\" type=\"video/mp4\">",
+            "video",
+            "video controls",
+            "<video src=\"HowTo.mp4\" type=\"video/mp4\">"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Closing element",
+          "right": "video",
+          "options": [
+            "source",
+            "source controls",
+            "<source src=\"HowTo.mp4\" type=\"video/mp4\">",
+            "video",
+            "video controls",
+            "<video src=\"HowTo.mp4\" type=\"video/mp4\">"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "The video element’s controls attribute provides the browser’s playback controls. A source element identifies the MP4 resource; fallback text goes inside the video element.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "source",
+        "source controls",
+        "<source src=\"HowTo.mp4\" type=\"video/mp4\">",
+        "video",
+        "video controls",
+        "<video src=\"HowTo.mp4\" type=\"video/mp4\">"
+      ]
+    },
+    "24": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Element",
+          "right": "img",
+          "options": [
+            "figure",
+            "img",
+            "div"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] File attribute",
+          "right": "src",
+          "options": [
+            "href",
+            "src",
+            "target"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Alternative-text attribute",
+          "right": "alt",
+          "options": [
+            "alt",
+            "name",
+            "title"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "Use img, src, and alt. The source screenshot clips the right-hand attribute value; this text version uses HTML Icon, which is explicitly required by its prompt. There is no separately recoverable width field to answer.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "figure",
+        "img",
+        "div",
+        "href",
+        "src",
+        "target",
+        "alt",
+        "name",
+        "title"
+      ]
+    }
+  },
+  "javascript": {
+    "1": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Input-element property",
+          "right": "value",
+          "options": [
+            "value",
+            "innerHTML",
+            "toLowerCase()"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Text-element property",
+          "right": "innerHTML",
+          "options": [
+            "value",
+            "innerHTML",
+            "toLowerCase()"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Normalize the input string",
+          "right": "value",
+          "options": [
+            "value",
+            "innerHTML",
+            "toLowerCase()"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "[4] Normalize the expected string",
+          "right": "innerHTML",
+          "options": [
+            "value",
+            "innerHTML",
+            "toLowerCase()"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "Source-key caveat: the shown final comparison uses value and innerHTML again after those properties have already produced strings. To compare case-insensitively, normalize the strings with toLowerCase() on both sides. The original marked key is preserved for study.",
+      "status": "qualified",
+      "scorable": false,
+      "matchOptions": [
+        "value",
+        "innerHTML",
+        "toLowerCase()"
+      ],
+      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item."
+    },
+    "2": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "sampleStudent",
+          "right": "HTML Student",
+          "options": [
+            "HTML Student",
+            "JavaScript Student"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "sampleCourse.name",
+          "right": "JavaScript",
+          "options": [
+            "HTML",
+            "JavaScript"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "sampleCourse.grade",
+          "right": "100",
+          "options": [
+            "90",
+            "100"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "The source selections are HTML Student, JavaScript, and 100. Reassigning a parameter holding a primitive does not reassign the caller’s variable, while updating properties on a shared object is observable through that object.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "HTML Student",
+        "JavaScript Student",
+        "HTML",
+        "JavaScript",
+        "90",
+        "100"
+      ]
+    },
+    "3": {
+      "type": "ordering",
+      "options": [
+        {
+          "id": "item-4",
+          "text": "10"
+        },
+        {
+          "id": "item-1",
+          "text": "100"
+        },
+        {
+          "id": "extra-1",
+          "text": "20"
+        },
+        {
+          "id": "item-2",
+          "text": "40"
+        },
+        {
+          "id": "item-3",
+          "text": "60"
+        },
+        {
+          "id": "extra-2",
+          "text": "80"
+        }
+      ],
+      "correctIds": [
+        "item-1",
+        "item-2",
+        "item-3",
+        "item-4"
+      ],
+      "pairs": [],
+      "answerLabel": "Put the source items in the sequence below.",
+      "explanation": "Apply the array operations in order. The source’s final array contains 100, 40, 60, and 10, in that sequence.",
+      "status": "standard",
+      "scorable": true
+    },
+    "4": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "Line 02: typeof n",
+          "right": "undefined",
+          "options": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "undefined"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "Line 04: typeof a",
+          "right": "string",
+          "options": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "undefined"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "Line 06: typeof textArray",
+          "right": "array",
+          "options": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "undefined"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "Line 08: typeof c",
+          "right": "number",
+          "options": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "undefined"
+          ]
+        },
+        {
+          "id": "pair-5",
+          "left": "Line 10: typeof tag",
+          "right": "object",
+          "options": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "undefined"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "Source-key caveat: the source marks array for typeof textArray. JavaScript typeof returns object for arrays; use Array.isArray to identify an array. The source selections are retained and this question is excluded from standard practice.",
+      "status": "qualified",
+      "scorable": false,
+      "matchOptions": [
+        "string",
+        "array",
+        "object",
+        "number",
+        "undefined"
+      ],
+      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item."
+    },
+    "5": {
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "function significance(value, digits) {\n  return value.toPrecision(digits);\n}"
+        },
+        {
+          "id": "b",
+          "text": "function significance(value, digits) {\n  return value.toString(digits);\n}"
+        },
+        {
+          "id": "c",
+          "text": "function significance(value, digits) {\n  return value.toFixed(digits);\n}"
+        },
+        {
+          "id": "d",
+          "text": "function significance(value, digits) {\n  return value.valueOf(digits);\n}"
+        }
+      ],
+      "correctIds": [
+        "c"
+      ],
+      "pairs": [],
+      "answerLabel": "C",
+      "explanation": "The source answer is C. Number.prototype.toFixed receives the requested number of digits after the decimal point and returns a formatted string.",
+      "status": "standard",
+      "scorable": true
+    },
+    "6": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "The call to multiply on line 09 returns 100.",
+          "right": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "The call to multiply on line 19 returns 100.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "Trace the parameter values and variable scope for each invocation. The source marks the first statement Yes and the second No.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "Yes",
+        "No"
+      ]
+    },
+    "7": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Initialize the current date",
+          "right": "var date = new Date();",
+          "options": [
+            "var date = new Date();",
+            "var date = Date();",
+            "var date = new Date;",
+            "var date = Date;"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Read its current month",
+          "right": "var month = date.getMonth();",
+          "options": [
+            "var month = date.getMonth;",
+            "var month = getMonth();",
+            "var month = date.getMonth();",
+            "var month = getMonth;"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Update the month",
+          "right": "date.setMonth(month + value);",
+          "options": [
+            "date.setMonth(month + value);",
+            "setMonth(month + value);"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "The PDF selects new Date(), date.getMonth(), and date.setMonth(month + value). Those choices work, but new Date without parentheses is also valid JavaScript when no arguments are passed. Because the first dropdown contains two valid constructions, the source does not provide a unique key for that field.",
+      "status": "qualified",
+      "scorable": false,
+      "matchOptions": [
+        "var date = new Date();",
+        "var date = Date();",
+        "var date = new Date;",
+        "var date = Date;",
+        "var month = date.getMonth;",
+        "var month = getMonth();",
+        "var month = date.getMonth();",
+        "var month = getMonth;",
+        "date.setMonth(month + value);",
+        "setMonth(month + value);"
+      ],
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    "8": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Array initializer",
+          "right": "[]",
+          "options": [
+            "0",
+            "{}",
+            "[]",
+            "\"\""
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Add a number to the array",
+          "right": "push",
+          "options": [
+            "pop",
+            "push",
+            "sort",
+            "splice"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Update j",
+          "right": "j++",
+          "options": [
+            "j++",
+            "j+1",
+            "j+2",
+            "j--"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "[4] Array element to add",
+          "right": "array[j]",
+          "options": [
+            "sum[j]",
+            "numbers[j]",
+            "numbers(j)",
+            "array[j]"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "The PDF selects [], push, j++, and array[j]. However, j = j++ assigns the old value back and fails to advance the loop; every-other-element traversal calls for j = j+2. The declared array is numbers, so the element expression should be numbers[j], not array[j]. The source key is retained but excluded from standard practice.",
+      "status": "qualified",
+      "scorable": false,
+      "matchOptions": [
+        "0",
+        "{}",
+        "[]",
+        "\"\"",
+        "pop",
+        "push",
+        "sort",
+        "splice",
+        "j++",
+        "j+1",
+        "j+2",
+        "j--",
+        "sum[j]",
+        "numbers[j]",
+        "numbers(j)",
+        "array[j]"
+      ],
+      "studyNote": "The source answer needs context. Read the explanation; standard quizzes exclude this item."
+    },
+    "9": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "Line 01: flightDestination",
+          "right": "String",
+          "options": [
+            "Number",
+            "String",
+            "Boolean",
+            "Null",
+            "Undefined"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "Line 03: roundTrip",
+          "right": "Number",
+          "options": [
+            "Number",
+            "String",
+            "Boolean",
+            "Null",
+            "Undefined"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "Line 04: onTime",
+          "right": "Boolean",
+          "options": [
+            "Number",
+            "String",
+            "Boolean",
+            "Null",
+            "Undefined"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "The source identifies the quoted value as String, the numeric value as Number, and the logical value as Boolean. These labels describe value types; typeof uses lowercase strings for these results.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "Number",
+        "String",
+        "Boolean",
+        "Null",
+        "Undefined"
+      ]
+    },
+    "10": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "ceil",
+          "right": "101",
+          "options": [
+            "100",
+            "101"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "floor",
+          "right": "100",
+          "options": [
+            "100",
+            "101"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "round",
+          "right": "101",
+          "options": [
+            "100",
+            "101"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "For 100.5, ceil rounds upward to 101, floor rounds downward to 100, and round selects 101.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "100",
+        "101"
+      ]
+    },
+    "11": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Year",
+          "right": "2017",
+          "options": [
+            "17",
+            "2017"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Month",
+          "right": "0",
+          "options": [
+            "0",
+            "1",
+            "Jan",
+            "January"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "The visible source selections are 2017 and 0. Numeric Date months are zero-based, so January is 0. The day argument 1 is supplied by the prompt’s January 1 requirement, rather than recovered from the clipped screenshot.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "17",
+        "2017",
+        "0",
+        "1",
+        "Jan",
+        "January"
+      ]
+    },
+    "12": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Combine the weather conditions",
+          "right": "&&",
+          "options": [
+            "&&",
+            "==",
+            "||",
+            "&",
+            ">"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Compare the fuel level",
+          "right": "<=",
+          "options": [
+            "==",
+            "||",
+            "<=",
+            "&&",
+            ">"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "Use logical AND when both warm weather and the no-rain condition are required, and compare the fuel level with the stated threshold using <=.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "&&",
+        "==",
+        "||",
+        "&",
+        ">",
+        "<="
+      ]
+    },
+    "13": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Free-admission condition",
+          "right": "if (age < 5 || age >= 65) {",
+          "options": [
+            "if (age <= 5 && age > 65) {",
+            "if (age < 5 && age >= 65) {",
+            "if (age <= 5 || age > 65) {",
+            "if (age < 5 || age >= 65) {"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Youth-price condition",
+          "right": "if (age >= 5 && age < 18) {",
+          "options": [
+            "if (age >= 5 && age < 18) {",
+            "if (age > 5 && age <= 18) {",
+            "if (age >= 5 || age < 18) {",
+            "if (age > 5 || age <= 18) {"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "The free-admission ranges are alternatives, so join them with OR. A bounded youth range requires both its lower and upper bounds, so join those comparisons with AND.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "if (age <= 5 && age > 65) {",
+        "if (age < 5 && age >= 65) {",
+        "if (age <= 5 || age > 65) {",
+        "if (age < 5 || age >= 65) {",
+        "if (age >= 5 && age < 18) {",
+        "if (age > 5 && age <= 18) {",
+        "if (age >= 5 || age < 18) {",
+        "if (age > 5 || age <= 18) {"
+      ]
+    },
+    "14": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Line 03",
+          "right": "switch (day) {",
+          "options": [
+            "case (day) {",
+            "default (day) {",
+            "case (default) {",
+            "switch (day) {"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Line 04",
+          "right": "case \"Wednesday\":",
+          "options": [
+            "case \"Wednesday\":",
+            "default:",
+            "case default:",
+            "switch \"Wednesday\""
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Line 07",
+          "right": "default:",
+          "options": [
+            "case \"Wednesday\":",
+            "default:",
+            "case default:",
+            "switch \"Wednesday\""
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "A switch evaluates the day, the Wednesday case applies that discount, and default handles unmatched values. The break statements prevent unintended fall-through.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "case (day) {",
+        "default (day) {",
+        "case (default) {",
+        "switch (day) {",
+        "case \"Wednesday\":",
+        "default:",
+        "case default:",
+        "switch \"Wednesday\""
+      ]
+    },
+    "15": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Loop keyword",
+          "right": "for",
+          "options": [
+            "for",
+            "break",
+            "continue",
+            "while",
+            "do"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Skip the null element",
+          "right": "continue",
+          "options": [
+            "for",
+            "break",
+            "continue",
+            "while",
+            "do"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Stop after finding orange",
+          "right": "break",
+          "options": [
+            "for",
+            "break",
+            "continue",
+            "while",
+            "do"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "A for loop traverses the array. continue skips the remainder of an iteration for a null value; break exits the loop after finding the target.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "for",
+        "break",
+        "continue",
+        "while",
+        "do"
+      ]
+    },
+    "16": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Initializer",
+          "right": "var i = start;",
+          "options": [
+            "var i = start;",
+            "var i == start;",
+            "var i <= start;",
+            "var i < start;"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Condition",
+          "right": "i > 0;",
+          "options": [
+            "i <= 0;",
+            "i < 0;",
+            "i > 0;",
+            "i >= 0;"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] Update",
+          "right": "--i",
+          "options": [
+            "++i",
+            "+i",
+            "--i",
+            "-i"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "Source-key caveat: the highlighted condition i > 0 excludes zero even though the prompt asks to include it. An inclusive countdown needs i >= 0. The source’s marked selections remain visible for comparison.",
+      "status": "qualified",
+      "scorable": false,
+      "matchOptions": [
+        "var i = start;",
+        "var i == start;",
+        "var i <= start;",
+        "var i < start;",
+        "i <= 0;",
+        "i < 0;",
+        "i > 0;",
+        "i >= 0;",
+        "++i",
+        "+i",
+        "--i",
+        "-i"
+      ],
+      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item."
+    },
+    "17": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Dispatch by month",
+          "right": "switch (month) {",
+          "options": [
+            "switch (month) {",
+            "case (month) {",
+            "break {"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] End the February case",
+          "right": "continue;",
+          "options": [
+            "break;",
+            "continue;",
+            "while (month);"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "[3] End the 30-day case",
+          "right": "break;",
+          "options": [
+            "break;",
+            "continue;"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "Source-key caveat: the marked continue after the February case is not valid as shown, because the switch is not inside a loop. A break is needed to leave that case rather than continue an enclosing iteration.",
+      "status": "qualified",
+      "scorable": false,
+      "matchOptions": [
+        "switch (month) {",
+        "case (month) {",
+        "break {",
+        "break;",
+        "continue;",
+        "while (month);"
+      ],
+      "studyNote": "The PDF’s marked key has a known caveat. Read the study explanation before treating it as a correct implementation. Standard quizzes exclude this item."
+    },
+    "18": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "The function will always return false.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "The operator at line 02 should be !=.",
+          "right": "No",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "The source marks No and No. Line 02 assigns 0 to denominator rather than comparing it; the assigned value is falsy, so this code takes the else branch. To meet the requirement, compare the denominator with zero (for example, denominator === 0), rather than replacing the operator with !=.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "Yes",
+        "No"
+      ]
+    },
+    "19": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "x < 7 && y > 6",
+          "right": "True",
+          "options": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "x == 6 || y == 6",
+          "right": "False",
+          "options": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "id": "pair-3",
+          "left": "x !== 7",
+          "right": "True",
+          "options": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "id": "pair-4",
+          "left": "!(x == y)",
+          "right": "True",
+          "options": [
+            "True",
+            "False"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "Substitute x = 5 and y = 7 into each expression. The conjunction is true, the equality disjunction is false, x differs from 7, and negating x == y gives true.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "True",
+        "False"
+      ]
+    },
+    "20": {
+      "type": "reference",
+      "options": [],
+      "correctIds": [],
+      "pairs": [],
+      "answerLabel": "Source diagram for study",
+      "explanation": "The standard browser functions are prompt for text input, alert for a message, and confirm for an accept/cancel choice. The original scenario wording cannot be recovered from the clipped source, so this exercise remains study-only.",
+      "status": "invalid",
+      "scorable": false,
+      "studyNote": "The source answer diagram is incomplete or inconsistent. This exercise is available as a flashcard and is excluded from quizzes."
+    },
+    "21": {
+      "type": "matching",
+      "options": [],
+      "correctIds": [],
+      "pairs": [
+        {
+          "id": "pair-1",
+          "left": "[1] Protect the invocation",
+          "right": "try",
+          "options": [
+            "catch",
+            "finally",
+            "try"
+          ]
+        },
+        {
+          "id": "pair-2",
+          "left": "[2] Handle its exception",
+          "right": "catch",
+          "options": [
+            "catch",
+            "finally",
+            "try"
+          ]
+        }
+      ],
+      "answerLabel": "See the source selections and matches below.",
+      "explanation": "Place the potentially throwing call inside try and handle an exception with catch. Treat the supplied eval code as study material; the reviewer displays it as an image and does not execute it.",
+      "status": "standard",
+      "scorable": true,
+      "matchOptions": [
+        "catch",
+        "finally",
+        "try"
+      ]
+    }
+  }
+}
